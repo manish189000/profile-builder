@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import dashMockup from "../assets/dash-mockup.png";
 
 const AuthPage = () => {
   const nameRef = useRef("");
@@ -88,55 +89,66 @@ const AuthPage = () => {
   }
 
   return (
-    <div className="w-[100%] flex flex-col justify-center items-center h-dvh">
-      <form
-        className="form w-[22.5%] flex flex-col gap-2 p-4 rounded"
-        onSubmit={
-          isLoginPage ? loginFormSubmitHandler : signupFormSubmitHandler
-        }
-      >
-        <label className="input font-inter text-2xl text-[#3F292B] font-semibold px-1 py-[10px] outline-none rounded w-full">
-          {isLoginPage ? "Log In" : "Sign Up"} to ZenTask
-        </label>
-        {isLoginPage || (
+    <div className="w-[100%] flex justify-center items-center h-dvh bg-[#EFECE8] overflow-hidden">
+      <div className="left flex items-center flex-1 justify-center w-full h-full">
+        <form
+          className="form w-[342px] flex flex-col  gap-2 p-4 rounded"
+          onSubmit={
+            isLoginPage ? loginFormSubmitHandler : signupFormSubmitHandler
+          }
+        >
+          <label className="input font-inter text-2xl text-[#A45848] font-semibold px-1 py-[10px] outline-none rounded w-full">
+            {isLoginPage ? "Log in" : "Sign up"} to ProfileBuilder
+          </label>
+          {isLoginPage || (
+            <input
+              type="text"
+              placeholder="name"
+              ref={nameRef}
+              className="input font-inter px-3 py-[10px] text-[#3F292B] outline-none border rounded w-full"
+            />
+          )}
           <input
-            type="text"
-            placeholder="name"
-            ref={nameRef}
+            type="email"
+            placeholder="email"
+            ref={emailRef}
             className="input font-inter px-3 py-[10px] text-[#3F292B] outline-none border rounded w-full"
           />
-        )}
-        <input
-          type="email"
-          placeholder="email"
-          ref={emailRef}
-          className="input font-inter px-3 py-[10px] text-[#3F292B] outline-none border rounded w-full"
-        />
-        <input
-          type="password"
-          ref={passwordRef}
-          placeholder="password"
-          className="input font-inter px-3 py-[10px] text-[#3F292B] outline-none border rounded w-full"
-        />
-        <button
-          type="submit"
-          className="font-inter w-full px-3 py-[10px]  outline-none border rounded bg-[#D34F73] text-white"
-        >
-          {isLoginPage ? "Log In" : "Sign Up"}
-        </button>
-        <label className="input font-inter px-1 py-[10px] text-[#3F292B] outline-none rounded w-full">
-          {isLoginPage ? "Don't have an account?" : "Already have an account?"}
-        </label>
-        <Link to={`?mode=${isLoginPage ? "login" : "signup"}`}>
+          <input
+            type="password"
+            ref={passwordRef}
+            placeholder="password"
+            className="input font-inter px-3 py-[10px] text-[#3F292B] outline-none border rounded w-full"
+          />
           <button
-            type="button"
-            className="font-inter w-fit px-5 py-[10px]  outline-none border rounded bg-[#D34F73] text-white"
-            onClick={() => setIsLoginPage(!isLoginPage)}
+            type="submit"
+            className="font-inter w-full px-3 py-[10px]  outline-none border rounded bg-[#A45848] text-white"
           >
-            {isLoginPage ? "Sign Up" : "Log In"}
+            {isLoginPage ? "Log In" : "Sign Up"}
           </button>
-        </Link>
-      </form>
+          <label className="input font-inter px-1 py-[10px] text-[#3F292B] outline-none rounded w-full">
+            {isLoginPage
+              ? "Don't have an account?"
+              : "Already have an account?"}
+          </label>
+          <Link to={`?mode=${isLoginPage ? "login" : "signup"}`}>
+            <button
+              type="button"
+              className="font-inter w-fit px-5 py-[10px]  outline-none border rounded bg-[#A45848] text-white"
+              onClick={() => setIsLoginPage(!isLoginPage)}
+            >
+              {isLoginPage ? "Sign Up" : "Log In"}
+            </button>
+          </Link>
+        </form>
+      </div>
+      <div className="right flex-1 overflow-hidden md:hidden">
+        <img
+          src={dashMockup}
+          className="max-w-6xl h-[150%] object-cover"
+          alt="Dashboard Mockup"
+        />
+      </div>
     </div>
   );
 };
