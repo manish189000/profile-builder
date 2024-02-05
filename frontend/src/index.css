@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,5 +11,17 @@
   .no-scrollbar {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
+  }
+}
+
+@layer base {
+  :root {
+    --light-Grey: #a7a7a7;
+    --black: #000;
+    /* --scarlet: #b85042; */
+    --scarlet: #a45848;
+    --lightOlive: #efece8;
+    /* --lightOlive: #e7e8d1; */
+    --lightTeal: #a7beae;
   }
 }

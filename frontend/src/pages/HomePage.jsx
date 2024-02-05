@@ -1,5 +1,12 @@
+import HeroSection from "../components/HomeComponents/HeroSection";
+import WhyChooseUs from "../components/HomeComponents/WhyChooseUs";
 const HomePage = () => {
-  return <div>HomePage</div>;
+  return (
+    <>
+      <HeroSection />
+      <WhyChooseUs />
+    </>
+  );
 };
 
 export default HomePage;
