@@ -40,6 +40,3 @@ const App = () => {
 };
 
 export default App;
-// children: [
-//   { path: "resume-generator", element: <GenerateNewResume /> },
-// ],
