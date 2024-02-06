@@ -46,13 +46,6 @@ export default {
         rubik: ["Rubik Doodle Shadow", "system-ui"],
         ralewy: ["Raleway", "sans-serif"],
       },
-      colors: {
-        lgry: "var(--light-Grey)",
-        blk: "var(--black)",
-        scrlt: "var(--scarlet)",
-        oliv: "var(--lightOlive)",
-        lteal: "var(--lightTeal)",
-      },
     },
     screens: {
       "2xl": { max: "1400px" },

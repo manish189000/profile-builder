@@ -1,5 +1,7 @@
+import { Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import { IoIosArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { FaAngleDown } from "react-icons/fa";
 
 const GenerateNewResume = () => {
   return (
@@ -75,6 +77,18 @@ const GenerateNewResume = () => {
               type="text"
               placeholder="Job description"
             />
+            <Menu>
+              <MenuButton as={"Button"} rightIcon={<FaAngleDown />}>
+                Actions
+              </MenuButton>
+              <MenuList>
+                <MenuItem>Download</MenuItem>
+                <MenuItem>Create a Copy</MenuItem>
+                <MenuItem>Mark as Draft</MenuItem>
+                <MenuItem>Delete</MenuItem>
+                <MenuItem>Attend a Workshop</MenuItem>
+              </MenuList>
+            </Menu>
           </form>
         </div>
         <div className="right"></div>

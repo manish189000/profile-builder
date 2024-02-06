@@ -8,6 +8,8 @@ import GeneratedContentPage from "./pages/GeneratedContentPage";
 import AICareerChat from "./pages/AICareerChat";
 import GeneratedServices from "./pages/GeneratedServices";
 import GenerateNewResume from "./pages/GenerateNewResume";
+import { ChakraProvider } from "@chakra-ui/react";
+
 const App = () => {
   const router = createBrowserRouter([
     { path: "/", element: <HomePage /> },
@@ -30,7 +32,11 @@ const App = () => {
       ],
     },
   ]);
-  return <RouterProvider router={router} />;
+  return (
+    <ChakraProvider>
+      <RouterProvider router={router} />
+    </ChakraProvider>
+  );
 };
 
 export default App;
