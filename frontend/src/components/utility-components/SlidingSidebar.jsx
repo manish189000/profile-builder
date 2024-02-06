@@ -1,82 +1,100 @@
 import { useState } from "react";
 import { MdDashboardCustomize } from "react-icons/md";
-import { AiFillEnvironment } from "react-icons/ai";
+import { HiMenuAlt2 } from "react-icons/hi";
 import { BsArrowLeftShort } from "react-icons/bs";
 import { FaBoxOpen } from "react-icons/fa6";
 import { HiClipboardDocumentCheck } from "react-icons/hi2";
 import { IoChatbubblesSharp } from "react-icons/io5";
+import { GiArtificialHive } from "react-icons/gi";
+import { Link } from "react-router-dom";
 
 const SlidingSidebar = () => {
   const [open, setOpen] = useState(true);
   return (
-    <div className="flex">
+    <div>
       <div
-        className={`bg-[#EFECE8] h-screen p-5 pt-8 ${
+        className={`bg-oliv h-dvh p-5 pt-8 ${
           open ? "w-72" : "w-20"
-        } duration-300 relative`}
+        } duration-300 relative air:hidden`}
       >
         <BsArrowLeftShort
-          className={`bg-[#A45848] text-[#EFECE8] text-3xl rounded-full absolute -right-3 top-9 border border-[#EFECE8] cursor-pointer ${
+          className={`bg-scrlt text-oliv text-3xl rounded-full absolute -right-3 top-9 border border-oliv cursor-pointer ${
             !open && "rotate-180"
           }`}
           onClick={() => setOpen(!open)}
         />
         <div className="inline-flex">
-          <AiFillEnvironment
-            className={`bg-ember-300 duration-500 text-[#A45848] text-4xl rounded cursor-pointer block float-left mr-2 ${
+          <GiArtificialHive
+            className={`bg-ember-300 duration-500 text-scrlt text-4xl rounded cursor-pointer block float-left mr-1 ${
               open && "rotate-[360deg]"
             }`}
           />
           <h1
-            className={`text-white origin-left font-medium text-2xl ${
+            className={`text-scrlt origin-left font-semibold font-mono text-2xl ${
               !open && "hidden"
             }`}
           >
-            Tailwind
+            ProfileBuilder
           </h1>
         </div>
-        <div className="flex items-center rounded-md mt-12 px-2 py-2">
-          <MdDashboardCustomize className="text-[#A45848] text-2xl block float-left cursor-pointer" />
-          <h1
-            className={`font-inter text-[#A45848] origin-left font-semibold px-2 text-base ${
-              !open && "hidden"
-            }`}
-          >
-            Dashboard
-          </h1>
-        </div>
-        <div className="flex items-center rounded-md mt-6 px-2 py-2">
-          <FaBoxOpen className="text-[#A45848] text-2xl block float-left cursor-pointer" />
-          <h1
-            className={`font-inter text-[#A45848] origin-left font-semibold px-2 text-base ${
-              !open && "hidden"
-            }`}
-          >
-            Generated content
-          </h1>
-        </div>
-        <div className="flex items-center rounded-md mt-6 px-2 py-2">
-          <HiClipboardDocumentCheck className="text-[#A45848] text-2xl block float-left cursor-pointer" />
-          <h1
-            className={`font-inter text-[#A45848] origin-left font-semibold px-2 text-base ${
-              !open && "hidden"
-            }`}
-          >
-            Resume generator
-          </h1>
-        </div>
-        <div className="flex items-center rounded-md mt-6 px-2 py-2">
-          <IoChatbubblesSharp className="text-[#A45848] text-2xl block float-left cursor-pointer" />
-          <h1
-            className={`font-inter text-[#A45848] origin-left font-semibold px-2 text-base ${
-              !open && "hidden"
-            }`}
-          >
-            AI career chat
-          </h1>
-        </div>
+        <Link to={"/dashboard"}>
+          <div className="flex items-center rounded-md mt-12 px-2 py-2">
+            <MdDashboardCustomize className="text-scrlt text-2xl block float-left cursor-pointer" />
+            <h1
+              className={`font-inter text-scrlt origin-left font-semibold px-2 text-base ${
+                !open && "hidden"
+              }`}
+            >
+              Dashboard
+            </h1>
+          </div>
+        </Link>
+        <Link to={"documents"}>
+          <div className="flex items-center rounded-md mt-6 px-2 py-2">
+            <FaBoxOpen className="text-scrlt text-2xl block float-left cursor-pointer" />
+            <h1
+              className={`font-inter text-scrlt origin-left font-semibold px-2 text-base ${
+                !open && "hidden"
+              }`}
+            >
+              Generated content
+            </h1>
+          </div>
+        </Link>
+        <Link to={"openai/generator"}>
+          <div className="flex items-center rounded-md mt-6 px-2 py-2">
+            <HiClipboardDocumentCheck className="text-scrlt text-2xl block float-left cursor-pointer" />
+            <h1
+              className={`font-inter text-scrlt origin-left font-semibold px-2 text-base ${
+                !open && "hidden"
+              }`}
+            >
+              Resume generator
+            </h1>
+          </div>
+        </Link>
+        <Link to={"chat-bot"}>
+          <div className="flex items-center rounded-md mt-6 px-2 py-2">
+            <IoChatbubblesSharp className="text-scrlt text-2xl block float-left cursor-pointer" />
+            <h1
+              className={`font-inter text-scrlt origin-left font-semibold px-2 text-base ${
+                !open && "hidden"
+              }`}
+            >
+              AI career chat
+            </h1>
+          </div>
+        </Link>
       </div>
-      <div className="bg-green-400 w-full h-dvh overflow-x-hidden overflow-y-auto no-scrollbar">
+      <div className="hidden responsive-sidebar air:flex items-center gap-6 w-full px-4 py-3 border-b-gray-200 border-b">
+        <HiMenuAlt2 className="text-scrlt text-2xl block float-left cursor-pointer" />
+        <h1
+          className={`text-scrlt origin-left font-semibold font-mono text-2xl`}
+        >
+          ProfileBuilder
+        </h1>
+      </div>
+      {/* <div className="bg-green-400 w-full h-full overflow-x-hidden overflow-y-auto no-scrollbar">
         <p className="text-3xl text-black p-5">
           {" "}
           Certainly! Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -120,7 +138,7 @@ const SlidingSidebar = () => {
           iaculis convallis. In tristique lectus ac purus fringilla, ut
           sollicitudin libero feugiat. Vivamus id luctus libero.
         </p>
-      </div>
+      </div> */}
     </div>
   );
 };
