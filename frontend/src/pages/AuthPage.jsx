@@ -36,7 +36,7 @@ const AuthPage = () => {
         emailRef.current.value = "";
         passwordRef.current.value = "";
         localStorage.setItem("jwt", response?.token);
-        navigate("/");
+        navigate("/dashboard");
         // alert("Form submitted succesfully");
       } else if (response.status === "fail") {
         alert(response.message || "Some error occured");
@@ -77,7 +77,7 @@ const AuthPage = () => {
         emailRef.current.value = "";
         passwordRef.current.value = "";
         localStorage.setItem("jwt", response?.token);
-        navigate("/");
+        navigate("/dashboard");
         // alert("Form submitted succesfully");
       } else if (response.status === "fail") {
         alert(response.message);
