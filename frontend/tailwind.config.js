@@ -53,6 +53,13 @@ export default {
         oliv: "var(--lightOlive)",
         lteal: "var(--lightTeal)",
       },
+      colors: {
+        lgry: "var(--light-Grey)",
+        blk: "var(--black)",
+        scrlt: "var(--scarlet)",
+        oliv: "var(--lightOlive)",
+        lteal: "var(--lightTeal)",
+      },
     },
     screens: {
       "2xl": { max: "1400px" },
