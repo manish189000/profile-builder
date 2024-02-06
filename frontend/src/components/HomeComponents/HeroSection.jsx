@@ -12,17 +12,16 @@ const HeroSection = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <div className="Navbar relative px-8 w-[100%] h-[11vh] bg-oliv flex justify-between items-center">
-        {/* <div className="empty"></div> */}
-        <div className="logo tracking-wider cursor-pointer font-rubik text-[25px] font-bold text-scrlt">
+      <div className="Navbar relative px-8 py-4 w-[100%] h-[11vh] bg-oliv flex justify-between items-center">
+        <div className="logo tracking-wider cursor-pointer font-mono text-[25px] font-bold text-scrlt">
           Profile Builder
         </div>
         <div className="login font-poppins text-[18px] font-medium text-scrlt">
-          <button className="loginBtn transition ease-in-out delay-100 px-5 py-2 border-[2px] border-oliv rounded-md hover:border-[2px] hover:py-2 hover:px-5 hover:border-scrlt hover:rounded-md lg:hidden">
+          <button className="loginBtn transition ease-in-out delay-100 px-5 py-2 border-[2px] border-oliv rounded-md hover:border-[2px] hover:py-2 hover:px-5 hover:border-scrlt hover:rounded-md md:hidden">
             login
           </button>
         </div>
-        <div className="Menu text-[28px] font-extrabold text-scrlt hidden lg:block">
+        <div className="Menu text-[28px] font-extrabold text-scrlt hidden md:block">
           <RiMenu3Line onClick={() => setIsOpen(!isOpen)} />
         </div>
       </div>
@@ -33,7 +32,7 @@ const HeroSection = () => {
       )}
 
       {/* ///////////////////////////////////////// */}
-      <div className="hero relative pl-8 w-[100%] h-[89vh] bg-oliv flex m480:flex-col m480:h-[100dvh]  m480:justify-between m480:pl-0">
+      <div className="hero pb-10 relative pl-8 w-[100%] h-[89vh] bg-oliv flex m480:flex-col m480:h-[100dvh]  m480:justify-between m480:pl-0">
         <div className="left-sec pr-4 w-[40%] lg2:w-[50%] flex flex-col justify-center items-start m480:w-[100%] m480:items-center m480:text-center m480:px-8 m480:py-[15px]">
           <h1
             className="hero-head text-[40px] font-poppins text-scrlt font-bold leading-tight"
@@ -47,32 +46,16 @@ const HeroSection = () => {
             Effortlessly craft standout resumes with Your AI Brand, showcasing
             skills and experience for a competitive edge.
           </p>
-          <button className="get-startedBtn transition ease-in-out delay-100 text-[16px] bg-scrlt px-6 py-3 rounded-md text-oliv hover:bg-lteal hover:text-scrlt">
+          <button className="get-startedBtn font-poppins transition ease-in-out delay-100 text-[16px] bg-scrlt px-6 py-3 rounded-md text-oliv hover:bg-lteal hover:text-scrlt">
             Get Started
           </button>
         </div>
-        <div className="Right-sec relative w-[60%] lg2:w-[50%] flex items-center justify-center px-4 rounded-l-md bg-lteal m480:w-[100%] m480:rounded-none">
+        <div className="Right-sec relative w-[60%] lg2:w-[50%] flex items-center justify-center px-4 rounded-l-full bg-lteal m480:w-[100%] m480:rounded-none m480:py-6">
           <img
             src={hero2}
-            className="heroImage w-[60%] lg:w-[80%] transition ease-in-out delay-100 rounded-md m480:p-4"
+            className="heroImage w-[70%] lg:w-[80%] transition ease-in-out delay-100 rounded-md m480:p-4"
           />
         </div>
-        <img
-          src={arrowgrn}
-          className="absolute z-50 left-[16%] top-[62%] rotate-[200deg]"
-        />
-        <img
-          src={linegrn}
-          className="absolute z-50 left-[0%] top-[22%] rotate-[-45deg]"
-        />
-        <img
-          src={twolinesbeige}
-          className="absolute z-50 right-[50%] top-[1%] opacity-50"
-        />
-        <img
-          src={twolinesbeige}
-          className="absolute z-50 top-[91%] right-[5%] rotate-[180deg] opacity-50"
-        />
       </div>
     </>
   );

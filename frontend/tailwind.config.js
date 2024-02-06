@@ -32,14 +32,19 @@ export default {
         scrlt: "var(--scarlet)",
         oliv: "var(--lightOlive)",
         lteal: "var(--lightTeal)",
+        dbeige: "var(--darkBeige)",
       },
 
       fontFamily: {
-        pop: ["Poppins"],
+        // poppins: ["Poppins"],
+        Edx: ["Eudoxus Sans"],
+        // poppins: ["Eudoxus Sans"],
+        poppins: ["Raleway", "sans-serif"],
         inter: ["Inter"],
         os: ["Open Sans"],
         mons: ["Montserrat"],
         rubik: ["Rubik Doodle Shadow", "system-ui"],
+        ralewy: ["Raleway", "sans-serif"],
       },
     },
     screens: {
