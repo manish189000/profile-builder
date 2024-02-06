@@ -32,6 +32,13 @@ export default {
         os: ["Open Sans"],
         mons: ["Montserrat"],
       },
+      colors: {
+        lgry: "var(--light-Grey)",
+        blk: "var(--black)",
+        scrlt: "var(--scarlet)",
+        oliv: "var(--lightOlive)",
+        lteal: "var(--lightTeal)",
+      },
     },
     screens: {
       "2xl": { max: "1400px" },
@@ -40,6 +47,8 @@ export default {
       air: { max: "820px" },
       md: { max: "767px" },
       sm: { max: "639px" },
+      lg2: { max: "740px" },
+      m480: { max: "480px" },
     },
   },
   plugins: [],
