@@ -30,7 +30,7 @@ const PricingCard = ({
 
 const PricingCards = () => {
   return (
-    <div className="flex flex-wrap gap-12 md: justify-center ">
+    <div className="flex flex-wrap gap-12 md: justify-center  bg-[#efece8]">
       <PricingCard
         title="Free"
         price="0$"
