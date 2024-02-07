@@ -1,12 +1,15 @@
 import HeroSection from "../components/HomeComponents/HeroSection";
 import WhyChooseUs from "../components/HomeComponents/WhyChooseUs";
-import Footer from "../components/home-components/Footer";
-import PricingCards from "../components/home-components/PricingCards";
+import OurFeatures from "../components/HomeComponents/OurFeatures";
+import Footer from "../components/HomeComponents/Footer";
+import PricingCards from "../components/HomeComponents/PricingCards";
+
 const HomePage = () => {
   return (
     <>
       <HeroSection />
       <WhyChooseUs />
+      <OurFeatures />
       <PricingCards />
       <Footer />
     </>
