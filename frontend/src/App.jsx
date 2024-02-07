@@ -7,7 +7,10 @@ import MainLayout from "./MainLayout";
 import GeneratedContentPage from "./pages/GeneratedContentPage";
 import AICareerChat from "./pages/AICareerChat";
 import GeneratedServices from "./pages/GeneratedServices";
-import GenerateNewResume from "./pages/GenerateNewResume";
+import GenerateNewResume from "./pages/GenerateResumePage";
+import { ChakraProvider } from "@chakra-ui/react";
+import GenerateCoverLetter from "./pages/GenerateCoverLetterPage";
+
 const App = () => {
   const router = createBrowserRouter([
     { path: "/", element: <HomePage /> },
@@ -27,13 +30,18 @@ const App = () => {
           path: "openai/generator/resume-generator",
           element: <GenerateNewResume />,
         },
+        {
+          path: "openai/generator/cover-letter-generator",
+          element: <GenerateCoverLetter />,
+        },
       ],
     },
   ]);
-  return <RouterProvider router={router} />;
+  return (
+    <ChakraProvider>
+      <RouterProvider router={router} />
+    </ChakraProvider>
+  );
 };
 
 export default App;
-// children: [
-//   { path: "resume-generator", element: <GenerateNewResume /> },
-// ],

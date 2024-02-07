@@ -18,15 +18,17 @@ const ResumeServices = () => {
           </p>
         </div>
       </Link>
-      <div className="service w-[300px]  sm:w-full h-60 sm:h-[220px] shadow-lg rounded-md p-6 sm:px-2 flex flex-col gap-3 cursor-pointer group">
-        <FcDocument className="text-lteal text-[55px] block float-left cursor-pointer bg-oliv rounded-full p-4 transition-transform duration-300 transform origin-center group-hover:scale-110" />
-        <h1 className="text-2xl text-black font-inter font-semibold ">
-          Cover letter generator
-        </h1>
-        <p className="text-black font-inter text-sm">
-          Share an overview of yourself, and let our AI craft a cover letter.
-        </p>
-      </div>
+      <Link to={"cover-letter-generator"}>
+        <div className="service w-[300px]  sm:w-full h-60 sm:h-[220px] shadow-lg rounded-md p-6 sm:px-2 flex flex-col gap-3 cursor-pointer group">
+          <FcDocument className="text-lteal text-[55px] block float-left cursor-pointer bg-oliv rounded-full p-4 transition-transform duration-300 transform origin-center group-hover:scale-110" />
+          <h1 className="text-2xl text-black font-inter font-semibold ">
+            Cover letter generator
+          </h1>
+          <p className="text-black font-inter text-sm">
+            Share an overview of yourself, and let our AI craft a cover letter.
+          </p>
+        </div>
+      </Link>
       <div className="service w-[300px]  sm:w-full h-60 sm:h-[220px] shadow-lg rounded-md p-6 sm:px-2 flex flex-col gap-3 cursor-pointer group">
         <MdEditDocument className="text-lteal text-[55px] block float-left cursor-pointer bg-oliv rounded-full p-4 transition-transform duration-300 transform origin-center group-hover:scale-110" />
         <h1 className="text-2xl text-black font-inter font-semibold ">
