@@ -27,7 +27,7 @@ const GenerateCoverLetter = () => {
   let languagesArray = Object.values(languages);
   return (
     <div>
-      <div className=" hidden w-full px-4 py-3 border-b-gray-200 border-b ">
+      <div className="w-full px-4 py-3 border-b-gray-200 border-b ">
         <div className="flex gap-1 items-center text-black">
           <Link to={`/dashboard`}>
             <IoIosArrowBack />
