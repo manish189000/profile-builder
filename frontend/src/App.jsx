@@ -41,11 +41,11 @@ const App = () => {
         },
         {
           path: "openai/ai-chat",
-          element: <GeneralAIChatPage />,
+          element: <AICareerChat />,
         },
         {
-          path: "openai/ai-chat/career-counsel",
-          element: <AICareerChat />,
+          path: "openai/ai-chat/general-chat",
+          element: <GeneralAIChatPage />,
         },
       ],
     },
