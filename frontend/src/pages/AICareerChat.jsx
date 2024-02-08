@@ -3,10 +3,6 @@ import { FaRegStar } from "react-icons/fa";
 import { FaHandsHelping } from "react-icons/fa";
 import { IoIosArrowBack } from "react-icons/io";
 import { SiChatbot } from "react-icons/si";
-/////////////
-// import { MdEditDocument } from "react-icons/md";
-import { FcDocument } from "react-icons/fc";
-import { IoIosCreate } from "react-icons/io";
 
 // import { Link2 } from "react-router-dom";
 
