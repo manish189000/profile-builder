@@ -1,18 +1,12 @@
-import React from "react";
-// import hero from "../../assets/hero.png";
 import hero2 from "../../assets/hero2.svg";
 import { RiMenu3Line } from "react-icons/ri";
 import { useState } from "react";
-import arrowgrn from "../../assets/arrowgrn.svg";
-import linegrn from "../../assets/linegrn.svg";
-import hatbeige from "../../assets/hatbeige.svg";
-import twolinesbeige from "../../assets/twolinebeige.svg";
 
 const HeroSection = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <div className="Navbar relative px-8 py-4 w-[100%] h-[11vh] bg-oliv flex justify-between items-center">
+      <div className="Navbar relative px-4 py-4 w-[100%] h-[11vh] bg-oliv flex justify-between items-center">
         <div className="logo tracking-wider cursor-pointer font-mono text-[25px] font-bold text-scrlt">
           Profile Builder
         </div>

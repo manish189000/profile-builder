@@ -1,5 +1,3 @@
-import React from "react";
-
 const PricingCard = ({
   title,
   price,
@@ -31,7 +29,7 @@ const PricingCard = ({
 
 const PricingCards = () => {
   return (
-    <div className="pricing bg-dbeige font-poppins py-8 px-8">
+    <div className="pricing bg-dbeige font-poppins pt-24 pb-28 px-8">
       <div className="pricingtext pb-6 text-center font-poppins text-scrlt ">
         <h1 className="text-[40px] font-bold">Our Pricing</h1>
         <p className="font-normal">
