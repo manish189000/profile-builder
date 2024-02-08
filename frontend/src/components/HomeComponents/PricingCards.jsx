@@ -47,7 +47,7 @@ const PricingCards = () => {
         <PricingCard
           title="Free"
           price="0$"
-          description="Great for Starters. Discover how to create your first project."
+          description="Great for Starters. Discover how to create your first project!"
           projects="3"
           interaction="Basic interaction"
           library="Assets library"
@@ -55,18 +55,18 @@ const PricingCards = () => {
         <PricingCard
           title="Lite"
           price="19$"
-          description="Great for Starters. Discover how to create your first project."
-          projects="3"
-          interaction="Basic interaction"
-          library="Assets library"
+          description="Upgrade to Lite Pack today and elevate your projects instantly!"
+          projects="10"
+          interaction="Advanced interaction"
+          library=" Lite assets library"
         />
         <PricingCard
           title="premium"
-          price="19$"
-          description="Great for Starters. Discover how to create your first project."
-          projects="3"
-          interaction="Basic interaction"
-          library="Assets library"
+          price="29$"
+          description="Upgrade now and revolutionize your online presence instantly!"
+          projects="30"
+          interaction="Personalized consultation"
+          library="Premium assets library"
         />
       </div>
     </div>
