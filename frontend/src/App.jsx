@@ -26,7 +26,6 @@ const App = () => {
           element: <GeneratedServices />,
         },
         { path: "documents", element: <GeneratedContentPage /> },
-        { path: "chat-bot", element: <AICareerChat /> },
         {
           path: "openai/generator/resume-generator",
           element: <GenerateNewResume />,
@@ -38,6 +37,10 @@ const App = () => {
         {
           path: "openai/generator/resume-rewriter",
           element: <ResumeRewriterPage />,
+        },
+        {
+          path: "openai/ai-chat",
+          element: <AICareerChat />,
         },
       ],
     },

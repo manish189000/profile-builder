@@ -2,10 +2,17 @@ import hero2 from "../../assets/hero2.svg";
 import { RiMenu3Line } from "react-icons/ri";
 import { useState } from "react";
 import { GiArtificialHive } from "react-icons/gi";
-
+import { useRef } from "react";
+import WhyChooseUs from "./WhyChooseUs";
 
 const HeroSection = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const chooseUsRef = useRef(null);
+
+  const scrollToTarget = () => {
+    // Step 3: Use scrollIntoView on the ref
+    chooseUsRef.current.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <>
       <div className="Navbar relative px-8 py-4 w-[100%] h-[11vh] bg-oliv flex justify-between items-center sm:px-4">
@@ -15,6 +22,7 @@ const HeroSection = () => {
             Profile Builder
           </h1>
         </div>
+        <p onClick={scrollToTarget}>Prices</p>
         <div className="login font-poppins text-[18px] font-medium text-scrlt">
           <button className="loginBtn transition ease-in-out delay-100 px-5 py-2 border-[2px] border-oliv rounded-md hover:border-[2px] hover:py-2 hover:px-5 hover:border-scrlt hover:rounded-md md:hidden">
             login
@@ -57,6 +65,7 @@ const HeroSection = () => {
           />
         </div>
       </div>
+      <WhyChooseUs ref={chooseUsRef} />
     </>
   );
 };

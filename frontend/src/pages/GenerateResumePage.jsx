@@ -6,10 +6,12 @@ import Input from "../components/utility-components/Input";
 import { useRef } from "react";
 import Label from "../components/utility-components/Label";
 import Textarea from "../components/utility-components/Textarea";
+import Editor from "../components/utility-components/Editor";
 
 const GenerateNewResume = () => {
   const [selectedCreativity, setSelectedCreativity] = useState("Good");
   const [selectedTone, setSelectedTone] = useState("Professional");
+  const [value, setValue] = useState("");
   const [name, setName] = useState("");
   const nameRef = useRef("");
   console.log("The name is: ", name);
@@ -139,7 +141,12 @@ const GenerateNewResume = () => {
             />
           </form>
         </div>
-        <div className="right"></div>
+        <div className="right w-[50%]">
+          {/* <LexEditor /> */}
+          {/* <FroalaEditor /> */}
+          <Editor />
+          {/* <ReactQuill theme="snow" value={value} onChange={setValue} />; */}
+        </div>
       </div>
     </div>
   );
