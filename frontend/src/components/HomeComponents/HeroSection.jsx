@@ -1,9 +1,8 @@
-import React from "react";
-// import hero from "../../assets/hero.png";
 import hero2 from "../../assets/hero2.svg";
 import { RiMenu3Line } from "react-icons/ri";
 import { useState } from "react";
 import { GiArtificialHive } from "react-icons/gi";
+
 
 const HeroSection = () => {
   const [isOpen, setIsOpen] = useState(false);

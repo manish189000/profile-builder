@@ -1,16 +1,15 @@
 import { IoIosArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import { languages } from "countries-list";
+import Label from "../components/utility-components/Label";
 import Input from "../components/utility-components/Input";
 import Textarea from "../components/utility-components/Textarea";
-import Label from "../components/utility-components/Label";
+import { useState } from "react";
+import { languages } from "countries-list";
 
-const GenerateCoverLetter = () => {
-  const [selectedLanguage, setselectedLanguage] = useState("English");
+const ResumeRewriterPage = () => {
   const [selectedCreativity, setSelectedCreativity] = useState("Good");
   const [selectedTone, setSelectedTone] = useState("Professional");
-
+  const [selectedLanguage, setselectedLanguage] = useState("English");
   const languagesArray = Object.values(languages);
   const creativityArray = ["Good", "Economic", "Average", "Premium"];
   const toneArray = [
@@ -40,24 +39,20 @@ const GenerateCoverLetter = () => {
           </Link>
         </div>
         <h1 className=" py-4 text-3xl text-black font-inter font-bold pb-0">
-          Cover letter generator
+          Resume rewriter
         </h1>
         <p className="text-sm text-gray-300 font-inter py-2">
-          Provide us with a snapshot of your key details, and our AI will craft
-          a tailored resume just for you.
+          We'll refine your resume to match the job description and highlight
+          your qualifications.
         </p>
       </div>
       <div className="w-full px-4 py-3 border-b-gray-200 border-b flex md:flex-col ">
         <div className="left w-[50%] md:w-full">
           <form className="flex flex-col w-[65%] xl:w-[80%] lg:w-[90%] sm:w-full">
-            <Label>Name</Label>
-            <Input type="text" placeholder="Name" />
-            <Label>Work Experience</Label>
-            <Input type="text" placeholder="Work Experience" />
-            <Label>Company</Label>
-            <Input type="text" placeholder="Company Name" />
-            <Label>Job Description</Label>
-            <Textarea placeholder="Job Description" />
+            <Label>Current Resume</Label>
+            <Textarea placeholder="Current resume" />
+            <Label>Job description for new job</Label>
+            <Textarea placeholder="Job description for the job you want to apply for" />
             <select
               onChange={(e) => setselectedLanguage(e.target.value)}
               defaultValue={"English"}
@@ -138,35 +133,10 @@ const GenerateCoverLetter = () => {
             />
           </form>
         </div>
-        <div className="right"></div>
+        <div className="right w-[50%]"></div>
       </div>
     </div>
   );
 };
 
-export default GenerateCoverLetter;
-// {languagesArray.map((item) => (
-//   // Remove the "return" keyword and use parentheses
-//   <MenuItem key={item.name} onClick={() => setValue(item.name)}>
-//     {item.name + " " + item.native}
-//   </MenuItem>
-// ))}
-
-{
-  /* <Menu closeOnSelect={true}>
-              <MenuButton
-                className="w-[52.5%]"
-                as={Button}
-                rightIcon={
-                  <FaChevronDown className="text-sm font-inter text-left" />
-                }
-              >
-                {value ? value : "Language"}
-              </MenuButton>
-              <MenuList className="scroll-y">
-                {languagesArray.map((item) => {
-                  return <MenuItem key={item.name}>{item.name}</MenuItem>;
-                })}
-              </MenuList>
-            </Menu> */
-}
+export default ResumeRewriterPage;

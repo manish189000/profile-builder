@@ -1,8 +1,39 @@
 // import { Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
+import { useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
+import Input from "../components/utility-components/Input";
+import { useRef } from "react";
+import Label from "../components/utility-components/Label";
+import Textarea from "../components/utility-components/Textarea";
 
 const GenerateNewResume = () => {
+  const [selectedCreativity, setSelectedCreativity] = useState("Good");
+  const [selectedTone, setSelectedTone] = useState("Professional");
+  const [name, setName] = useState("");
+  const nameRef = useRef("");
+  console.log("The name is: ", name);
+  const creativityArray = ["Good", "Economic", "Average", "Premium"];
+  const toneArray = [
+    "Professional",
+    "Funny",
+    "Casual",
+    "Excited",
+    "Witty",
+    "Sarcastic",
+    "Feminine",
+    "Masculine",
+    "Bold",
+    "Dramatic",
+    "Grumpy",
+    "Generate",
+    "Secretive",
+  ];
+  function pageSubmit(e) {
+    e.preventDefault();
+    console.log("the name is: ", nameRef.current?.value);
+    nameRef.current.value = "";
+  }
   return (
     <div>
       <div className="w-full px-4 py-3 border-b-gray-200 border-b ">
@@ -24,73 +55,87 @@ const GenerateNewResume = () => {
       </div>
       <div className="w-full px-4 py-3 border-b-gray-200 border-b flex md:flex-col ">
         <div className="left w-[50%] md:w-full">
-          <form className="flex flex-col w-[65%] xl:w-[80%] lg:w-[90%]">
-            {/* <Menu>
-              <MenuButton
-                as={"Button"}
-                rightIcon={"V"}
-                onClick={(e) => e.preventDefault()}
-              >
-                Actions
-              </MenuButton>
-              <MenuList>
-                <MenuItem>Download</MenuItem>
-                <MenuItem>Create a Copy</MenuItem>
-                <MenuItem>Mark as Draft</MenuItem>
-                <MenuItem>Delete</MenuItem>
-                <MenuItem>Attend a Workshop</MenuItem>
-              </MenuList>
-            </Menu> */}
-            <label className="text-base my-1 px-1 font-inter">Name</label>
+          <form
+            className="flex flex-col w-[65%] xl:w-[80%] lg:w-[90%] sm:w-full"
+            onSubmit={pageSubmit}
+          >
+            <Label>Name</Label>
+            <Input type={"text"} placeholder="Name" ref={nameRef} />
+            <Label>Short Description</Label>
+            <Input type="text" placeholder="Short Description" />
+            <Label>Education details</Label>
+            <Textarea placeholder="Education Details" />
+            <Label>Work Experience</Label>
+            <Textarea placeholder="Work Experience" />
+            <Label>Achievements</Label>
+            <Textarea placeholder="Achievements" />
+            <Label>Job Description</Label>
+            <Textarea placeholder="Job description" />
+            <div className="flex justify-between m480:flex-col">
+              <div className="flex flex-col w-[45%] m480:w-full">
+                <Label>Max Length</Label>
+
+                <input
+                  placeholder="Max word length"
+                  type="number"
+                  className="input font-inter px-3 w-[100%] py-2 mb-4 text-[#3F292B] outline-none border rounded-lg "
+                  defaultValue={400}
+                  max={400}
+                  min={100}
+                  step={1}
+                />
+              </div>
+              <div className="flex flex-col w-[45%] m480:w-full">
+                <Label>Number of results</Label>
+                <input
+                  type="number"
+                  placeholder="Number of results"
+                  className="input font-inter px-3 w-[100%] py-2 mb-4 text-[#3F292B] outline-none border rounded-lg "
+                  defaultValue={1}
+                  step={1}
+                  max={3}
+                  min={1}
+                />
+              </div>
+            </div>
+            <div className="flex justify-between m480:flex-col">
+              <div className="flex flex-col w-[45%] m480:w-full">
+                <Label>Creativity</Label>
+                <select
+                  onChange={(e) => setSelectedCreativity(e.target.value)}
+                  defaultValue={"Good"}
+                  className="input font-inter px-3 w-[100%] py-2 mb-4 text-[#3F292B] outline-none border rounded-lg "
+                >
+                  {creativityArray.map((item) => {
+                    return (
+                      <option key={item} value={item}>
+                        {item}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+              <div className="flex flex-col w-[45%] m480:w-full">
+                <Label>Tone of voice</Label>
+                <select
+                  onChange={(e) => setSelectedTone(e.target.value)}
+                  defaultValue={"Professional"}
+                  className="input font-inter px-3 w-[100%] py-2 mb-4 text-[#3F292B] outline-none border rounded-lg "
+                >
+                  {toneArray.map((item) => {
+                    return (
+                      <option key={item} value={item}>
+                        {item}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+            </div>
             <input
-              type="text"
-              placeholder="Name"
-              className="input font-inter px-3 py-2 mb-4 text-[#3F292B] outline-none border rounded-lg "
-            />
-            <label className="text-base my-1 px-1 font-inter">
-              Short Description
-            </label>
-            <input
-              type="text"
-              placeholder="Short Description"
-              className="input font-inter px-3 py-2 mb-4 text-[#3F292B] outline-none border rounded-lg "
-            />
-            <label className="text-base my-1 px-1 font-inter">
-              Education details
-            </label>
-            <textarea
-              rows="8"
-              cols="50"
-              className="input resize-none font-inter px-3 py-2 mb-4 text-[#3F292B] outline-none border rounded-lg "
-              placeholder="Education Details"
-            />
-            <label className="text-base my-1 px-1 font-inter">
-              Work Experience
-            </label>
-            <textarea
-              rows="8"
-              cols="50"
-              className="input resize-none font-inter px-3 py-2 mb-4 text-[#3F292B] outline-none border rounded-lg "
-              placeholder="Work Experience"
-            />
-            <label className="text-base my-1 px-1 font-inter">
-              Achievements
-            </label>
-            <textarea
-              cols="50"
-              rows="8"
-              className="input resize-none font-inter px-3 py-2 mb-4 text-[#3F292B] outline-none border rounded-lg "
-              placeholder="Achievements"
-            />
-            <label className="text-base my-1 px-1 font-inter">
-              Job Description
-            </label>
-            <textarea
-              cols="50"
-              rows="8"
-              className="input resize-none font-inter px-3 py-2 mb-4 text-[#3F292B] outline-none border rounded-lg "
-              type="text"
-              placeholder="Job description"
+              value={"Generate"}
+              type="submit"
+              className="input font-inter px-3 py-[10px] my-4 bg-[#3F292B] text-oliv outline-none border rounded-3xl cursor-pointer transition duration-500 ease-in-out hover:shadow-lg hover:-translate-y-1.5 focus:outline-none focus:shadow-outline-blue"
             />
           </form>
         </div>

@@ -10,6 +10,7 @@ import GeneratedServices from "./pages/GeneratedServices";
 import GenerateNewResume from "./pages/GenerateResumePage";
 import { ChakraProvider } from "@chakra-ui/react";
 import GenerateCoverLetter from "./pages/GenerateCoverLetterPage";
+import ResumeRewriterPage from "./pages/ResumeRewriterPage";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -33,6 +34,10 @@ const App = () => {
         {
           path: "openai/generator/cover-letter-generator",
           element: <GenerateCoverLetter />,
+        },
+        {
+          path: "openai/generator/resume-rewriter",
+          element: <ResumeRewriterPage />,
         },
       ],
     },
