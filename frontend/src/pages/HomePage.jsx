@@ -6,13 +6,13 @@ import PricingCards from "../components/HomeComponents/PricingCards";
 
 const HomePage = () => {
   return (
-    <>
+    <div className="div overflow-hidden">
       <HeroSection />
       <WhyChooseUs />
       <OurFeatures />
       <PricingCards />
       <Footer />
-    </>
+    </div>
   );
 };
 

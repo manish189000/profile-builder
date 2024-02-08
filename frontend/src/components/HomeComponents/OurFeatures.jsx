@@ -9,7 +9,13 @@ const OurFeatures = () => {
     <>
       <div className="mainContainer py-10 pr-8 w-[100%]  bg-oliv flex font-poppins sm:px-8">
         {/*Left*/}
-        <div className="leftsec relative w-[60%] lg:w-[50%] md:w-[40%] flex items-center justify-center px-4 rounded-r-full bg-lteal  shadow-xl sm:hidden">
+        <div
+          className="leftsec relative w-[60%] lg:w-[50%] md:w-[40%] flex items-center justify-center px-4 rounded-r-full bg-lteal  shadow-xl sm:hidden"
+          data-aos="fade-right"
+          data-aos-once="true"
+          data-aos-delay="50"
+          data-aos-duration="1000"
+        >
           <img
             src={feature}
             className="feature w-[60%] lg:w-[80%] transition ease-in-out delay-100 rounded-md m480:p-4"

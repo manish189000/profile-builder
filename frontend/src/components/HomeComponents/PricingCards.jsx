@@ -39,7 +39,13 @@ const PricingCards = () => {
           flexibly.
         </p>
       </div>
-      <div className="flex flex-wrap gap-12 justify-center ">
+      <div
+        className="flex flex-wrap gap-12 justify-center "
+        data-aos="fade-up"
+        data-aos-once="true"
+        data-aos-delay="50"
+        data-aos-duration="1000"
+      >
         <PricingCard
           title="Free"
           price="0$"
