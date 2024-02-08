@@ -11,7 +11,9 @@ export default {
         lteal: "var(--lightTeal)",
         dbeige: "var(--darkBeige)",
       },
-
+      animation: {
+        "spin-slow": "spin 2.5s linear infinite",
+      },
       fontFamily: {
         // poppins: ["Poppins"],
         Edx: ["Eudoxus Sans"],
