@@ -11,6 +11,7 @@ import GenerateNewResume from "./pages/GenerateResumePage";
 import { ChakraProvider } from "@chakra-ui/react";
 import GenerateCoverLetter from "./pages/GenerateCoverLetterPage";
 import ResumeRewriterPage from "./pages/ResumeRewriterPage";
+import GeneralAIChatPage from "./pages/GeneralAIChatPage";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -40,6 +41,10 @@ const App = () => {
         },
         {
           path: "openai/ai-chat",
+          element: <GeneralAIChatPage />,
+        },
+        {
+          path: "openai/ai-chat/career-counsel",
           element: <AICareerChat />,
         },
       ],
