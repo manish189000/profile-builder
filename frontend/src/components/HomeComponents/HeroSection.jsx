@@ -5,7 +5,7 @@ import { useState } from "react";
 // import linegrn from "../../assets/linegrn.svg";
 // import hatbeige from "../../assets/hatbeige.svg";
 // import twolinesbeige from "../../assets/twolinebeige.svg";
-// import AutoTypeEffect from "./AutoTypeEffect";
+import AutoTypeEffect from "./AutoTypeEffect";
 import { GiArtificialHive } from "react-icons/gi";
 import { useRef } from "react";
 import WhyChooseUs from "./WhyChooseUs";
@@ -49,7 +49,6 @@ const HeroSection = () => {
         <div className="left-sec pr-4 w-[40%] lg2:w-[50%] flex flex-col justify-center items-start m480:w-[100%] m480:items-center m480:text-center m480:px-8 m480:py-8">
           <h1 className="hero-head text-[40px] font-poppins text-scrlt font-bold leading-tight">
             <h1>
-              {" "}
               <AutoTypeEffect />
             </h1>
           </h1>
