@@ -1,6 +1,11 @@
 import hero2 from "../../assets/hero2.svg";
 import { RiMenu3Line } from "react-icons/ri";
 import { useState } from "react";
+// import arrowgrn from "../../assets/arrowgrn.svg";
+// import linegrn from "../../assets/linegrn.svg";
+// import hatbeige from "../../assets/hatbeige.svg";
+// import twolinesbeige from "../../assets/twolinebeige.svg";
+// import AutoTypeEffect from "./AutoTypeEffect";
 import { GiArtificialHive } from "react-icons/gi";
 import { useRef } from "react";
 import WhyChooseUs from "./WhyChooseUs";
@@ -22,9 +27,10 @@ const HeroSection = () => {
             Profile Builder
           </h1>
         </div>
+
         <p onClick={scrollToTarget}>Prices</p>
         <div className="login font-poppins text-[18px] font-medium text-scrlt">
-          <button className="loginBtn transition ease-in-out delay-100 px-5 py-2 border-[2px] border-oliv rounded-md hover:border-[2px] hover:py-2 hover:px-5 hover:border-scrlt hover:rounded-md md:hidden">
+          <button className="loginBtn transition ease-in-out delay-100 px-5 py-2 border-[2px] border-oliv rounded-md hover:border-[2px] hover:py-2 hover:px-5 hover:border-scrlt hover:rounded-md md:hidden hover:animate-spin">
             login
           </button>
         </div>
@@ -42,7 +48,10 @@ const HeroSection = () => {
       <div className="hero pb-10 relative pl-8 w-[100%] h-[89vh] bg-oliv flex m480:flex-col m480:h-[110dvh]  m480:justify-between m480:pl-0 ">
         <div className="left-sec pr-4 w-[40%] lg2:w-[50%] flex flex-col justify-center items-start m480:w-[100%] m480:items-center m480:text-center m480:px-8 m480:py-8">
           <h1 className="hero-head text-[40px] font-poppins text-scrlt font-bold leading-tight">
-            Craft your success story with your AI Brand.
+            <h1>
+              {" "}
+              <AutoTypeEffect />
+            </h1>
           </h1>
           <p className="py-[25px] font-poppins text-scrlt font-normal m480:py-[15px]">
             Effortlessly craft standout resumes with Your AI Brand, showcasing

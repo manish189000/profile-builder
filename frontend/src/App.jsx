@@ -10,11 +10,37 @@ import GeneratedServices from "./pages/GeneratedServices";
 import GenerateNewResume from "./pages/GenerateResumePage";
 import { ChakraProvider } from "@chakra-ui/react";
 import GenerateCoverLetter from "./pages/GenerateCoverLetterPage";
+import { extendTheme } from "@chakra-ui/react";
 import ResumeRewriterPage from "./pages/ResumeRewriterPage";
 import GeneralAIChatPage from "./pages/GeneralAIChatPage";
-// import "./App.css";
 
 const App = () => {
+  // 1. Import `extendTheme`
+
+  // 2. Call `extendTheme` and pass your custom values
+  const theme = extendTheme({
+    components: {
+      Progress: {
+        baseStyle: {
+          filledTrack: {
+            scrlt: "#a45848",
+          },
+        },
+      },
+    },
+    colors: {
+      brand: {
+        100: "#f7fafc",
+        // ...
+        900: "#1a202c",
+      },
+    },
+  });
+
+  // 4. Now you can use these colors in your components
+  function Usage() {
+    return <Box bg="brand.100">Welcome</Box>;
+  }
   const router = createBrowserRouter([
     { path: "/", element: <HomePage /> },
     { path: "/auth", element: <AuthPage /> },
@@ -52,7 +78,7 @@ const App = () => {
     },
   ]);
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <RouterProvider router={router} />
     </ChakraProvider>
   );
