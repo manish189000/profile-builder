@@ -6,7 +6,7 @@ import Input from "../components/utility-components/Input";
 import { useRef } from "react";
 import Label from "../components/utility-components/Label";
 import Textarea from "../components/utility-components/Textarea";
-import Editor from "../components/utility-components/Editor";
+import RichTextEditor from "../components/utility-components/Editor";
 
 const GenerateNewResume = () => {
   const [selectedCreativity, setSelectedCreativity] = useState("Good");
@@ -141,11 +141,8 @@ const GenerateNewResume = () => {
             />
           </form>
         </div>
-        <div className="right w-[50%]">
-          {/* <LexEditor /> */}
-          {/* <FroalaEditor /> */}
-          <Editor />
-          {/* <ReactQuill theme="snow" value={value} onChange={setValue} />; */}
+        <div className="right w-[50%] md:w-full">
+          <RichTextEditor />
         </div>
       </div>
     </div>

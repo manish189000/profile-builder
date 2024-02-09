@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const ResumeServices = () => {
   return (
-    <div className="w-full px-4 py-3 border-b-gray-200  flex flex-wrap items-center gap-8 sm:flex-col">
+    <div className="w-full px-4 py-3 border-b-gray-200  flex flex-wrap items-center gap-8 sm:flex-col sm:items-stretch">
       <Link to={"resume-generator"}>
         <div className="service w-[300px]  sm:w-full h-60 sm:h-[220px] shadow-lg rounded-md p-6 sm:px-2 flex flex-col gap-3 cursor-pointer group">
           <IoIosCreate className="text-lteal text-[55px] block float-left cursor-pointer bg-oliv rounded-full p-4 transition-transform duration-300 transform origin-center group-hover:scale-110" />

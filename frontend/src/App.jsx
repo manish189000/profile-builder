@@ -12,6 +12,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import GenerateCoverLetter from "./pages/GenerateCoverLetterPage";
 import ResumeRewriterPage from "./pages/ResumeRewriterPage";
 import GeneralAIChatPage from "./pages/GeneralAIChatPage";
+// import "./App.css";
 
 const App = () => {
   const router = createBrowserRouter([

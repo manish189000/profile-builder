@@ -12,7 +12,7 @@ const DashboardPage = () => {
   }, []);
   return (
     <div>
-      <div className="w-full px-4 py-3 border-b-gray-200 border-b flex justify-between lg:flex-col lg:justify-start lg:py-6">
+      <div className="w-full px-4 py-3 border-b-gray-200 border-b flex justify-between items-center lg:flex-col lg:items-start lg:py-6">
         <div>
           <p className="text-sm font-inter text-black">User dashboard</p>
           <h1 className=" py-4 text-3xl text-black font-inter font-bold">
