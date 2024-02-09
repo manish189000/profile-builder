@@ -11,6 +11,8 @@ import GenerateNewResume from "./pages/GenerateResumePage";
 import { ChakraProvider } from "@chakra-ui/react";
 import GenerateCoverLetter from "./pages/GenerateCoverLetterPage";
 import { extendTheme } from "@chakra-ui/react";
+import ResumeRewriterPage from "./pages/ResumeRewriterPage";
+import GeneralAIChatPage from "./pages/GeneralAIChatPage";
 
 const App = () => {
   // 1. Import `extendTheme`
@@ -52,7 +54,6 @@ const App = () => {
           element: <GeneratedServices />,
         },
         { path: "documents", element: <GeneratedContentPage /> },
-        { path: "chat-bot", element: <AICareerChat /> },
         {
           path: "openai/generator/resume-generator",
           element: <GenerateNewResume />,
@@ -60,6 +61,18 @@ const App = () => {
         {
           path: "openai/generator/cover-letter-generator",
           element: <GenerateCoverLetter />,
+        },
+        {
+          path: "openai/generator/resume-rewriter",
+          element: <ResumeRewriterPage />,
+        },
+        {
+          path: "openai/ai-chat",
+          element: <AICareerChat />,
+        },
+        {
+          path: "openai/ai-chat/general-chat",
+          element: <GeneralAIChatPage />,
         },
       ],
     },

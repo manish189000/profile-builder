@@ -1,5 +1,5 @@
-import React from "react";
-
+/* eslint-disable react/prop-types */
+// eslint-disable-next-line react/prop-types
 const PricingCard = ({
   title,
   price,
@@ -7,9 +7,14 @@ const PricingCard = ({
   projects,
   interaction,
   library,
+  best,
 }) => {
   return (
-    <div className="mainContainer bg-oliv rounded-xl font-poppins shadow-xl">
+    <div
+      className={`mainContainer bg-oliv rounded-xl font-poppins shadow-xl ${
+        best && "scale-[1.2]"
+      }`}
+    >
       <div className="mainContainer w-[300px] h-[28rem] ">
         <div className=" card text-center h-[60%] max-w-lg p-6 relative text-scrlt font-medium transition duration-500 cursor-pointer object-covers">
           <div className="text-xl bg-dbeige text-scrlt p-[4px] font-bold mb-[2rem] w-[30] rounded-md font-pop">
@@ -31,38 +36,45 @@ const PricingCard = ({
 
 const PricingCards = () => {
   return (
-    <div className="pricing bg-dbeige font-poppins py-8 px-8">
-      <div className="pricingtext pb-6 text-center font-poppins text-scrlt ">
+    <div className="pricing bg-dbeige font-poppins pt-24 pb-28 px-8">
+      <div className="pricingtext pb-20 text-center font-poppins text-scrlt ">
         <h1 className="text-[40px] font-bold">Our Pricing</h1>
         <p className="font-normal">
           Seamless pricing that scales with your needs. Begin free, upgrade
           flexibly.
         </p>
       </div>
-      <div className="flex flex-wrap gap-12 justify-center ">
+      <div
+        className="flex flex-wrap gap-12 justify-center "
+        data-aos="fade-up"
+        data-aos-once="true"
+        data-aos-delay="50"
+        data-aos-duration="1000"
+      >
         <PricingCard
           title="Free"
           price="0$"
-          description="Great for Starters. Discover how to create your first project."
+          description="Great for Starters. Discover how to create your first project!"
           projects="3"
           interaction="Basic interaction"
           library="Assets library"
         />
         <PricingCard
+          best={true}
           title="Lite"
           price="19$"
-          description="Great for Starters. Discover how to create your first project."
-          projects="3"
-          interaction="Basic interaction"
-          library="Assets library"
+          description="Upgrade to Lite Pack today and elevate your projects instantly!"
+          projects="10"
+          interaction="Advanced interaction"
+          library=" Lite assets library"
         />
         <PricingCard
           title="premium"
-          price="19$"
-          description="Great for Starters. Discover how to create your first project."
-          projects="3"
-          interaction="Basic interaction"
-          library="Assets library"
+          price="29$"
+          description="Upgrade now and revolutionize your online presence instantly!"
+          projects="30"
+          interaction="Personalized consultation"
+          library="Premium assets library"
         />
       </div>
     </div>

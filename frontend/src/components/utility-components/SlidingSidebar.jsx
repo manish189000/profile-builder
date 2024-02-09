@@ -73,7 +73,7 @@ const SlidingSidebar = () => {
             </h1>
           </div>
         </Link>
-        <Link to={"chat-bot"}>
+        <Link to={"openai/ai-chat"}>
           <div className="flex items-center rounded-md mt-6 px-2 py-2">
             <IoChatbubblesSharp className="text-scrlt text-2xl block float-left cursor-pointer" />
             <h1
@@ -144,3 +144,104 @@ const SlidingSidebar = () => {
 };
 
 export default SlidingSidebar;
+
+// import React, { useState, useRef, useEffect } from "react";
+// import ReactQuill from "react-quill";
+// import "react-quill/dist/quill.snow.css"; // Import the styles
+
+// const RichTextEditor = () => {
+//   const [text, setText] = useState("");
+//   const quillRef = useRef(null);
+
+//   useEffect(() => {
+//     if (quillRef.current) {
+//       quillRef.current.getEditor().history.clear();
+//     }
+//   }, []);
+//   const handleChange = (content, _, __, editor) => {
+//     setText(content);
+//   };
+
+//   const handleUndo = () => {
+//     if (quillRef.current) {
+//       quillRef.current.getEditor().history.undo();
+//     }
+//   };
+
+//   const handleRedo = () => {
+//     if (quillRef.current) {
+//       quillRef.current.getEditor().history.redo();
+//     }
+//   };
+
+//   const handleClear = () => {
+//     if (quillRef.current) {
+//       quillRef.current.getEditor().setText("");
+//     }
+//   };
+
+//   return (
+//     <div className="p-4">
+//       <div className="flex mb-2">
+//         <button
+//           className="mr-2 px-3 py-1 bg-blue-500 text-white rounded"
+//           onClick={handleUndo}
+//         >
+//           Undo
+//         </button>
+//         <button
+//           className="px-3 py-1 bg-green-500 text-white rounded"
+//           onClick={handleRedo}
+//         >
+//           Redo
+//         </button>
+//         <button
+//           className="ml-2 px-3 py-1 bg-red-500 text-white rounded"
+//           onClick={handleClear}
+//         >
+//           Clear
+//         </button>
+//       </div>
+//       <ReactQuill
+//         ref={quillRef}
+//         theme="snow"
+//         value={text}
+//         onChange={handleChange}
+//         // className="rounded-md bg-red"/
+//         // style={{ borderRadius: "8px" }}
+//         modules={RichTextEditor.modules}
+//         formats={RichTextEditor.formats}
+//       />
+//     </div>
+//   );
+// };
+
+// RichTextEditor.modules = {
+//   toolbar: [
+//     [{ header: [1, 2, 3, 4, 5, 6, false] }],
+//     ["bold", "italic", "underline", "strike", "blockquote"],
+//     [{ list: "ordered" }, { list: "bullet" }],
+//     ["link", "image"],
+//     ["clean"],
+//   ],
+//   history: {
+//     delay: 500,
+//     maxStack: 100,
+//     userOnly: true,
+//   },
+// };
+
+// RichTextEditor.formats = [
+//   "header",
+//   "bold",
+//   "italic",
+//   "underline",
+//   "strike",
+//   "blockquote",
+//   "list",
+//   "bullet",
+//   "link",
+//   "image",
+// ];
+
+// export default RichTextEditor;
