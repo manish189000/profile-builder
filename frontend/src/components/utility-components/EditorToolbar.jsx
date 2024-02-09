@@ -112,7 +112,7 @@ export const QuillToolbar = () => (
         <option value="3">Normal</option>
       </select>
     </span>
-    <span className="">
+    <span className="xl:hidden">
       <button className="ql-bold" />
       <button className="ql-italic" />
       <button className="ql-underline" />
@@ -124,9 +124,10 @@ export const QuillToolbar = () => (
       {/* <button className="ql-indent" value="-1" />
       <button className="ql-indent" value="+1" /> */}
     </span>
-    <span className="ql-formats">
+    {/* ql-formats */}
+    <span className=" xl:hidden">
       <select className="ql-align" />
-      <select className="ql-color" />
+      <select className="ql-color " />
       <select className="ql-background" />
     </span>
     <span>
