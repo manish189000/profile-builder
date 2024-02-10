@@ -132,7 +132,7 @@ const DashboardPage = () => {
       </div>
       <div className="documents-box w-[90%] flex gap-12 pt-10 sm:flex sm:flex-col sm:w-[100%]">
         <div className="left-boxes box-border h-[2rem] w-full sm:w-[80%] border-2 ml-[1rem] rounded-[0.4rem]">
-          <p className="font-inter pl-4 font-medium">Documents</p>
+          <p className="font-inter font-medium">Documents</p>
         </div>
         <div className="left-boxes box-border h-[2rem] w-full sm:w-[80%] border-2 rounded-[0.4rem]sm:ml-[3rem]">
           <p className="font-inter pl-4 font-medium">Favorite Templates</p>

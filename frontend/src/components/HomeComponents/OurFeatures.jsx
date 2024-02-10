@@ -23,7 +23,7 @@ const OurFeatures = () => {
         </div>
         {/*Right */}
         <div className="rightsec pl-4 sm:pl-0 w-[40%] lg:w-[50%] md:w-[60%] flex flex-col justify-center items-center sm:w-[100%]">
-          <h1 className="hero-head text-4xl font-poppins text-scrlt font-bold leading-tight m480:text-center">
+          <h1 className="hero-head text-4xl font-raleway text-scrlt font-bold leading-tight m480:text-center">
             Our Main Features
           </h1>
           <div className="features py-6 flex flex-col gap-5 air:py-[20px] sm:gap-12 sm:py-8">
@@ -32,7 +32,7 @@ const OurFeatures = () => {
                 <IoIosCreate className="text-lteal text-[60px] block float-left cursor-pointer bg-dbeige rounded-full p-4 transition-transform duration-300 transform origin-center group-hover:scale-110" />
               </div>
               <div className="cntnt">
-                <h3 className=" text-2xl sm:text-xl font-poppins text-scrlt font-bold ">
+                <h3 className=" text-2xl sm:text-xl font-raleway text-scrlt font-bold ">
                   Resume Generator
                 </h3>
                 <p className="font-inter font-normal text-scrlt">
@@ -45,7 +45,7 @@ const OurFeatures = () => {
                 <FcDocument className="text-lteal text-[60px] block float-left cursor-pointer bg-dbeige rounded-full p-4 transition-transform duration-300 transform origin-center group-hover:scale-110" />
               </div>
               <div className="cntnt">
-                <h3 className=" text-2xl sm:text-xl font-poppins text-scrlt font-bold ">
+                <h3 className=" text-2xl sm:text-xl font-raleway text-scrlt font-bold ">
                   Cover Letter Generator
                 </h3>
                 <p className="font-inter font-normal text-scrlt">
@@ -58,7 +58,7 @@ const OurFeatures = () => {
                 <MdEditDocument className="text-lteal text-[60px] block float-left cursor-pointer bg-dbeige rounded-full p-4 transition-transform duration-300 transform origin-center group-hover:scale-110" />
               </div>
               <div className="cntnt">
-                <h3 className=" text-2xl sm:text-xl font-poppins text-scrlt font-bold ">
+                <h3 className=" text-2xl sm:text-xl font-raleway text-scrlt font-bold ">
                   Resume Rewriter
                 </h3>
                 <p className="font-inter font-normal text-scrlt">

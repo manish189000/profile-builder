@@ -18,7 +18,7 @@ export default {
         // poppins: ["Poppins"],
         Edx: ["Eudoxus Sans"],
         // poppins: ["Eudoxus Sans"],
-        poppins: ["Raleway", "sans-serif"],
+        raleway: ["Raleway", "sans-serif"],
         inter: ["Inter"],
         os: ["Open Sans"],
         mons: ["Montserrat"],

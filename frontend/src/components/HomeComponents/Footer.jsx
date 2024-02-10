@@ -18,7 +18,7 @@ const Footer = () => {
           </div>
 
           <div className="list-items pt-4">
-            <p className="para w-[60%] m-auto font-pop font-normal ">
+            <p className="para w-[60%] m-auto font-inter font-normal ">
               Empowering individuals to shape their professional futures, one
               profile at a time. Stay connected with us for the latest career
               insights and updates.
