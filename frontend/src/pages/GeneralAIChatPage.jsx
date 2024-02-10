@@ -38,7 +38,17 @@ const GeneralAIChatPage = () => {
               <IoSearchOutline className="absolute top-[50%] translate-x-[-50%] translate-y-[-50%] left-6 text-xl" />
             </div>
           </div>
-          <div className="chatTitleDiv h-[62%] w-full border-b-[1px]">
+          <div className="chatTitleDiv h-[62%] w-full border-b-[1px] overflow-x-hidden overflow-y-scroll no-scrollbar">
+            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
+            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
+            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
+            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
+            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
+            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
+            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
+            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
+            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
+            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
             <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
             <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
           </div>
@@ -62,7 +72,6 @@ const GeneralAIChatPage = () => {
               <textarea
                 rows="1"
                 cols={"10"}
-                maxLength="200"
                 type="text"
                 className="w-full resize-none max font-inter p-3 rounded-3xl bg-oliv outline-none pl-8 pr-10 text-sm"
                 placeholder="Enter your message"
