@@ -1,4 +1,7 @@
 /* eslint-disable react/prop-types */
+
+import { forwardRef } from "react";
+
 // eslint-disable-next-line react/prop-types
 const PricingCard = ({
   title,
@@ -34,10 +37,11 @@ const PricingCard = ({
   );
 };
 
-const PricingCards = () => {
+// eslint-disable-next-line react/display-name
+const PricingCards = forwardRef((children, ref) => {
   return (
-    <div className="pricing bg-dbeige font-poppins pt-24 pb-28 px-8 sm:px-4 sm:py-28">
-      <div className="pricingtext pb-20 text-center font-poppins text-scrlt ">
+    <div ref={ref} className="pricing bg-dbeige font-inter pt-24 pb-28 px-8 sm:px-4 sm:py-28">
+      <div className="pricingtext pb-20 text-center font-inter text-scrlt ">
         <h1 className="text-4xl font-bold">Our Pricing</h1>
         <p className="font-normal pt-2">
           Seamless pricing that scales with your needs. Begin free, upgrade
@@ -79,6 +83,6 @@ const PricingCards = () => {
       </div>
     </div>
   );
-};
+});
 
 export default PricingCards;

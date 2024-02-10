@@ -13,6 +13,7 @@ import GenerateCoverLetter from "./pages/GenerateCoverLetterPage";
 import { extendTheme } from "@chakra-ui/react";
 import ResumeRewriterPage from "./pages/ResumeRewriterPage";
 import GeneralAIChatPage from "./pages/GeneralAIChatPage";
+import CounsellorAIChatPage from "./pages/CounsellorAIChatPage";
 
 const App = () => {
   // 1. Import `extendTheme`
@@ -73,6 +74,10 @@ const App = () => {
         {
           path: "openai/ai-chat/general-chat",
           element: <GeneralAIChatPage />,
+        },
+        {
+          path: "openai/ai-chat/career-counsellor-chat",
+          element: <CounsellorAIChatPage />,
         },
       ],
     },

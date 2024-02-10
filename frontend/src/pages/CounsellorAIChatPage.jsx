@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom";
-import { IoIosArrowBack } from "react-icons/io";
-import { IoSearchOutline } from "react-icons/io5";
 import { FiPlus } from "react-icons/fi";
+import { MdArrowUpward } from "react-icons/md";
 import { RiRobot2Fill } from "react-icons/ri";
 import ChatName from "../components/chat-components/ChatName";
-import { MdArrowUpward } from "react-icons/md";
+import { IoSearchOutline } from "react-icons/io5";
+import { IoIosArrowBack } from "react-icons/io";
+import { Link } from "react-router-dom";
 
-const GeneralAIChatPage = () => {
+const CounsellorAIChatPage = () => {
   return (
     <>
       <div className="w-full px-4 py-3 border-b-gray-200 border-b ">
@@ -26,7 +26,7 @@ const GeneralAIChatPage = () => {
       <div className="mainContainer w-full h-[70%] px-4 py-3 border-b-gray-200 border-b-0  flex">
         <div
           className="leftContainer w-[30%]  border border-r-0
-           rounded-l-md"
+         rounded-l-md"
         >
           <div className="searchDiv h-[18%] w-full flex items-center justify-center border-b-[1px] ">
             <div className="inputBox relative w-[85%]  bg-oliv flex items-center rounded-3xl p-2.5 border ">
@@ -87,4 +87,4 @@ const GeneralAIChatPage = () => {
   );
 };
 
-export default GeneralAIChatPage;
+export default CounsellorAIChatPage;

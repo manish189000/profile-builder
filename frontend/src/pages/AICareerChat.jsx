@@ -44,7 +44,7 @@ const AICareerChat = () => {
           </div>
         </Link>
         {/* //////// */}
-        <Link to={"career-counsel"}>
+        <Link to={"career-counsellor-chat"}>
           <div className="service w-[300px]  sm:w-full h-60 sm:h-[220px] shadow-lg rounded-md p-6 sm:px-2 cursor-pointer group ">
             <FaRegStar className="star text-lg" />
             <div className="wrap  flex flex-col gap-2 items-center pt-6">

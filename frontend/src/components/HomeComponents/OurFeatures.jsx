@@ -1,13 +1,18 @@
+/* eslint-disable react/display-name */
 import React from "react";
 import feature from "../../assets/feature2.svg";
 import { MdEditDocument } from "react-icons/md";
 import { FcDocument } from "react-icons/fc";
 import { IoIosCreate } from "react-icons/io";
+import { forwardRef } from "react";
 
-const OurFeatures = () => {
+const OurFeatures = forwardRef((children, ref) => {
   return (
     <>
-      <div className="mainContainer py-10 pr-8 w-[100%]  bg-oliv flex font-poppins sm:px-4 sm:py-28">
+      <div
+        ref={ref}
+        className="mainContainer py-10 pr-8 w-[100%]  bg-oliv flex font-poppins sm:px-4 sm:py-28"
+      >
         {/*Left*/}
         <div
           className="leftsec relative w-[60%] lg:w-[50%] md:w-[40%] flex items-center justify-center px-4 rounded-r-full bg-lteal  shadow-xl sm:hidden"
@@ -73,6 +78,6 @@ const OurFeatures = () => {
       {/* /Resume Generator Cover Letter Generator Resume Rewriter/ */}
     </>
   );
-};
+});
 
 export default OurFeatures;

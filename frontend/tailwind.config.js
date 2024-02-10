@@ -35,6 +35,7 @@ export default {
       sm: { max: "639px" },
       lg2: { max: "740px" },
       m480: { max: "480px" },
+      s360: { max: "360px" },
     },
   },
   plugins: [],

@@ -39,7 +39,7 @@ const DashboardPage = () => {
           </h1>
         </div>
         <div>
-          <div className="flex gap-5 lg:-ml-[2px]">
+          <div className="flex gap-5 lg:-ml-[2px] s360:flex-col">
             <button className="text-base w-40 outline-none rounded-3xl py-2 px-2 shadow transition duration-500 ease-in-out hover:shadow-lg hover:-translate-y-1.5 focus:outline-none focus:shadow-outline-blue active:shadow-none lg:hover:shadow lg:hover:-translate-y-0 ">
               View documents
             </button>

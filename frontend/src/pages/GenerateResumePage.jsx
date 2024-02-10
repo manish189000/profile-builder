@@ -1,17 +1,20 @@
 // import { Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import { useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Input from "../components/utility-components/Input";
 import { useRef } from "react";
 import Label from "../components/utility-components/Label";
 import Textarea from "../components/utility-components/Textarea";
 import RichTextEditor from "../components/utility-components/Editor";
+import { languages } from "countries-list";
 
 const GenerateNewResume = () => {
+  const [selectedLanguage, setselectedLanguage] = useState("English");
   const [selectedCreativity, setSelectedCreativity] = useState("Good");
   const [selectedTone, setSelectedTone] = useState("Professional");
-  const [value, setValue] = useState("");
+  const languagesArray = Object.values(languages);
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const nameRef = useRef("");
   console.log("The name is: ", name);
@@ -39,13 +42,12 @@ const GenerateNewResume = () => {
   return (
     <div>
       <div className="w-full px-4 py-3 border-b-gray-200 border-b ">
-        <div className="flex gap-1 items-center text-black">
-          <Link to={`/dashboard`}>
-            <IoIosArrowBack />
-          </Link>
-          <Link to={`/dashboard`}>
-            <p className="text-sm font-inter text-black">Back to dashboard</p>
-          </Link>
+        <div
+          onClick={() => navigate(-1)}
+          className="flex gap-1 items-center text-black"
+        >
+          <IoIosArrowBack />
+          <p className="text-sm font-inter cursor-pointer text-black">Back</p>
         </div>
         <h1 className=" py-4 text-3xl text-black font-inter font-bold pb-0">
           Resume generator
@@ -73,6 +75,19 @@ const GenerateNewResume = () => {
             <Textarea placeholder="Achievements" />
             <Label>Job Description</Label>
             <Textarea placeholder="Job description" />
+            <select
+              onChange={(e) => setselectedLanguage(e.target.value)}
+              defaultValue={"English"}
+              className="input resize-none w-[50%] font-inter px-1 py-2 mb-4 text-[#3F292B] outline-none rounded-lg border"
+            >
+              {languagesArray.map((item) => {
+                return (
+                  <option key={item.name} value={item.name}>
+                    {item.name} ({item.native})
+                  </option>
+                );
+              })}
+            </select>
             <div className="flex justify-between m480:flex-col">
               <div className="flex flex-col w-[45%] m480:w-full">
                 <Label>Max Length</Label>
