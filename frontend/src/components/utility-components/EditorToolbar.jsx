@@ -1,5 +1,6 @@
 import { Quill } from "react-quill";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import { useState } from "react";
 
 // Custom Undo button icon component for Quill editor. You can import it directly
 // from 'quill/assets/icons/undo.svg' but I found that a number of loaders do not
@@ -89,53 +90,76 @@ export const formats = [
 ];
 
 // Quill Toolbar component
-export const QuillToolbar = () => (
-  <div id="toolbar" className="flex justify-between w-full rounded">
-    <span className=" mr-0 flex justify-between">
-      <select className="ql-font m-0" defaultValue="arial">
-        <option value="arial">Arial</option>
-        <option value="comic-sans">Comic Sans</option>
-        <option value="courier-new">Courier New</option>
-        <option value="georgia">Georgia</option>
-        <option value="helvetica">Helvetica</option>
-        <option value="lucida">Lucida</option>
-      </select>
-      {/* <select className="ql-size" defaultValue="medium">
+export const QuillToolbar = () => {
+  const [show, setShow] = useState(false);
+  return (
+    <div id="toolbar" className="flex justify-between w-full rounded">
+      <span className=" mr-0 flex justify-between">
+        <select className="ql-font m-0" defaultValue="arial">
+          <option value="arial">Arial</option>
+          <option value="comic-sans">Comic Sans</option>
+          <option value="courier-new">Courier New</option>
+          <option value="georgia">Georgia</option>
+          <option value="helvetica">Helvetica</option>
+          <option value="lucida">Lucida</option>
+        </select>
+        {/* <select className="ql-size" defaultValue="medium">
         <option value="extra-small">Size 1</option>
         <option value="small">Size 2</option>
         <option value="medium">Size 3</option>
         <option value="large">Size 4</option>
       </select> */}
-      <select className="ql-header" defaultValue="3">
-        <option value="1">Heading</option>
-        <option value="2">Subheading</option>
-        <option value="3">Normal</option>
-      </select>
-    </span>
-    <span className="xl:hidden">
-      <button className="ql-bold" />
-      <button className="ql-italic" />
-      <button className="ql-underline" />
-      {/* <button className="ql-strike" /> */}
-    </span>
-    <span className="">
-      <button className="ql-list" value="ordered" />
-      <button className="ql-list" value="bullet" />
-      {/* <button className="ql-indent" value="-1" />
+        <select className="ql-header" defaultValue="3">
+          <option value="1">Heading</option>
+          <option value="2">Subheading</option>
+          <option value="3">Normal</option>
+        </select>
+      </span>
+      <span className="ql-formats">
+        <button className="ql-bold" />
+        <button className="ql-italic" />
+        <button className="ql-underline" />
+        {/* <button className="ql-strike" /> */}
+      </span>
+      <span className="xl:hidden">
+        <button className="ql-list" value="ordered" />
+        <button className="ql-list" value="bullet" />
+        {/* <button className="ql-indent" value="-1" />
       <button className="ql-indent" value="+1" /> */}
-    </span>
-    {/* ql-formats */}
-    <span className=" xl:hidden">
-      <select className="ql-align" />
-      <select className="ql-color " />
-      <select className="ql-background" />
-    </span>
-    <span>
-      <button>
-        <BsThreeDotsVertical />
-      </button>
-    </span>
-  </div>
-);
+      </span>
+      {/* ql-formats */}
+      <span className="xl:hidden">
+        <select className="ql-align" />
+        <select className="ql-color " />
+        <select className="ql-background" />
+      </span>
+      <span className="relative">
+        <button className="invisible xl:visible" onClick={() => setShow(!show)}>
+          <BsThreeDotsVertical />
+        </button>
+
+        <span
+          className={`absolute w-auto ${
+            show ? "visible" : "invisible"
+          } -top-10 flex right-32 bg-pink-300`}
+        >
+          <select className="ql-align" />
+          <select className="ql-color " />
+          <select className="ql-background" />
+          <span className="hidden lg:block">
+            <button className="ql-list hidden sm:block" value="ordered" />
+            <button className="ql-list hidden sm:block" value="bullet" />
+          </span>
+        </span>
+        {/* <span className={`absolute ${
+            show ? "invisible" : "visible"
+          } -top-10 flex right-32 bg-pink-300`}>
+          <button className="ql-list" value="ordered" />
+          <button className="ql-list" value="bullet" />
+        </span> */}
+      </span>
+    </div>
+  );
+};
 
 export default QuillToolbar;
