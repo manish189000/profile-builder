@@ -30,6 +30,7 @@ export default {
       "2xl": { max: "1400px" },
       xl: { max: "1279px" },
       lg: { max: "1023px" },
+      lg2: { max: "1075px" },
       air: { max: "820px" },
       md: { max: "767px" },
       sm: { max: "639px" },

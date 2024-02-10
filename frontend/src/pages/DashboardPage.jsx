@@ -25,8 +25,9 @@ const DashboardPage = () => {
       `http://localhost:8000/api/v1/user/verify/${localStorage.getItem("jwt")}`
     )
       .then((res) => res.json())
-      .then((data) => setUserInfo(data))
-      .finally(() => clearInterval(interval));
+      .then((data) => setUserInfo(data));
+    () => clearInterval(interval);
+    // .finally(() => clearInterval(interval));
   }, []);
 
   return (
@@ -35,7 +36,7 @@ const DashboardPage = () => {
         <div>
           <p className="text-sm font-inter text-black">User dashboard</p>
           <h1 className=" py-4 text-3xl text-black font-inter font-bold">
-            Welcome, {userInfo?.user?.name || "Muzammil"}.
+            Welcome, {userInfo?.user?.name || "User"}.
           </h1>
         </div>
         <div>

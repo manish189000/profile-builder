@@ -23,10 +23,10 @@ const GeneralAIChatPage = () => {
         </h1>
       </div>
 
-      <div className="mainContainer w-full h-[70%] px-4 py-3 border-b-gray-200 border-b-0  flex">
+      <div className="mainContainer w-full h-[70%] px-4 py-3 border-b-gray-200 border-b-0 flex md:flex-col md:h-[900px]">
         <div
           className="leftContainer w-[30%]  border border-r-0
-           rounded-l-md"
+           rounded-l-md md:w-full md:h-[50%] md:border-r-[1px] "
         >
           <div className="searchDiv h-[18%] w-full flex items-center justify-center border-b-[1px] ">
             <div className="inputBox relative w-[85%]  bg-oliv flex items-center rounded-3xl p-2.5 border ">
@@ -39,7 +39,11 @@ const GeneralAIChatPage = () => {
             </div>
           </div>
           <div className="chatTitleDiv h-[62%] w-full border-b-[1px] overflow-x-hidden overflow-y-scroll no-scrollbar">
-            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
+            <ChatName
+              title={
+                "gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk dfdfefdddgv efe"
+              }
+            />
             <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
             <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
             <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
@@ -59,7 +63,7 @@ const GeneralAIChatPage = () => {
             </button>
           </div>
         </div>
-        <div className="rightContainer w-[70%] border rounded-r-md">
+        <div className="rightContainer w-[70%] border rounded-r-md md:w-full md:h-[50%]">
           <div className="header h-[18%] w-full flex items-center border-b-[1px] p-3">
             <div className="flex gap-3 items-center">
               <RiRobot2Fill className="text-3xl text-black" />

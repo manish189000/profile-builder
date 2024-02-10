@@ -11,6 +11,7 @@ import { useRef } from "react";
 import WhyChooseUs from "./WhyChooseUs";
 import OurFeatures from "./OurFeatures";
 import PricingCards from "./PricingCards";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,15 +40,29 @@ const HeroSection = () => {
             ProfileBuilder
           </h1>
         </div>
-        <div className="navs flex gap-8 text-[18px] font-normal text-scrlt md:hidden">
-          <p onClick={() => scrollToTarget("Choose us")}>Why choose us</p>
-          <p onClick={() => scrollToTarget("Features")}>Features</p>
-          <p onClick={() => scrollToTarget("Price")}>Pricing</p>
+        <div className="navs flex gap-8 text-[18px] font-semibold font-inter text-scrlt md:hidden">
+          <p
+            onClick={() => scrollToTarget("Choose us")}
+            className="cursor-pointer"
+          >
+            Why choose us
+          </p>
+          <p
+            onClick={() => scrollToTarget("Features")}
+            className="cursor-pointer"
+          >
+            Features
+          </p>
+          <p onClick={() => scrollToTarget("Price")} className="cursor-pointer">
+            Pricing
+          </p>
         </div>
         <div className="login font-inter text-base font-medium text-scrlt">
-          <button className="loginBtn transition ease-in-out delay-100 px-5 py-2 border-[2px] border-oliv rounded-md hover:border-[2px] hover:py-2 hover:px-5 hover:border-scrlt hover:rounded-md md:hidden">
-            Login
-          </button>
+          <Link to={"/dashboard"}>
+            <button className="loginBtn transition ease-in-out delay-100 px-5 py-2 border-[2px] border-oliv rounded-md hover:border-[2px] hover:py-2 hover:px-5 hover:border-scrlt hover:rounded-md md:hidden">
+              Login
+            </button>
+          </Link>
         </div>
         <div className="Menu text-[28px] font-extrabold text-scrlt hidden md:block">
           <RiMenu3Line onClick={() => setIsOpen(!isOpen)} />
@@ -65,8 +80,8 @@ const HeroSection = () => {
       )}
 
       {/* ///////////////////////////////////////// */}
-      <div className="hero pb-10 relative pl-8 w-[100%] h-[90dvh] m480:h-[100%] bg-oliv flex m480:flex-col sm:pl-0  m480:justify-between m480:pl-0 m480:pt-6 m480:pb-24">
-        <div className="left-sec pr-4 w-[40%] lg2:w-[50%] flex flex-col justify-center items-start m480:w-[100%] m480:items-center m480:text-center sm:px-4 sm:py-8">
+      <div className="hero pb-10 relative pl-8 w-[100%] h-[90dvh] m480:h-[100%] bg-oliv flex m480:flex-col sm:pl-0  m480:justify-between m480:pl-0  m480:pb-24">
+        <div className="left-sec pr-4 w-[40%] lg2:w-[50%] flex flex-col justify-center items-start m480:w-[100%] m480:items-center m480:text-center sm:px-4  sm:pb-8">
           <div className="logo py-6">
             <GiArtificialHive className="text-scrlt mr-1 hidden rounded cursor-pointer m480:block m480:text-4xl" />
           </div>
@@ -80,9 +95,11 @@ const HeroSection = () => {
             Effortlessly craft standout resumes with Your AI Brand, showcasing
             skills and experience for a competitive edge.
           </p>
-          <button className="get-startedBtn font-inter font-semibold transition ease-in-out delay-100 text-[16px] text-scrlt border-2 border-scrlt px-6 py-3 rounded-md hover:bg-scrlt hover:text-oliv animate-bounce m480:animate-none mt-3 m480:mt-0">
-            Get Started
-          </button>
+          <Link to={"/dashboard"}>
+            <button className="get-startedBtn font-inter font-semibold transition ease-in-out delay-100 text-[16px] text-scrlt border-2 border-scrlt px-6 py-3 rounded-md hover:bg-scrlt hover:text-oliv animate-bounce m480:animate-none mt-3 m480:mt-0">
+              Get Started
+            </button>
+          </Link>
         </div>
         <div
           className="Right-sec relative w-[60%] lg2:w-[50%] flex items-center justify-center px-4 rounded-l-full bg-lteal m480:w-[90%] m480:m-auto m480:rounded-lg  m480:py-6 shadow-xl m480:mt-8"
