@@ -1,15 +1,17 @@
 import { IoIosArrowBack } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Label from "../components/utility-components/Label";
 import Input from "../components/utility-components/Input";
 import Textarea from "../components/utility-components/Textarea";
 import { useState } from "react";
 import { languages } from "countries-list";
+import Editor from "../components/utility-components/Editor";
 
 const ResumeRewriterPage = () => {
   const [selectedCreativity, setSelectedCreativity] = useState("Good");
   const [selectedTone, setSelectedTone] = useState("Professional");
   const [selectedLanguage, setselectedLanguage] = useState("English");
+  const navigate = useNavigate();
   const languagesArray = Object.values(languages);
   const creativityArray = ["Good", "Economic", "Average", "Premium"];
   const toneArray = [
@@ -30,13 +32,12 @@ const ResumeRewriterPage = () => {
   return (
     <div>
       <div className="w-full px-4 py-3 border-b-gray-200 border-b ">
-        <div className="flex gap-1 items-center text-black">
-          <Link to={`/dashboard`}>
-            <IoIosArrowBack />
-          </Link>
-          <Link to={`/dashboard`}>
-            <p className="text-sm font-inter text-black">Back to dashboard</p>
-          </Link>
+        <div
+          onClick={() => navigate(-1)}
+          className="flex gap-1 items-center text-black"
+        >
+          <IoIosArrowBack />
+          <p className="text-sm font-inter cursor-pointer text-black">Back</p>
         </div>
         <h1 className=" py-4 text-3xl text-black font-inter font-bold pb-0">
           Resume rewriter
@@ -133,7 +134,9 @@ const ResumeRewriterPage = () => {
             />
           </form>
         </div>
-        <div className="right w-[50%]"></div>
+        <div className="right w-[50%] md:w-full">
+          <Editor />
+        </div>
       </div>
     </div>
   );

@@ -9,14 +9,26 @@ import AutoTypeEffect from "./AutoTypeEffect";
 import { GiArtificialHive } from "react-icons/gi";
 import { useRef } from "react";
 import WhyChooseUs from "./WhyChooseUs";
+import OurFeatures from "./OurFeatures";
+import PricingCards from "./PricingCards";
 
 const HeroSection = () => {
   const [isOpen, setIsOpen] = useState(false);
   const chooseUsRef = useRef(null);
+  const priceRef = useRef(null);
+  const featuresRef = useRef(null);
 
-  const scrollToTarget = () => {
+  const scrollToTarget = (section) => {
     // Step 3: Use scrollIntoView on the ref
-    chooseUsRef.current.scrollIntoView({ behavior: "smooth" });
+    if (section === "Choose us") {
+      return chooseUsRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+    if (section === "Features") {
+      return featuresRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+    if (section === "Price") {
+      return priceRef.current.scrollIntoView({ behavior: "smooth" });
+    }
   };
   return (
     <>
@@ -29,8 +41,9 @@ const HeroSection = () => {
         </div>
 
         <div className="navs flex gap-8 text-[18px] font-normal text-scrlt md:hidden">
-          <p>Features</p>
-          <p onClick={scrollToTarget}>Pricing</p>
+          <p onClick={() => scrollToTarget("Choose us")}>Why choose us</p>
+          <p onClick={() => scrollToTarget("Features")}>Features</p>
+          <p onClick={() => scrollToTarget("Price")}>Pricing</p>
         </div>
         <div className="login font-poppins text-[18px] font-medium text-scrlt">
           <button className="loginBtn transition ease-in-out delay-100 px-5 py-2 border-[2px] border-oliv rounded-md hover:border-[2px] hover:py-2 hover:px-5 hover:border-scrlt hover:rounded-md md:hidden">
@@ -83,6 +96,8 @@ const HeroSection = () => {
         </div>
       </div>
       <WhyChooseUs ref={chooseUsRef} />
+      <OurFeatures ref={featuresRef} />
+      <PricingCards ref={priceRef} />
     </>
   );
 };

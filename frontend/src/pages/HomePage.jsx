@@ -8,8 +8,7 @@ const HomePage = () => {
   return (
     <div className="div overflow-hidden">
       <HeroSection />
-      <OurFeatures />
-      <PricingCards />
+
       <Footer />
     </div>
   );

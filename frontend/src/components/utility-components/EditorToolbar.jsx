@@ -115,41 +115,46 @@ export const QuillToolbar = () => {
           <option value="3">Normal</option>
         </select>
       </span>
-      <span className="ql-formats">
+      <span className="lg:hidden  md:block m480:hidden">
         <button className="ql-bold" />
         <button className="ql-italic" />
         <button className="ql-underline" />
         {/* <button className="ql-strike" /> */}
       </span>
-      <span className="xl:hidden">
+      <span className="xl:hidden  md:block m480:hidden">
         <button className="ql-list" value="ordered" />
         <button className="ql-list" value="bullet" />
         {/* <button className="ql-indent" value="-1" />
       <button className="ql-indent" value="+1" /> */}
       </span>
       {/* ql-formats */}
-      <span className="xl:hidden">
+      <span className="xl:hidden md:block m480:hidden">
         <select className="ql-align" />
         <select className="ql-color " />
         <select className="ql-background" />
       </span>
-      <span className="relative">
-        <button className="visible" onClick={() => setShow(!show)}>
+      <span className="relative hidden xl:block md:hidden m480:block">
+        <button onClick={() => setShow(!show)}>
           <BsThreeDotsVertical />
         </button>
         {/* invisible xl:visible */}
         <span
-          className={`absolute w-auto ${
+          className={`absolute w-auto z-[1000] ${
             show ? "visible" : "invisible"
-          } -top-10 flex right-32 bg-pink-300`}
+          } -bottom-11 flex right-0 bg-white px-3 py-1 border m480:-right-6`}
         >
           <select className="ql-align text-3xl" />
           <select className="ql-color " />
           <select className="ql-background" />
-          {/* <span> */}
-          <button className="ql-list invisible" value="ordered" />
-          <button className="ql-list hidden sm:block" value="bullet" />
-          {/* </span> */}
+          <span className="hidden xl:flex">
+            <button className="ql-list hidden " value="ordered" />
+            <button className="ql-list hidden sm:block" value="bullet" />
+          </span>
+          <span className="hidden lg:flex">
+            <button className="ql-bold" />
+            <button className="ql-italic" />
+            <button className="ql-underline" />
+          </span>
         </span>
         {/* <span className={`absolute ${
             show ? "invisible" : "visible"
