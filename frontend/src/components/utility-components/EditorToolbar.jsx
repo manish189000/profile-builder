@@ -134,22 +134,22 @@ export const QuillToolbar = () => {
         <select className="ql-background" />
       </span>
       <span className="relative">
-        <button className="invisible xl:visible" onClick={() => setShow(!show)}>
+        <button className="visible" onClick={() => setShow(!show)}>
           <BsThreeDotsVertical />
         </button>
-
+        {/* invisible xl:visible */}
         <span
           className={`absolute w-auto ${
             show ? "visible" : "invisible"
           } -top-10 flex right-32 bg-pink-300`}
         >
-          <select className="ql-align" />
+          <select className="ql-align text-3xl" />
           <select className="ql-color " />
           <select className="ql-background" />
-          <span className="hidden lg:block">
-            <button className="ql-list hidden sm:block" value="ordered" />
-            <button className="ql-list hidden sm:block" value="bullet" />
-          </span>
+          {/* <span> */}
+          <button className="ql-list invisible" value="ordered" />
+          <button className="ql-list hidden sm:block" value="bullet" />
+          {/* </span> */}
         </span>
         {/* <span className={`absolute ${
             show ? "invisible" : "visible"
