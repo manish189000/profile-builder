@@ -81,9 +81,9 @@ const DashboardPage = () => {
           </div>
         </div>
       </div>
-      <div className="overView w-[100%] pt-12 pb-12 border-b-gray-200 border-b flex sm:flex-col pl-4    ">
+      <div className="overView w-[100%] pt-12 pb-12 border-b-gray-200 border-b flex sm:flex-col pl-4  sm:pl-[0]  ">
         <div className="left-row-right w-[100%] flex  sm:flex">
-          <div className="leftover  border-r-2 w-[100%] sm:w-[100%] sm:pr-3">
+          <div className="leftover  border-r-2 w-[100%] sm:w-[100%] sm:pr-3 sm:pl-[2rem]">
             <p className="font-extrabold font-inter ">Overview</p>
             <p>words left</p>
             <p className="font-extrabold font-inter">9,495</p>
@@ -94,7 +94,7 @@ const DashboardPage = () => {
             <p>4</p>
           </div>
         </div>
-        <div className="rightover w-[60%] pl-3 sm:pl-0 sm:pt-3 ">
+        <div className="rightover w-[100%] pl-3 sm:pl-0 sm:mt-12  ">
           <p className="font-extrabold font-inter">Your Documents</p>
           <div className="chakra">
             <Progress
@@ -121,14 +121,28 @@ const DashboardPage = () => {
           </div>
         </div>
       </div>
-      <div className="documents-box w-[90%] flex gap-12 pt-10 sm:flex sm:flex-col sm:w-[100%]">
+      {/* <div className="documents-box w-[90%] flex gap-12 pt-10 sm:flex sm:flex-col sm:w-[100%]">
         <div className="left-boxes box-border h-[2rem] w-full sm:w-[80%] border-2 ml-[1rem] rounded-[0.4rem]">
           <p className="font-inter pl-4 font-medium">Documents</p>
         </div>
         <div className="left-boxes box-border h-[2rem] w-full sm:w-[80%] border-2 rounded-[0.4rem]sm:ml-[3rem]">
-          <p className="font-inter pl-4 font-medium">Favorite Templates</p>
+          <p className="font-inter pl-4 font-medium sm:ml-[1rem]">
+            Favorite Templates
+          </p>
+        </div>
+      </div> */}
+      <div className="second-document w-[100%] flex gap-3 sm:flex-col">
+        .
+        <div className="container mx-auto my-8  p-8 bg-white border border-gray-400 rounded-md ">
+          {/* Content goes here */}
+          <p className="text-lg font-inter">Documents</p>
+        </div>
+        <div className="container mx-auto my-8  mr-4 p-8 bg-white border border-gray-400 rounded-md">
+          {/* Content goes here */}
+          <p className="text-lg font-inter">Favorite Templates</p>
         </div>
       </div>
+
       <div className="copyright p-6">
         <p className="font-inter">
           Copyright © 2024 AI Profile Builder. All rights reserved.

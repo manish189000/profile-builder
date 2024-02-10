@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
-// eslint-disable-next-line react/prop-types
+import React from "react";
+
 const PricingCard = ({
   title,
   price,
@@ -9,23 +9,23 @@ const PricingCard = ({
   library,
   best,
 }) => {
+  const cardClassName = `mainContainer bg-oliv rounded-xl font-poppins shadow-xl ${
+    best ? "scale-[1.2] sm:scale-100 lg:scale-100  ten:scale-100 " : ""
+  }`;
+
   return (
-    <div
-      className={`mainContainer bg-oliv rounded-xl font-poppins shadow-xl ${
-        best && "scale-[1.2]"
-      }`}
-    >
-      <div className="mainContainer w-[300px] h-[28rem] ">
-        <div className=" card text-center h-[60%] max-w-lg p-6 relative text-scrlt font-medium transition duration-500 cursor-pointer object-covers">
+    <div className={cardClassName}>
+      <div className="mainContainer w-[300px] h-[28rem]">
+        <div className="card text-center h-[60%] max-w-lg p-6 relative text-scrlt font-medium transition duration-500 cursor-pointer object-covers">
           <div className="text-xl bg-dbeige text-scrlt p-[4px] font-bold mb-[2rem] w-[30] rounded-md font-pop">
             {title}
           </div>
           <div className="text-3xl font-bold mb-4 font-pop">{price}</div>
-          <p className="  mb-4 pt-2">{description}</p>
-          <p className=" pt-5">{`${projects} new projects per month `}</p>
-          <p className=" pt-2">{interaction}</p>
-          <p className=" pt-2">{library}</p>
-          <button className=" text-scrlt px-4 py-2 rounded-md border-2 transition ease-in-out delay-100 hover:bg-scrlt hover:text-oliv font-semibold border-scrlt mt-12">
+          <p className="mb-4 pt-2">{description}</p>
+          <p className="pt-5">{`${projects} new projects per month `}</p>
+          <p className="pt-2">{interaction}</p>
+          <p className="pt-2">{library}</p>
+          <button className="text-scrlt px-4 py-2 rounded-md border-2 transition ease-in-out delay-100 hover:bg-scrlt hover:text-oliv font-semibold border-scrlt mt-12">
             Get started
           </button>
         </div>

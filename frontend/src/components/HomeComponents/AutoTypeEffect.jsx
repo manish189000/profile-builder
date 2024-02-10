@@ -5,14 +5,13 @@ const AutoTypeEffect = () => {
   return (
     <TypeAnimation
       sequence={[
-        // Same substring at the start will only be typed out once, initially
-        " Craft your success story with",
-        800, // wait 1s before replacing "Mice" with "Hamsters"
-        " Craft your success story with ,'        '  Profile Builder",
+        "Craft your success story with",
         800,
-        " Craft your success story with,  '        ' Profile Builder",
+        "Profile Builder",
         800,
-        " Craft your success story with, '        '  Profile Builder",
+        "build your resume",
+        800,
+        "in just a minute",
         800,
       ]}
       wrapper="span"
