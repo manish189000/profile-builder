@@ -52,18 +52,18 @@ const DashboardPage = () => {
       <div className="upgrade w-full p-4 border-b-gray-200 border-b flex justify-between sm:flex-col sm:gap-0 sm:justify-center">
         <div className="left-side w-[50%] sm:flex sm:flex-col sm:justify-center sm:items-center sm:text-center sm:w-full flex flex-col gap-4">
           <p className="font-extrabold text-[1.6rem] font-inter">Upgrade</p>
-          <h3 className="font-inter w-[100%]">
+          <h3 className="font-inter w-[100%] text-sm">
             You have no subscription at the moment. Please select a subscription
             plan or a token pack
           </h3>
-          <p className="font inter">Total 9,495 tokens left.</p>
-          <button className="text-base text-white w-36 outline-none rounded-3xl py-2 px-2 bg-lteal shadow transition duration-500 ease-in-out hover:shadow-lg hover:-translate-y-1.5 focus:outline-none focus:shadow-outline-blue active:shadow-none ">
+          <p className="font-inter text-sm">Total 9,495 tokens left.</p>
+          <button className="text-base flex items-center justify-center text-white w-36 outline-none rounded-3xl py-2 px-2 bg-lteal shadow transition duration-500 ease-in-out hover:shadow-lg hover:-translate-y-1.5 focus:outline-none focus:shadow-outline-blue active:shadow-none ">
             + Select Plan
           </button>
         </div>
 
-        <div className="right-side flex justify-center items-centerw-[35%] pt-[22px] sm:w-full sm:flex sm:flex-col sm:justify-center">
-          <div className="chakra sm:flex sm:flex-col sm:items-center sm:justify-center">
+        <div className="right-side flex justify-center mr-5 items-center pt-[22px] sm:w-full sm:flex sm:flex-col sm:justify-center">
+          <div className="chakra flex justify-center items-center flex-col sm:flex-col sm:items-center sm:justify-center">
             <CircularProgress
               value={loadingProgress}
               color="#b57a6d"
@@ -81,7 +81,7 @@ const DashboardPage = () => {
           </div>
         </div>
       </div>
-      <div className="overView w-[100%] pt-12 pb-12 border-b-gray-200 border-b flex sm:flex-col pl-4    ">
+      <div className="overView w-[100%] py-8 px-4 border-b-gray-200 border-b flex sm:flex-col">
         <div className="left-row-right w-[100%] flex  sm:flex">
           <div className="leftover  border-r-2 w-[100%] sm:w-[100%] sm:pr-3">
             <p className="font-extrabold font-inter ">Overview</p>
@@ -98,6 +98,7 @@ const DashboardPage = () => {
           <p className="font-extrabold font-inter">Your Documents</p>
           <div className="chakra">
             <Progress
+              className="w-[90%]"
               colorScheme="customColor"
               trackColorScheme="red"
               isAnimated={true}
@@ -109,10 +110,18 @@ const DashboardPage = () => {
             <div className="radio-buttons pt-2">
               <RadioGroup defaultValue="2">
                 <Stack spacing={5} direction="row">
-                  <Radio value="1" style={{ backgroundColor: "#a7beae" }}>
+                  <Radio
+                    value="1"
+                    colorScheme="transparent"
+                    style={{ backgroundColor: "#a7beae" }}
+                  >
                     Text 1
                   </Radio>
-                  <Radio value="2" style={{ backgroundColor: "#a45848" }}>
+                  <Radio
+                    value="2"
+                    colorScheme="transparent"
+                    style={{ backgroundColor: "#a45848" }}
+                  >
                     Total 1
                   </Radio>
                 </Stack>
