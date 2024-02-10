@@ -20,11 +20,11 @@ const HeroSection = () => {
   };
   return (
     <>
-      <div className="Navbar relative px-8 py-4 w-[100%] h-[11vh] bg-oliv flex justify-between items-center sm:px-4">
+      <div className="Navbar relative px-8 py-4 w-[100%] h-[10dvh] bg-oliv flex justify-between items-center sm:px-4 sm:py-2 sm:h-[8vh]">
         <div className="logo flex items-center">
-          <GiArtificialHive className="text-scrlt mr-1 text-4xl rounded cursor-pointer animate-spin-slow m480:text-2xl" />
-          <h1 className="logoHeading  tracking-wider cursor-pointer font-mono text-2xl font-bold text-scrlt m480:text-xl">
-            Profile Builder
+          <GiArtificialHive className="text-scrlt mr-1 text-4xl rounded cursor-pointer animate-spin-slow m480:text-3xl" />
+          <h1 className="logoHeading  tracking-wider cursor-pointer font-mono text-2xl font-bold text-scrlt m480:text-[22px]">
+            ProfileBuilder
           </h1>
         </div>
 
@@ -35,7 +35,6 @@ const HeroSection = () => {
         <div className="login font-poppins text-[18px] font-medium text-scrlt">
           <button className="loginBtn transition ease-in-out delay-100 px-5 py-2 border-[2px] border-oliv rounded-md hover:border-[2px] hover:py-2 hover:px-5 hover:border-scrlt hover:rounded-md md:hidden">
             Login
-
           </button>
         </div>
         <div className="Menu text-[28px] font-extrabold text-scrlt hidden md:block">
@@ -54,14 +53,15 @@ const HeroSection = () => {
       )}
 
       {/* ///////////////////////////////////////// */}
-      <div className="hero pb-10 relative pl-8 w-[100%] h-[89vh] bg-oliv flex m480:flex-col m480:h-[80dvh]  m480:justify-between m480:pl-0 ">
-        <div className="left-sec pr-4 w-[40%] lg2:w-[50%] flex flex-col justify-center items-start m480:w-[100%] m480:items-center m480:text-center m480:px-8 m480:py-8">
-          <h1 className="hero-head text-[40px] font-poppins text-scrlt font-bold leading-tight">
+      <div className="hero pb-10 relative pl-8 w-[100%] h-[90dvh] m480:h-[92dvh] bg-oliv flex m480:flex-col sm:pl-0  m480:justify-between m480:pl-0 ">
+        <div className="left-sec pr-4 w-[40%] lg2:w-[50%] flex flex-col justify-center items-start m480:w-[100%] m480:items-center m480:text-center sm:px-4 sm:py-6">
+          <h1 className="hero-head text-4xl font-poppins text-scrlt font-bold leading-tight">
             <h1>
-              <AutoTypeEffect />
+              {/* <AutoTypeEffect /> */}
+              Craft your success story with ProfileBuilder
             </h1>
           </h1>
-          <p className="py-[25px] font-poppins text-scrlt font-normal m480:py-[15px]">
+          <p className="py-[25px] font-inter text-scrlt font-normal m480:py-5">
             Effortlessly craft standout resumes with Your AI Brand, showcasing
             skills and experience for a competitive edge.
           </p>
