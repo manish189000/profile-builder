@@ -113,7 +113,7 @@ const SlidingSidebar = () => {
           </div>
           {dropdownOpen && (
             <div
-              className={`${
+              className={`z-[1000] ${
                 dropdownOpen
                   ? "transition-all ease-out duration-300 transform opacity-100 scale-100"
                   : "transition-all ease-in duration-150 transform opacity-0 scale-95"

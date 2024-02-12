@@ -26,7 +26,7 @@ const GeneralAIChatPage = () => {
       <div className="mainContainer w-full h-[70%] px-4 py-3 border-b-gray-200 border-b-0 flex md:flex-col md:h-[900px]">
         <div
           className="leftContainer w-[30%]  border border-r-0
-           rounded-l-md md:w-full md:h-[50%] md:border-r-[1px] "
+           rounded-l-md md:w-full md:h-[50%] md:border-r-[1px] md:rounded-r-md "
         >
           <div className="searchDiv h-[18%] w-full flex items-center justify-center border-b-[1px] ">
             <div className="inputBox relative w-[85%]  bg-oliv flex items-center rounded-3xl p-2.5 border ">
@@ -63,14 +63,57 @@ const GeneralAIChatPage = () => {
             </button>
           </div>
         </div>
-        <div className="rightContainer w-[70%] border rounded-r-md md:w-full md:h-[50%]">
+        <div className="rightContainer w-[70%] border rounded-r-md md:w-full md:h-[50%] md:rounded-r-none md:rounded-b-md">
           <div className="header h-[18%] w-full flex items-center border-b-[1px] p-3">
             <div className="flex gap-3 items-center">
               <RiRobot2Fill className="text-3xl text-black" />
               <p className="font-inter font-bold">GPT-4</p>
             </div>
           </div>
-          <div className="w-full h-[67%] border-b-2"></div>
+          <div className="w-full h-[67%] border-b-2 p-2 overflow-x-hidden overflow-y-auto no-scrollbar">
+            <div className="flex flex-col my-2 gap-4">
+              <RiRobot2Fill className=" min-w-7 text-3xl text-left" />
+              <p className="bg-oliv px-4 py-3 text-base rounded-3xl">
+                w-full resize-none max font-inter p-3 rounded-3xl bg-oliv
+                outline-none pl-8 pr-10 text-sm w-full resize-none max
+                font-inter p-3 rounded-3xl bg-oliv outline-none pl-8 pr-10
+                text-sm w-full resize-none max font-inter p-3 rounded-3xl
+                bg-oliv outline-none pl-8 pr-10 text-sm w-full resize-none max
+                font-inter p-3 rounded-3xl bg-oliv outline-none pl-8 pr-10
+                text-sm
+              </p>
+            </div>
+            <div className="flex flex-col my-2">
+              <RiRobot2Fill className=" min-w-10 text-2xl" />
+              <p className="bg-oliv px-4 py-3 text-base rounded-3xl">
+                w-full resize-none max font-inter p-3 rounded-3xl bg-oliv
+                outline-none pl-8 pr-10 text-sm w-full resize-none max
+                font-inter p-3 rounded-3xl bg-oliv outline-none pl-8 pr-10
+                text-sm w-full resize-none max font-inter p-3 rounded-3xl
+                bg-oliv outline-none pl-8 pr-10 text-sm w-full resize-none max
+                font-inter p-3 rounded-3xl bg-oliv outline-none pl-8 pr-10
+                text-sm
+              </p>
+            </div>
+            <div className="flex flex-col my-2">
+              <RiRobot2Fill className=" min-w-10 text-2xl" />
+              <p className="bg-oliv px-4 py-3 text-base rounded-3xl">
+                w-full resize-none max font-inter p-3 rounded-3xl bg-oliv
+                outline-none pl-8 pr-10 text-sm w-full resize-none max
+                font-inter p-3 rounded-3xl bg-oliv outline-none pl-8 pr-10
+                text-sm w-full resize-none max font-inter p-3 rounded-3xl
+                bg-oliv outline-none pl-8 pr-10 text-sm w-full resize-none max
+                font-inter p-3 rounded-3xl bg-oliv outline-none pl-8 pr-10
+                text-sm
+              </p>
+            </div>
+            <div className="flex my-2">
+              <RiRobot2Fill className=" min-w-10 text-2xl" />
+              <p className="bg-oliv px-4 py-3 text-base rounded-3xl">
+                w-full resize-none
+              </p>
+            </div>
+          </div>
           <div className="prompt w-full h-[15%] flex items-center justify-center px-3">
             <div className="relative w-full">
               <textarea
