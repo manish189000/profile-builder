@@ -14,6 +14,8 @@ import { extendTheme } from "@chakra-ui/react";
 import ResumeRewriterPage from "./pages/ResumeRewriterPage";
 import GeneralAIChatPage from "./pages/GeneralAIChatPage";
 import CounsellorAIChatPage from "./pages/CounsellorAIChatPage";
+import Supportpage from "./pages/Supportpage";
+import NewSupport from "./pages/NewSupport";
 
 const App = () => {
   // 1. Import `extendTheme`
@@ -50,6 +52,8 @@ const App = () => {
       element: <MainLayout />,
       children: [
         { index: true, element: <DashboardPage /> },
+        { path: "support", element: <Supportpage /> },
+        { path: "support/new-support-request", element: <NewSupport /> },
         {
           path: "openai/generator",
           element: <GeneratedServices />,

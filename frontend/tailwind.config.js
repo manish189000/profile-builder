@@ -32,6 +32,8 @@ export default {
       lg: { max: "1023px" },
       air: { max: "820px" },
       md: { max: "767px" },
+
+      md1: { max: "766px" },
       sm: { max: "639px" },
       lg2: { max: "740px" },
       m480: { max: "480px" },
