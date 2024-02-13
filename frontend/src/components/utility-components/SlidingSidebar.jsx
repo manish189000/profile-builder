@@ -8,7 +8,7 @@ import { IoChatbubblesSharp } from "react-icons/io5";
 import { GiArtificialHive } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { PiStarFourBold } from "react-icons/pi";
-
+import { MdSupport } from "react-icons/md";
 const SlidingSidebar = () => {
   const [open, setOpen] = useState(true);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -88,6 +88,18 @@ const SlidingSidebar = () => {
               }`}
             >
               AI career chat
+            </h1>
+          </div>
+        </Link>
+        <Link to={"openai/ai-chat"}>
+          <div className="flex items-center rounded-md mt-6 px-2 py-2 hover:bg-[#eaded2]">
+            <MdSupport className="text-scrlt text-2xl block float-left cursor-pointer" />
+            <h1
+              className={`font-inter text-scrlt origin-left font-semibold px-2 text-base ${
+                !open && "hidden"
+              }`}
+            >
+              Support
             </h1>
           </div>
         </Link>
