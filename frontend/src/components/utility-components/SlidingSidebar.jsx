@@ -12,7 +12,7 @@ import { MdSupport } from "react-icons/md";
 const SlidingSidebar = () => {
   const [open, setOpen] = useState(true);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
+  const [responsiveNavbarOpen, setResponsiveNavbarOpen] = useState(false);
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
@@ -92,7 +92,7 @@ const SlidingSidebar = () => {
           </div>
         </Link>
         <Link to={"support"}>
-          <div className="flex items-center rounded-md mt-6 px-2 py-2 hover:bg-[#eaded2]">
+          <div className="flex items-center rounded-md mt-6 px-2 py-2 ">
             <MdSupport className="text-scrlt text-2xl block float-left cursor-pointer" />
             <h1
               className={`font-inter text-scrlt origin-left font-semibold px-2 text-base ${
@@ -116,11 +116,14 @@ const SlidingSidebar = () => {
           </h1>
         </div>
       </Link> */}
-      <div className="hidden responsive-sidebar air:flex justify-between items-center gap-6 w-full px-4 py-3 border-b-gray-200 border-b">
-        <div className="flex justify-between items-center gap-4 ">
-          <HiMenuAlt2 className="text-scrlt text-2xl block float-left cursor-pointer" />
+      <div className="hidden responsive-sidebar air:flex justify-between items-center gap-6 w-full px-4 py-3 border-b-gray-200 border-b  air:py-2">
+        <div className="flex justify-between items-center gap-4 air:gap-2">
+          <HiMenuAlt2
+            onClick={() => setResponsiveNavbarOpen(!responsiveNavbarOpen)}
+            className="text-scrlt text-2xl block float-left cursor-pointer"
+          />
           <h1
-            className={`text-scrlt origin-left font-semibold font-mono text-2xl`}
+            className={`text-scrlt origin-left font-semibold font-mono text-2xl air:text-xl`}
           >
             ProfileBuilder
           </h1>
@@ -129,7 +132,7 @@ const SlidingSidebar = () => {
         <div className="relative hidden air:inline-block ">
           <div className="flex items-center">
             <div
-              className=" bg-pink-400 text-white px-3 py-3 text-xl rounded-full overflow-hidden cursor-pointer bg-gradient-to-r from-indigo-900 via-lime-300 to-rose-600"
+              className=" bg-pink-400 text-white px-3 py-3 text-xl rounded-full overflow-hidden cursor-pointer bg-gradient-to-r from-indigo-900 via-lime-300 to-rose-600 air:px-2 air:py-2"
               onClick={toggleDropdown}
             >
               <PiStarFourBold />
@@ -175,6 +178,74 @@ const SlidingSidebar = () => {
           )}
         </div>
       </div>
+      {/* /////menu /// */}
+      {responsiveNavbarOpen && (
+        <div className="modal bg-oliv px-4 py-4 absolute w-full z-50">
+          <div className="menu-list flex flex-col gap-2">
+            <Link to={"/dashboard"}>
+              <div className="flex items-center rounded-md mt-2 px-2 py-2">
+                <MdDashboardCustomize className="text-scrlt text-2xl block float-left cursor-pointer m480:text-xl" />
+                <h1
+                  className={`font-inter text-scrlt origin-left font-semibold px-2 text-base ${
+                    !open && "hidden"
+                  }`}
+                >
+                  Dashboard
+                </h1>
+              </div>
+            </Link>
+            <Link to={"documents"}>
+              <div className="flex items-center rounded-md mt-2 px-2 py-2">
+                <FaBoxOpen className="text-scrlt text-2xl block float-left cursor-pointer m480:text-xl" />
+                <h1
+                  className={`font-inter text-scrlt origin-left font-semibold px-2 text-base ${
+                    !open && "hidden"
+                  }`}
+                >
+                  Generated content
+                </h1>
+              </div>
+            </Link>
+            <Link to={"openai/generator"}>
+              <div className="flex items-center rounded-md mt-2 px-2 py-2">
+                <HiClipboardDocumentCheck className="text-scrlt text-2xl block float-left cursor-pointer m480:text-xl" />
+                <h1
+                  className={`font-inter text-scrlt origin-left font-semibold px-2 text-base ${
+                    !open && "hidden"
+                  }`}
+                >
+                  Resume generator
+                </h1>
+              </div>
+            </Link>
+            <Link to={"openai/ai-chat"}>
+              <div className="flex items-center rounded-md mt-2 px-2 py-2">
+                <IoChatbubblesSharp className="text-scrlt text-2xl block float-left cursor-pointer m480:text-xl" />
+                <h1
+                  className={`font-inter text-scrlt origin-left font-semibold px-2 text-base ${
+                    !open && "hidden"
+                  }`}
+                >
+                  AI career chat
+                </h1>
+              </div>
+            </Link>
+            <Link to={"support"}>
+              <div className="flex items-center rounded-md mt-2 px-2 py-2 ">
+                <MdSupport className="text-scrlt text-2xl block float-left cursor-pointer m480:text-xl" />
+                <h1
+                  className={`font-inter text-scrlt origin-left font-semibold px-2 text-base ${
+                    !open && "hidden"
+                  }`}
+                >
+                  Support
+                </h1>
+              </div>
+            </Link>
+          </div>
+        </div>
+      )}
+
       {/* <div className="bg-green-400 w-full h-full overflow-x-hidden overflow-y-auto no-scrollbar">
         <p className="text-3xl text-black p-5">
           {" "}
