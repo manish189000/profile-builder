@@ -91,7 +91,7 @@ const SlidingSidebar = () => {
             </h1>
           </div>
         </Link>
-        <Link to={"openai/ai-chat"}>
+        <Link to={"support"}>
           <div className="flex items-center rounded-md mt-6 px-2 py-2 hover:bg-[#eaded2]">
             <MdSupport className="text-scrlt text-2xl block float-left cursor-pointer" />
             <h1
