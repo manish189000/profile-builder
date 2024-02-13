@@ -92,6 +92,18 @@ const SlidingSidebar = () => {
           </div>
         </Link>
       </div>
+      {/* <Link to={"support"}>
+        <div className="flex items-center rounded-md mt-6 px-2 py-2">
+          <IoChatbubblesSharp className="text-scrlt text-2xl block float-left cursor-pointer" />
+          <h1
+            className={`font-inter text-scrlt origin-left font-semibold px-2 text-base ${
+              !open && "hidden"
+            }`}
+          >
+            Support
+          </h1>
+        </div>
+      </Link> */}
       <div className="hidden responsive-sidebar air:flex justify-between items-center gap-6 w-full px-4 py-3 border-b-gray-200 border-b">
         <div className="flex justify-between items-center gap-4 ">
           <HiMenuAlt2 className="text-scrlt text-2xl block float-left cursor-pointer" />

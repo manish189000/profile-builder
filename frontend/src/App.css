@@ -1,4 +1,5 @@
 /* Add this to your styles or CSS file */
+/* Hide the scrollbar for WebKit browsers */
 @keyframes progressAnimation {
   from {
     transform: rotate(0deg);
