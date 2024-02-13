@@ -3,6 +3,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer components {
+  .text-editor .ql-editor {
+    @apply font-inter text-base;
+  }
+  .text-editor .ql-container {
+    @apply rounded;
+  }
+}
 @layer utilities {
   /* Hide scrollbar for Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {

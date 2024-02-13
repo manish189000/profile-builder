@@ -8,12 +8,13 @@ import GeneratedContentPage from "./pages/GeneratedContentPage";
 import AICareerChat from "./pages/AICareerChat";
 import GeneratedServices from "./pages/GeneratedServices";
 import GenerateNewResume from "./pages/GenerateResumePage";
-import { ChakraProvider } from "@chakra-ui/react";
+import { Box, ChakraProvider } from "@chakra-ui/react";
 import GenerateCoverLetter from "./pages/GenerateCoverLetterPage";
 import { extendTheme } from "@chakra-ui/react";
 import ResumeRewriterPage from "./pages/ResumeRewriterPage";
 import GeneralAIChatPage from "./pages/GeneralAIChatPage";
 import CounsellorAIChatPage from "./pages/CounsellorAIChatPage";
+import MainContextProvider from "./store/MainContext";
 
 const App = () => {
   // 1. Import `extendTheme`
@@ -83,9 +84,11 @@ const App = () => {
     },
   ]);
   return (
-    <ChakraProvider theme={theme}>
-      <RouterProvider router={router} />
-    </ChakraProvider>
+    <MainContextProvider>
+      <ChakraProvider theme={theme}>
+        <RouterProvider router={router} />
+      </ChakraProvider>
+    </MainContextProvider>
   );
 };
 

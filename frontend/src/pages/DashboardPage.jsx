@@ -7,36 +7,56 @@ import {
   RadioGroup,
   Stack,
 } from "@chakra-ui/react";
+// import { useContext } from "react";
+// import { MainContext } from "../store/MainContext";
 
 const DashboardPage = () => {
-  const [userInfo, setUserInfo] = useState({});
   const [loadingProgress, setLoadingProgress] = useState(0);
+  const [user, setUser] = useState({});
+  // const { user } = useContext(MainContext);
 
   useEffect(() => {
-    // Simulate loading animation
-    const interval = setInterval(() => {
-      setLoadingProgress((prevProgress) =>
-        prevProgress >= 80 ? 80 : prevProgress + 5
-      );
-    }, 100); // Adjust the interval based on your desired animation speed
+    const fetchData = async () => {
+      try {
+        // Fetch user information from the API
+        const response = await fetch(
+          `http://localhost:8000/api/v1/user/verify/${localStorage.getItem(
+            "jwt"
+          )}`
+        );
+        const { user: userData } = await response.json();
+        setUser(userData);
 
-    // Fetch user information
-    fetch(
-      `http://localhost:8000/api/v1/user/verify/${localStorage.getItem("jwt")}`
-    )
-      .then((res) => res.json())
-      .then((data) => setUserInfo(data));
-    () => clearInterval(interval);
-    // .finally(() => clearInterval(interval));
-  }, []);
+        // Calculate token percentage and set loading progress
+        const tokenPercentage =
+          (Number(userData?.remainingTokens) / Number(userData?.totalTokens)) *
+          100;
+        console.log(tokenPercentage);
 
+        // Simulate loading animation
+        const interval = setInterval(() => {
+          setLoadingProgress((prevProgress) =>
+            prevProgress >= tokenPercentage ? tokenPercentage : prevProgress + 3
+          );
+        }, 100); // Adjust the interval based on your desired animation speed
+
+        // Clear the interval on component unmount or when the effect is re-run
+        return () => clearInterval(interval);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    // Fetch user data when the component mounts
+    fetchData();
+  }, []); // Empty dependency array to run the effect only once on mount
   return (
     <div>
       <div className="w-full px-4 py-3 border-b-gray-200 border-b flex justify-between items-center lg:flex-col lg:items-start lg:py-6">
         <div>
           <p className="text-sm font-inter text-black">User dashboard</p>
           <h1 className=" py-4 text-3xl text-black font-inter font-bold">
-            Welcome, {userInfo?.user?.name || "User"}.
+            Welcome, {user?.name || "User"}.
           </h1>
         </div>
         <div>
@@ -57,7 +77,9 @@ const DashboardPage = () => {
             You have no subscription at the moment. Please select a subscription
             plan or a token pack
           </h3>
-          <p className="font-inter text-sm">Total 9,495 tokens left.</p>
+          <p className="font-inter text-sm">
+            Total {user?.totalTokens} tokens left.
+          </p>
           <button className="text-base flex items-center justify-center text-white w-36 outline-none rounded-3xl py-2 px-2 bg-lteal shadow transition duration-500 ease-in-out hover:shadow-lg hover:-translate-y-1.5 focus:outline-none focus:shadow-outline-blue active:shadow-none ">
             + Select Plan
           </button>
@@ -77,7 +99,7 @@ const DashboardPage = () => {
               <CircularProgressLabel>{`${loadingProgress}%`}</CircularProgressLabel>
             </CircularProgress>
             <p className="font-inter fontnt-ext font-extrabold pt">
-              949 tokens are left{" "}
+              {user?.totalTokens} tokens are left
             </p>
           </div>
         </div>
@@ -87,7 +109,7 @@ const DashboardPage = () => {
           <div className="leftover  border-r-2 w-[100%] sm:w-[100%] sm:pr-3">
             <p className="font-extrabold font-inter ">Overview</p>
             <p>words left</p>
-            <p className="font-extrabold font-inter">9,495</p>
+            <p className="font-extrabold font-inter">{user?.totalTokens}</p>
           </div>
 
           <div className="second-left  w-[100%] pl-3 border-r-2 pr-3 sm:w-[100%] sm:pr-3">

@@ -115,7 +115,8 @@ const Editor = () => {
       </div>
       <EditorToolbar />
       <ReactQuill
-        style={{ fontSize: "40px" }}
+        // style={{ fontSize: "40px" }}
+        style={{ fontSize: "40px", fontFamily: "Montserrat" }}
         className=" h-96 text-lg"
         theme="snow"
         value={text}

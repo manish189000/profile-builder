@@ -5,6 +5,7 @@ import { FiPlus } from "react-icons/fi";
 import { RiRobot2Fill } from "react-icons/ri";
 import ChatName from "../components/chat-components/ChatName";
 import { MdArrowUpward } from "react-icons/md";
+import { GiArtificialHive } from "react-icons/gi";
 
 const GeneralAIChatPage = () => {
   return (
@@ -70,47 +71,28 @@ const GeneralAIChatPage = () => {
               <p className="font-inter font-bold">GPT-4</p>
             </div>
           </div>
-          <div className="w-full h-[67%] border-b-2 p-2 overflow-x-hidden overflow-y-auto no-scrollbar">
-            <div className="flex flex-col my-2 gap-4">
-              <RiRobot2Fill className=" min-w-7 text-3xl text-left" />
-              <p className="bg-oliv px-4 py-3 text-base rounded-3xl">
-                w-full resize-none max font-inter p-3 rounded-3xl bg-oliv
-                outline-none pl-8 pr-10 text-sm w-full resize-none max
-                font-inter p-3 rounded-3xl bg-oliv outline-none pl-8 pr-10
-                text-sm w-full resize-none max font-inter p-3 rounded-3xl
-                bg-oliv outline-none pl-8 pr-10 text-sm w-full resize-none max
-                font-inter p-3 rounded-3xl bg-oliv outline-none pl-8 pr-10
-                text-sm
+          <div className="w-full h-[67%] border-b-2 py-2 px-3 overflow-x-hidden overflow-y-auto no-scrollbar">
+            <div className="flex items-end my-4 gap-2">
+              {/* <RiRobot2Fill className=" min-w-12 text-white text-5xl rounded-full bg-blue-300 p-2" /> */}
+              <GiArtificialHive className=" min-w-12 text-scrlt text-5xl rounded-full p-2" />
+
+              <p className=" px-4 py-3 text-base bg-oliv  rounded-3xl float-left ">
+                As a B.Sc graduate in Computer Science from the University of
+                Mumbai, I have cultivated proficiency in a diverse set of
+                programming languages, encompassing Python, Java, and
+                JavaScript. My expertise extends to both backend and frontend
+                frameworks, including React.js, Express.js, MongoDB, MySQL, and
+                Node.js. I boast hands-on experience utilizing these tools and
+                am particularly adept at constructing efficient and secure APIs.
+                Throughout my academic and practical journey, I have honed my
+                skills to navigate the intricate landscape of computer science,
+                equipping myself with the ability to tackle complex challenges
               </p>
             </div>
-            <div className="flex flex-col my-2">
-              <RiRobot2Fill className=" min-w-10 text-2xl" />
-              <p className="bg-oliv px-4 py-3 text-base rounded-3xl">
-                w-full resize-none max font-inter p-3 rounded-3xl bg-oliv
-                outline-none pl-8 pr-10 text-sm w-full resize-none max
-                font-inter p-3 rounded-3xl bg-oliv outline-none pl-8 pr-10
-                text-sm w-full resize-none max font-inter p-3 rounded-3xl
-                bg-oliv outline-none pl-8 pr-10 text-sm w-full resize-none max
-                font-inter p-3 rounded-3xl bg-oliv outline-none pl-8 pr-10
-                text-sm
-              </p>
-            </div>
-            <div className="flex flex-col my-2">
-              <RiRobot2Fill className=" min-w-10 text-2xl" />
-              <p className="bg-oliv px-4 py-3 text-base rounded-3xl">
-                w-full resize-none max font-inter p-3 rounded-3xl bg-oliv
-                outline-none pl-8 pr-10 text-sm w-full resize-none max
-                font-inter p-3 rounded-3xl bg-oliv outline-none pl-8 pr-10
-                text-sm w-full resize-none max font-inter p-3 rounded-3xl
-                bg-oliv outline-none pl-8 pr-10 text-sm w-full resize-none max
-                font-inter p-3 rounded-3xl bg-oliv outline-none pl-8 pr-10
-                text-sm
-              </p>
-            </div>
-            <div className="flex my-2">
-              <RiRobot2Fill className=" min-w-10 text-2xl" />
-              <p className="bg-oliv px-4 py-3 text-base rounded-3xl">
-                w-full resize-none
+            <div>
+              {/* <RiRobot2Fill className=" min-w-12 text-white text-5xl rounded-full bg-blue-300 p-2" /> */}
+              <p className=" px-4 py-3 text-base bg-blue-100 text-black rounded-3xl text-right float-right">
+                skills to navigate the intricate landscape of computer scien
               </p>
             </div>
           </div>
