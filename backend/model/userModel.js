@@ -29,6 +29,19 @@ const userSchema = new mongoose.Schema({
     minlength: 8,
     select: false,
   },
+  plan: {
+    type: String,
+    enum: ["Free", "Basic", "Premium"],
+    default: "Free",
+  },
+  totalTokens: {
+    type: Number,
+    default: 1000,
+  },
+  remainingTokens: {
+    type: Number,
+    default: 1000,
+  },
   //   todos: [
   //     {
   //       type: mongoose.Schema.Types.ObjectId,
@@ -38,6 +51,17 @@ const userSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now,
+  },
+  passwordChangedAt: {
+    type: Date,
+    select: false,
+  },
+  passwordResetToken: String,
+  passwordResetExpires: Date,
+  active: {
+    type: Boolean,
+    default: true,
+    select: false,
   },
 });
 

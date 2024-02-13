@@ -5,6 +5,7 @@ import { FiPlus } from "react-icons/fi";
 import { RiRobot2Fill } from "react-icons/ri";
 import ChatName from "../components/chat-components/ChatName";
 import { MdArrowUpward } from "react-icons/md";
+import { GiArtificialHive } from "react-icons/gi";
 
 const GeneralAIChatPage = () => {
   return (
@@ -23,10 +24,10 @@ const GeneralAIChatPage = () => {
         </h1>
       </div>
 
-      <div className="mainContainer w-full h-[70%] px-4 py-3 border-b-gray-200 border-b-0  flex">
+      <div className="mainContainer w-full h-[70%] px-4 py-3 border-b-gray-200 border-b-0 flex md:flex-col md:h-[900px]">
         <div
           className="leftContainer w-[30%]  border border-r-0
-           rounded-l-md"
+           rounded-l-md md:w-full md:h-[50%] md:border-r-[1px] md:rounded-r-md "
         >
           <div className="searchDiv h-[18%] w-full flex items-center justify-center border-b-[1px] ">
             <div className="inputBox relative w-[85%]  bg-oliv flex items-center rounded-3xl p-2.5 border ">
@@ -39,7 +40,11 @@ const GeneralAIChatPage = () => {
             </div>
           </div>
           <div className="chatTitleDiv h-[62%] w-full border-b-[1px] overflow-x-hidden overflow-y-scroll no-scrollbar">
-            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
+            <ChatName
+              title={
+                "gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk dfdfefdddgv efe"
+              }
+            />
             <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
             <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
             <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
@@ -59,14 +64,38 @@ const GeneralAIChatPage = () => {
             </button>
           </div>
         </div>
-        <div className="rightContainer w-[70%] border rounded-r-md">
+        <div className="rightContainer w-[70%] border rounded-r-md md:w-full md:h-[50%] md:rounded-r-none md:rounded-b-md">
           <div className="header h-[18%] w-full flex items-center border-b-[1px] p-3">
             <div className="flex gap-3 items-center">
               <RiRobot2Fill className="text-3xl text-black" />
               <p className="font-inter font-bold">GPT-4</p>
             </div>
           </div>
-          <div className="w-full h-[67%] border-b-2"></div>
+          <div className="w-full h-[67%] border-b-2 py-2 px-3 overflow-x-hidden overflow-y-auto no-scrollbar">
+            <div className="flex items-end my-4 gap-2">
+              {/* <RiRobot2Fill className=" min-w-12 text-white text-5xl rounded-full bg-blue-300 p-2" /> */}
+              <GiArtificialHive className=" min-w-12 text-scrlt text-5xl rounded-full p-2" />
+
+              <p className=" px-4 py-3 text-base bg-oliv  rounded-3xl float-left ">
+                As a B.Sc graduate in Computer Science from the University of
+                Mumbai, I have cultivated proficiency in a diverse set of
+                programming languages, encompassing Python, Java, and
+                JavaScript. My expertise extends to both backend and frontend
+                frameworks, including React.js, Express.js, MongoDB, MySQL, and
+                Node.js. I boast hands-on experience utilizing these tools and
+                am particularly adept at constructing efficient and secure APIs.
+                Throughout my academic and practical journey, I have honed my
+                skills to navigate the intricate landscape of computer science,
+                equipping myself with the ability to tackle complex challenges
+              </p>
+            </div>
+            <div>
+              {/* <RiRobot2Fill className=" min-w-12 text-white text-5xl rounded-full bg-blue-300 p-2" /> */}
+              <p className=" px-4 py-3 text-base bg-blue-100 text-black rounded-3xl text-right float-right">
+                skills to navigate the intricate landscape of computer scien
+              </p>
+            </div>
+          </div>
           <div className="prompt w-full h-[15%] flex items-center justify-center px-3">
             <div className="relative w-full">
               <textarea

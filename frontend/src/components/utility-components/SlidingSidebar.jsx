@@ -7,9 +7,15 @@ import { HiClipboardDocumentCheck } from "react-icons/hi2";
 import { IoChatbubblesSharp } from "react-icons/io5";
 import { GiArtificialHive } from "react-icons/gi";
 import { Link } from "react-router-dom";
+import { PiStarFourBold } from "react-icons/pi";
 
 const SlidingSidebar = () => {
   const [open, setOpen] = useState(true);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
   return (
     <div>
       <div
@@ -98,13 +104,64 @@ const SlidingSidebar = () => {
           </h1>
         </div>
       </Link> */}
-      <div className="hidden responsive-sidebar air:flex items-center gap-6 w-full px-4 py-3 border-b-gray-200 border-b">
-        <HiMenuAlt2 className="text-scrlt text-2xl block float-left cursor-pointer" />
-        <h1
-          className={`text-scrlt origin-left font-semibold font-mono text-2xl`}
-        >
-          ProfileBuilder
-        </h1>
+      <div className="hidden responsive-sidebar air:flex justify-between items-center gap-6 w-full px-4 py-3 border-b-gray-200 border-b">
+        <div className="flex justify-between items-center gap-4 ">
+          <HiMenuAlt2 className="text-scrlt text-2xl block float-left cursor-pointer" />
+          <h1
+            className={`text-scrlt origin-left font-semibold font-mono text-2xl`}
+          >
+            ProfileBuilder
+          </h1>
+        </div>
+
+        <div className="relative hidden air:inline-block ">
+          <div className="flex items-center">
+            <div
+              className=" bg-pink-400 text-white px-3 py-3 text-xl rounded-full overflow-hidden cursor-pointer bg-gradient-to-r from-indigo-900 via-lime-300 to-rose-600"
+              onClick={toggleDropdown}
+            >
+              <PiStarFourBold />
+            </div>
+          </div>
+          {dropdownOpen && (
+            <div
+              className={`z-[1000] ${
+                dropdownOpen
+                  ? "transition-all ease-out duration-300 transform opacity-100 scale-100"
+                  : "transition-all ease-in duration-150 transform opacity-0 scale-95"
+              } origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none`}
+            >
+              <div
+                className="py-1"
+                role="menu"
+                aria-orientation="vertical"
+                aria-labelledby="options-menu"
+              >
+                <a
+                  href="#"
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  role="menuitem"
+                >
+                  Option 1
+                </a>
+                <a
+                  href="#"
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  role="menuitem"
+                >
+                  Option 2
+                </a>
+                <a
+                  href="#"
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  role="menuitem"
+                >
+                  Option 3
+                </a>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
       {/* <div className="bg-green-400 w-full h-full overflow-x-hidden overflow-y-auto no-scrollbar">
         <p className="text-3xl text-black p-5">

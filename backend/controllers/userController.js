@@ -11,8 +11,10 @@ exports.createUser = async (req, res) => {
 };
 
 exports.getUsers = async (req, res, next) => {
+  const users = await User.find();
   res.status(200).json({
-    message: "this path has not yet been created",
+    status: "success",
+    users,
   });
 };
 exports.getUser = cathcAsync(async (req, res, next) => {

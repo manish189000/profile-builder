@@ -5,7 +5,8 @@ const router = express.Router();
 
 router.post("/signup", authController.signup);
 router.post("/login", authController.login);
-router.route("/").get().post();
+
+router.route("/").get(userController.getUsers).post();
 router.route("/verify/:id").get(userController.verifyUser);
 router.route("/:id").get(userController.getUser).patch().delete();
 

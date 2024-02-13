@@ -1,13 +1,15 @@
 import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import dashMockup from "../assets/dash-mockup.png";
+import { useContext } from "react";
+import { MainContext } from "../store/MainContext";
 
 const AuthPage = () => {
   const nameRef = useRef("");
   const emailRef = useRef("");
   const passwordRef = useRef("");
   const navigate = useNavigate();
-
+  const { setUser } = useContext(MainContext);
   const [isLoginPage, setIsLoginPage] = useState(true);
 
   async function loginFormSubmitHandler(e) {
@@ -36,6 +38,7 @@ const AuthPage = () => {
         emailRef.current.value = "";
         passwordRef.current.value = "";
         localStorage.setItem("jwt", response?.token);
+
         navigate("/dashboard");
         // alert("Form submitted succesfully");
       } else if (response.status === "fail") {
@@ -77,6 +80,7 @@ const AuthPage = () => {
         emailRef.current.value = "";
         passwordRef.current.value = "";
         localStorage.setItem("jwt", response?.token);
+        setUser(response.user);
         navigate("/dashboard");
         // alert("Form submitted succesfully");
       } else if (response.status === "fail") {
