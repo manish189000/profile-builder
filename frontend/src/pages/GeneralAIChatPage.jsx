@@ -6,6 +6,8 @@ import { RiRobot2Fill } from "react-icons/ri";
 import ChatName from "../components/chat-components/ChatName";
 import { MdArrowUpward } from "react-icons/md";
 import { GiArtificialHive } from "react-icons/gi";
+import AIResponse from "../components/chat-components/AIResponse";
+import UserPrompt from "../components/chat-components/UserPrompt";
 
 const GeneralAIChatPage = () => {
   return (
@@ -71,30 +73,31 @@ const GeneralAIChatPage = () => {
               <p className="font-inter font-bold">GPT-4</p>
             </div>
           </div>
-          <div className="w-full h-[67%] border-b-2 py-2 px-3 overflow-x-hidden overflow-y-auto no-scrollbar">
-            <div className="flex items-end my-4 gap-2">
-              {/* <RiRobot2Fill className=" min-w-12 text-white text-5xl rounded-full bg-blue-300 p-2" /> */}
-              <GiArtificialHive className=" min-w-12 text-scrlt text-5xl rounded-full p-2" />
-
-              <p className=" px-4 py-3 text-base bg-oliv  rounded-3xl float-left ">
-                As a B.Sc graduate in Computer Science from the University of
-                Mumbai, I have cultivated proficiency in a diverse set of
-                programming languages, encompassing Python, Java, and
-                JavaScript. My expertise extends to both backend and frontend
-                frameworks, including React.js, Express.js, MongoDB, MySQL, and
-                Node.js. I boast hands-on experience utilizing these tools and
-                am particularly adept at constructing efficient and secure APIs.
-                Throughout my academic and practical journey, I have honed my
-                skills to navigate the intricate landscape of computer science,
-                equipping myself with the ability to tackle complex challenges
-              </p>
-            </div>
-            <div>
-              {/* <RiRobot2Fill className=" min-w-12 text-white text-5xl rounded-full bg-blue-300 p-2" /> */}
-              <p className=" px-4 py-3 text-base bg-blue-100 text-black rounded-3xl text-right float-right">
-                skills to navigate the intricate landscape of computer scien
-              </p>
-            </div>
+          <div className="w-full flex flex-col h-[67%] border-b-2 py-2 px-3 overflow-x-hidden overflow-y-scroll no-scrollbar">
+            <AIResponse response="As a B.Sc graduate " />
+            <UserPrompt prompt="skills to navigate the intricate landscape of computer scien" />
+            <AIResponse
+              response="As a B.Sc graduate in Computer Science from the University of Mumbai, I
+        have cultivated proficiency in a diverse set of programming languages,
+        encompassing Python, Java, and JavaScript. My expertise extends to both
+        backend and frontend frameworks, including React.js, Express.js,
+        MongoDB, MySQL, and Node.js. I boast hands-on experience utilizing these
+        tools and am particularly adept at constructing efficient and secure
+        APIs. Throughout my academic and practical journey, I have honed my
+        skills to navigate the intricate landscape of computer science,
+        equipping myself with the ability to tackle complex challenges"
+            />
+            <UserPrompt
+              prompt="in Computer Science from the University of Mumbai, I
+        have cultivated proficiency in a diverse set of programming languages,
+        encompassing Python, Java, and JavaScript. My expertise extends to both
+        backend and frontend frameworks, including React.js, Express.js,
+        MongoDB, MySQL, and Node.js. I boast hands-on experience utilizing these
+        tools and am particularly adept at constructing efficient and secure
+        APIs. Throughout my academic and practical journey, I have honed my
+        skills to navigate the intricate landscape of computer science,
+        equipping myself with the ability to tackle complex challenges"
+            />
           </div>
           <div className="prompt w-full h-[15%] flex items-center justify-center px-3">
             <div className="relative w-full">

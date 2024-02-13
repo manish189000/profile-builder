@@ -7,14 +7,10 @@ import {
   RadioGroup,
   Stack,
 } from "@chakra-ui/react";
-// import { useContext } from "react";
-// import { MainContext } from "../store/MainContext";
 
 const DashboardPage = () => {
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [user, setUser] = useState({});
-  // const { user } = useContext(MainContext);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
