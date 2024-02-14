@@ -40,7 +40,7 @@ const HeroSection = () => {
             ProfileBuilder
           </h1>
         </div>
-        <div className="navs flex gap-8 text-[18px] font-semibold font-inter text-scrlt md:hidden">
+        <div className="navs mr-20 flex gap-8 text-base font-semibold font-raleway text-scrlt md:hidden">
           <p
             onClick={() => scrollToTarget("Choose us")}
             className="cursor-pointer"
@@ -57,7 +57,7 @@ const HeroSection = () => {
             Pricing
           </p>
         </div>
-        <div className="login font-inter text-base font-medium text-scrlt">
+        <div className="login font-raleway text-base font-semibold text-scrlt">
           <Link to={"/dashboard"}>
             <button className="loginBtn transition ease-in-out delay-100 px-5 py-2 border-[2px] border-oliv rounded-md hover:border-[2px] hover:py-2 hover:px-5 hover:border-scrlt hover:rounded-md md:hidden">
               Login
@@ -80,7 +80,7 @@ const HeroSection = () => {
       )}
 
       {/* ///////////////////////////////////////// */}
-      <div className="hero pb-10 relative pl-8 w-[100%] h-[90dvh] m480:h-[100%] bg-oliv flex m480:flex-col sm:pl-0  m480:justify-between m480:pl-0  m480:pb-24">
+      <div className="hero py-5 relative pl-8 w-[100%] h-[90dvh] m480:h-[100%] bg-oliv flex m480:flex-col sm:pl-0  m480:justify-between m480:pl-0  m480:pb-24">
         <div className="left-sec pr-4 w-[40%] lg2:w-[50%] flex flex-col justify-center items-start m480:w-[100%] m480:items-center m480:text-center sm:px-4  sm:pb-8">
           <div className="logo py-6">
             <GiArtificialHive className="text-scrlt mr-1 hidden rounded cursor-pointer m480:block m480:text-4xl" />

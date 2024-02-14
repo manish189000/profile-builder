@@ -10,6 +10,7 @@ export default {
         oliv: "var(--lightOlive)",
         lteal: "var(--lightTeal)",
         dbeige: "var(--darkBeige)",
+        drkbrown: "var(--brown)",
       },
       animation: {
         "spin-slow": "spin 2.5s linear infinite",

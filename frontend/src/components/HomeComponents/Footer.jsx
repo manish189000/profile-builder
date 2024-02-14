@@ -46,8 +46,12 @@
 // };
 
 // export default Footer;
-
-import { FaFacebook, FaGithub, FaInstagram, FaTwitter } from "react-icons/fa";
+////////////
+///////////
+/////////////////////////////////////////////////////////////////FOOTER//////////////////////////
+//////////////////
+//////////////
+import { FaFacebook, FaGithub, FaInstagram, FaXTwitter } from "react-icons/fa6";
 
 const sections = [
   {
@@ -71,7 +75,7 @@ const sections = [
 const items = [
   { name: "Facebook", icon: FaFacebook, link: "https://www.facebook.com/" },
   { name: "Instagram", icon: FaInstagram, link: "https://www.instagram.com/" },
-  { name: "Twitter", icon: FaTwitter, link: "https://twitter.com/" },
+  { name: "Twitter", icon: FaXTwitter, link: "https://twitter.com/" },
   { name: "Github", icon: FaGithub, link: "https://github.com/" },
 ];
 
@@ -80,18 +84,18 @@ const Footer = () => {
     <div className="mainContainer w-full bg-oliv py-10 px-8">
       <div
         className="innerContainer grid grid-cols-6 border-b-2 border-scrlt py-8
-      md:grid-cols-4 sm:grid-cols-2"
+      md:grid-cols-4 sm:grid-cols-2 "
       >
         {sections.map((section, index) => (
           <div key={index}>
-            <h6 className="font-bold uppercase text-lg text-scrlt pt-2 font-raleway">
+            <h6 className="font-bold uppercase text-lg text-scrlt pb-2 font-raleway sm:py-2">
               {section.title}
             </h6>
             <ul>
               {section.items.map((item, i) => (
                 <li
                   key={i}
-                  className="py-1 text-scrlt cursor-pointer font-inter font-medium"
+                  className="py-1 text-scrlt cursor-pointer text-base font-inter font-normal"
                 >
                   {item}
                 </li>
@@ -100,11 +104,11 @@ const Footer = () => {
           </div>
         ))}
 
-        <div className="col-span-2 md:pt-8 text-scrlt">
-          <p className="font-bold uppercase font-raleway">
+        <div className="col-span-2 md:pt-8 text-scrlt ">
+          <p className="font-bold uppercase font-raleway text-lg">
             Subscribe to our newsletter
           </p>
-          <p className="py-4 font-inter font-medium">
+          <p className="py-4 font-inter text-base font-normal">
             The latest news, articles, and resources, sent to your inbox weekly.
           </p>
           <form className="flex flex-col sm:flex-row">
@@ -129,7 +133,7 @@ const Footer = () => {
           <span className=" font-mono">ProfileBuilder </span>
           2024. All rights reserved.
         </p>
-        <div className="flex gap-5 pt-4 text-2xl sm:mx-auto">
+        <div className="flex gap-5 pt-4 text-2xl text-scrlt sm:mx-auto">
           {items.map((x, index) => {
             return <x.icon key={index} className="" />;
           })}
