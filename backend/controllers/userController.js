@@ -31,6 +31,9 @@ exports.verifyUser = cathcAsync(async (req, res, next) => {
   const decoded = jwt.verify(req.params.id, process.env.JWT_SECRET);
   console.log(decoded);
   const user = await User.findById(decoded.id);
+  if (!user) {
+    return next(new AppError("Invalid JWT", 401));
+  }
   res.status(200).json({
     status: "success",
     user,
