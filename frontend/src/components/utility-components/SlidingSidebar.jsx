@@ -123,7 +123,7 @@ const SlidingSidebar = () => {
             className="text-scrlt text-2xl block float-left cursor-pointer"
           />
           <h1
-            className={`text-scrlt origin-left font-semibold font-mono text-2xl air:text-xl`}
+            className={`text-scrlt origin-left font-bold font-mono text-2xl air:text-xl`}
           >
             ProfileBuilder
           </h1>
