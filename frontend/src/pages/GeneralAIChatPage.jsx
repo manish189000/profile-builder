@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { IoIosArrowBack } from "react-icons/io";
+import { Link, useNavigate } from "react-router-dom";
+import { IoIosArrowRoundBack } from "react-icons/io";
 import { IoSearchOutline } from "react-icons/io5";
 import { FiPlus } from "react-icons/fi";
 import { RiRobot2Fill } from "react-icons/ri";
@@ -13,6 +13,7 @@ import { useState } from "react";
 const GeneralAIChatPage = () => {
   const promptRef = useRef(null);
   const [promptArray, setPromptArray] = useState([]);
+  const navigate = useNavigate();
   console.log(promptArray);
   function promptHandler() {
     const newQuestion = promptRef.current?.value;
@@ -34,13 +35,12 @@ const GeneralAIChatPage = () => {
   return (
     <>
       <div className="w-full px-4 py-3 border-b-gray-200 border-b ">
-        <div className="flex gap-1 items-center text-black">
-          <Link to={`/dashboard`}>
-            <IoIosArrowBack />
-          </Link>
-          <Link to={`/dashboard`}>
-            <p className="text-sm font-inter text-black">Back to dashboard</p>
-          </Link>
+        <div
+          onClick={() => navigate(-1)}
+          className="flex gap-1 items-center cursor-pointer text-black"
+        >
+          <IoIosArrowRoundBack />
+          <p className="text-sm font-inter cursor-pointer text-black">Back</p>
         </div>
         <h1 className=" py-4 text-3xl text-black font-inter font-bold pb-0">
           AI Chat Bot

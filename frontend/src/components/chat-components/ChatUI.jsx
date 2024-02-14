@@ -6,7 +6,7 @@ import { SiChatbot } from "react-icons/si";
 
 // import { Link2 } from "react-router-dom";
 
-const AICareerChat = () => {
+const ChatUI = () => {
   return (
     <>
       <div className="w-full px-4 py-3 border-b-gray-200 border-b ">
@@ -61,12 +61,4 @@ const AICareerChat = () => {
   );
 };
 
-export default AICareerChat;
-
-// import ChatUI from "../components/chat-components/ChatUI";
-
-// const AICareerChat = () => {
-//   return <ChatUI />;
-// };
-
-// export default AICareerChat;
+export default ChatUI;

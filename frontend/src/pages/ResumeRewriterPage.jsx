@@ -1,4 +1,4 @@
-import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowBack, IoIosArrowRoundBack } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import Label from "../components/utility-components/Label";
 import Input from "../components/utility-components/Input";
@@ -36,13 +36,13 @@ const ResumeRewriterPage = () => {
           onClick={() => navigate(-1)}
           className="flex gap-1 items-center text-black"
         >
-          <IoIosArrowBack />
+          <IoIosArrowRoundBack />
           <p className="text-sm font-inter cursor-pointer text-black">Back</p>
         </div>
         <h1 className=" py-4 text-3xl text-black font-inter font-bold pb-0">
           Resume rewriter
         </h1>
-        <p className="text-sm text-gray-300 font-inter py-2">
+        <p className="text-sm text-gray-400 font-inter py-2">
           We'll refine your resume to match the job description and highlight
           your qualifications.
         </p>

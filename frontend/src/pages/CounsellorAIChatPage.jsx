@@ -3,30 +3,53 @@ import { MdArrowUpward } from "react-icons/md";
 import { RiRobot2Fill } from "react-icons/ri";
 import ChatName from "../components/chat-components/ChatName";
 import { IoSearchOutline } from "react-icons/io5";
-import { IoIosArrowBack } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { IoIosArrowRoundBack } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
+import { useState } from "react";
+import UserPrompt from "../components/chat-components/UserPrompt";
+import AIResponse from "../components/chat-components/AIResponse";
 
 const CounsellorAIChatPage = () => {
+  const promptRef = useRef(null);
+  const [promptArray, setPromptArray] = useState([]);
+  const navigate = useNavigate();
+  function promptHandler() {
+    const newQuestion = promptRef.current?.value;
+    if (!newQuestion) {
+      return alert("Enter a prompt");
+    }
+    setPromptArray((prev) => [
+      ...prev,
+      {
+        question: newQuestion,
+        answer: "AI currently isn't working",
+      },
+    ]);
+
+    // Clear the input field after updating the state
+    promptRef.current.value = "";
+  }
+
   return (
     <>
       <div className="w-full px-4 py-3 border-b-gray-200 border-b ">
-        <div className="flex gap-1 items-center text-black">
-          <Link to={`/dashboard`}>
-            <IoIosArrowBack />
-          </Link>
-          <Link to={`/dashboard`}>
-            <p className="text-sm font-inter text-black">Back to dashboard</p>
-          </Link>
+        <div
+          onClick={() => navigate(-1)}
+          className="flex gap-1 items-center cursor-pointer text-black"
+        >
+          <IoIosArrowRoundBack />
+          <p className="text-sm font-inter cursor-pointer text-black">Back</p>
         </div>
         <h1 className=" py-4 text-3xl text-black font-inter font-bold pb-0">
           AI Chat Bot
         </h1>
       </div>
 
-      <div className="mainContainer w-full h-[70%] px-4 py-3 border-b-gray-200 border-b-0  flex">
+      <div className="mainContainer w-full h-[70%] px-4 py-3 border-b-gray-200 border-b-0 flex md:flex-col md:h-[900px]">
         <div
           className="leftContainer w-[30%]  border border-r-0
-         rounded-l-md"
+           rounded-l-md md:w-full md:h-[50%] md:border-r-[1px] md:rounded-r-md "
         >
           <div className="searchDiv h-[18%] w-full flex items-center justify-center border-b-[1px] ">
             <div className="inputBox relative w-[85%]  bg-oliv flex items-center rounded-3xl p-2.5 border ">
@@ -39,7 +62,11 @@ const CounsellorAIChatPage = () => {
             </div>
           </div>
           <div className="chatTitleDiv h-[62%] w-full border-b-[1px] overflow-x-hidden overflow-y-scroll no-scrollbar">
-            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
+            <ChatName
+              title={
+                "gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk dfdfefdddgv efe"
+              }
+            />
             <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
             <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
             <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
@@ -59,24 +86,61 @@ const CounsellorAIChatPage = () => {
             </button>
           </div>
         </div>
-        <div className="rightContainer w-[70%] border rounded-r-md">
+        <div className="rightContainer w-[70%] border rounded-r-md md:w-full md:h-[50%] md:rounded-r-none md:rounded-b-md">
           <div className="header h-[18%] w-full flex items-center border-b-[1px] p-3">
             <div className="flex gap-3 items-center">
               <RiRobot2Fill className="text-3xl text-black" />
               <p className="font-inter font-bold">GPT-4</p>
             </div>
           </div>
-          <div className="w-full h-[67%] border-b-2"></div>
-          <div className="prompt w-full h-[15%] flex items-center justify-center px-3">
-            <div className="relative w-full">
+          <div className="w-full flex flex-col h-[67%] py-2 pl-3 pr-6 overflow-x-hidden overflow-y-scroll no-scrollbar">
+            {/* <AIResponse response="As a B.Sc graduate " />
+            <UserPrompt prompt="skills to navigate the intricate landscape of computer scien" />
+            <AIResponse
+              response="As a B.Sc graduate in Computer Science from the University of Mumbai, I
+        have cultivated proficiency in a diverse set of programming languages,
+        encompassing Python, Java, and JavaScript. My expertise extends to both
+        backend and frontend frameworks, including React.js, Express.js,
+        MongoDB, MySQL, and Node.js. I boast hands-on experience utilizing these
+        tools and am particularly adept at constructing efficient and secure
+        APIs. Throughout my academic and practical journey, I have honed my
+        skills to navigate the intricate landscape of computer science,
+        equipping myself with the ability to tackle complex challenges"
+            />
+            <UserPrompt
+              prompt="in Computer Science from the University of Mumbai, I
+        have cultivated proficiency in a diverse set of programming languages,
+        encompassing Python, Java, and JavaScript. My expertise extends to both
+        backend and frontend frameworks, including React.js, Express.js,
+        MongoDB, MySQL, and Node.js. I boast hands-on experience utilizing these
+        tools and am particularly adept at constructing efficient and secure
+        APIs. Throughout my academic and practical journey, I have honed my
+        skills to navigate the intricate landscape of computer science,
+        equipping myself with the ability to tackle complex challenges"
+            /> */}
+            {promptArray.map((item) => {
+              return (
+                <>
+                  <UserPrompt prompt={item?.question} />
+                  <AIResponse response={item?.answer} />
+                </>
+              );
+            })}
+          </div>
+          <div className="prompt w-full h-[15%]  px-3">
+            <div className="relative w-full flex items-center justify-center h-full">
               <textarea
+                ref={promptRef}
                 rows="1"
                 cols={"10"}
                 type="text"
-                className="w-full resize-none max font-inter p-3 rounded-3xl bg-oliv outline-none pl-8 pr-10 text-sm"
+                className="w-full resize-none max font-inter py-3 rounded-3xl bg-oliv outline-none pl-8 pr-10 text-sm"
                 placeholder="Enter your message"
               />
-              <button className="absolute translate-x-10 top-[50%] translate-y-[-57.5%] right-12 bg-scrlt p-2 rounded-full">
+              <button
+                onClick={promptHandler}
+                className="absolute translate-x-10 top-[50%] translate-y-[-50%] right-11 bg-scrlt p-2 rounded-full"
+              >
                 <MdArrowUpward className=" text-white  text-xl hover:-translate-y-[2px] transition-all " />
               </button>
             </div>
