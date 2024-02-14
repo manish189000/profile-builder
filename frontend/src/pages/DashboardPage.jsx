@@ -24,15 +24,15 @@ const DashboardPage = () => {
         setUser(userData);
 
         // Calculate token percentage and set loading progress
-        const tokenPercentage =
-          (Number(userData?.remainingTokens) / Number(userData?.totalTokens)) *
-          100;
-        console.log(tokenPercentage);
+        // const tokenPercentage =
+        //   (Number(userData?.remainingTokens) / Number(userData?.totalTokens)) *
+        //   100;
+        // console.log(tokenPercentage);
 
         // Simulate loading animation
         const interval = setInterval(() => {
           setLoadingProgress((prevProgress) =>
-            prevProgress >= tokenPercentage ? tokenPercentage : prevProgress + 3
+            prevProgress >= 85 ? 85 : prevProgress + 3
           );
         }, 100); // Adjust the interval based on your desired animation speed
 
@@ -74,7 +74,7 @@ const DashboardPage = () => {
             plan or a token pack
           </h3>
           <p className="font-inter text-sm">
-            Total {user?.totalTokens} tokens left.
+            Total {user?.totalTokens ? user?.totalTokens : "895"} tokens left.
           </p>
           <button className="text-base flex items-center justify-center text-white w-36 outline-none rounded-3xl py-2 px-2 bg-lteal shadow transition duration-500 ease-in-out hover:shadow-lg hover:-translate-y-1.5 focus:outline-none focus:shadow-outline-blue active:shadow-none ">
             + Select Plan
@@ -95,7 +95,7 @@ const DashboardPage = () => {
               <CircularProgressLabel>{`${loadingProgress}%`}</CircularProgressLabel>
             </CircularProgress>
             <p className="font-inter fontnt-ext font-extrabold pt">
-              {user?.totalTokens} tokens are left
+              {user?.totalTokens ? user?.totalTokens : "895"} tokens are left
             </p>
           </div>
         </div>

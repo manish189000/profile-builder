@@ -8,10 +8,6 @@ const todoSchema = new mongoose.Schema({
     minlength: [3, "Todo title must be atleast 3 characters"],
     trim: true,
   },
-  // uid: {
-  //   type: mongoose.Schema.ObjectId,
-  //   required: [true, "Todo must have an id"],
-  // },
   description: {
     type: String,
     trim: true,
