@@ -5,11 +5,32 @@ import { FiPlus } from "react-icons/fi";
 import { RiRobot2Fill } from "react-icons/ri";
 import ChatName from "../components/chat-components/ChatName";
 import { MdArrowUpward } from "react-icons/md";
-import { GiArtificialHive } from "react-icons/gi";
 import AIResponse from "../components/chat-components/AIResponse";
 import UserPrompt from "../components/chat-components/UserPrompt";
+import { useRef } from "react";
+import { useState } from "react";
 
 const GeneralAIChatPage = () => {
+  const promptRef = useRef(null);
+  const [promptArray, setPromptArray] = useState([]);
+  console.log(promptArray);
+  function promptHandler() {
+    const newQuestion = promptRef.current?.value;
+    if (!newQuestion) {
+      return alert("Enter a prompt");
+    }
+    setPromptArray((prev) => [
+      ...prev,
+      {
+        question: newQuestion,
+        answer: "AI currently isn't working",
+      },
+    ]);
+
+    // Clear the input field after updating the state
+    promptRef.current.value = "";
+  }
+
   return (
     <>
       <div className="w-full px-4 py-3 border-b-gray-200 border-b ">
@@ -73,8 +94,8 @@ const GeneralAIChatPage = () => {
               <p className="font-inter font-bold">GPT-4</p>
             </div>
           </div>
-          <div className="w-full flex flex-col h-[67%] border-b-2 py-2 px-3 overflow-x-hidden overflow-y-scroll no-scrollbar">
-            <AIResponse response="As a B.Sc graduate " />
+          <div className="w-full flex flex-col h-[67%] py-2 pl-3 pr-6 overflow-x-hidden overflow-y-scroll no-scrollbar">
+            {/* <AIResponse response="As a B.Sc graduate " />
             <UserPrompt prompt="skills to navigate the intricate landscape of computer scien" />
             <AIResponse
               response="As a B.Sc graduate in Computer Science from the University of Mumbai, I
@@ -97,18 +118,30 @@ const GeneralAIChatPage = () => {
         APIs. Throughout my academic and practical journey, I have honed my
         skills to navigate the intricate landscape of computer science,
         equipping myself with the ability to tackle complex challenges"
-            />
+            /> */}
+            {promptArray.map((item) => {
+              return (
+                <>
+                  <UserPrompt prompt={item?.question} />
+                  <AIResponse response={item?.answer} />
+                </>
+              );
+            })}
           </div>
-          <div className="prompt w-full h-[15%] flex items-center justify-center px-3">
-            <div className="relative w-full">
+          <div className="prompt w-full h-[15%]  px-3">
+            <div className="relative w-full flex items-center justify-center h-full">
               <textarea
+                ref={promptRef}
                 rows="1"
                 cols={"10"}
                 type="text"
-                className="w-full resize-none max font-inter p-3 rounded-3xl bg-oliv outline-none pl-8 pr-10 text-sm"
+                className="w-full resize-none max font-inter py-3 rounded-3xl bg-oliv outline-none pl-8 pr-10 text-sm"
                 placeholder="Enter your message"
               />
-              <button className="absolute translate-x-10 top-[50%] translate-y-[-57.5%] right-12 bg-scrlt p-2 rounded-full">
+              <button
+                onClick={promptHandler}
+                className="absolute translate-x-10 top-[50%] translate-y-[-50%] right-11 bg-scrlt p-2 rounded-full"
+              >
                 <MdArrowUpward className=" text-white  text-xl hover:-translate-y-[2px] transition-all " />
               </button>
             </div>
