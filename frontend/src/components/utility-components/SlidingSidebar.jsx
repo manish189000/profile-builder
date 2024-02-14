@@ -180,7 +180,10 @@ const SlidingSidebar = () => {
       </div>
       {/* /////menu /// */}
       {responsiveNavbarOpen && (
-        <div className="modal bg-oliv px-4 py-4 absolute w-full z-50">
+        <div
+          onClick={() => setResponsiveNavbarOpen(false)}
+          className="modal bg-oliv px-4 py-4 absolute w-full z-50"
+        >
           <div className="menu-list flex flex-col gap-2">
             <Link to={"/dashboard"}>
               <div className="flex items-center rounded-md mt-2 px-2 py-2">

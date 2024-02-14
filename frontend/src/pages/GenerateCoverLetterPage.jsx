@@ -1,4 +1,4 @@
-import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowBack, IoIosArrowRoundBack } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { languages } from "countries-list";
@@ -36,13 +36,13 @@ const GenerateCoverLetter = () => {
           onClick={() => navigate(-1)}
           className="flex gap-1 items-center text-black"
         >
-          <IoIosArrowBack />
+          <IoIosArrowRoundBack />
           <p className="text-sm font-inter cursor-pointer text-black">Back</p>
         </div>
         <h1 className=" py-4 text-3xl text-black font-inter font-bold pb-0">
           Cover letter generator
         </h1>
-        <p className="text-sm text-gray-300 font-inter py-2">
+        <p className="text-sm text-gray-400 font-inter py-2">
           Provide us with a snapshot of your key details, and our AI will craft
           a tailored resume just for you.
         </p>
