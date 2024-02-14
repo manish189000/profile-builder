@@ -30,7 +30,7 @@ const AICareerChat = () => {
 
       <div className="w-full px-4 py-3 border-b-gray-200  flex flex-wrap items-center gap-8 sm:flex-col">
         <Link to={"general-chat"}>
-          <div className="service w-[300px] sm:w-full h-60 sm:h-[220px] shadow-lg rounded-md p-6 sm:px-2 cursor-pointer group ">
+          <div className="service w-[300px]  sm:w-full h-60 sm:h-[220px] shadow-lg rounded-md p-6 flex flex-col gap-3 cursor-pointer group sm:p-0 sm:border-b-2 sm:shadow-none sm:justify-center group ">
             <FaRegStar className="star text-lg " />
             <div className="wrapp flex flex-col gap-2 items-center pt-6">
               <SiChatbot className="text-lteal text-[60px] pb-2 block cursor-pointer transition-transform duration-300 transform origin-center group-hover:scale-110" />
