@@ -13,6 +13,7 @@ import OurFeatures from "./OurFeatures";
 import PricingCards from "./PricingCards";
 import { Link } from "react-router-dom";
 import FourSimpleSteps from "./FourSimpleSteps";
+import Resume1 from "./Resume1";
 
 const HeroSection = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -114,6 +115,7 @@ const HeroSection = () => {
       </div>
       <FourSimpleSteps />
       <WhyChooseUs ref={chooseUsRef} />
+      <Resume1 />
       <OurFeatures ref={featuresRef} />
       <PricingCards ref={priceRef} />
     </>

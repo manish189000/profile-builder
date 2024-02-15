@@ -9,12 +9,34 @@ import AIResponse from "../components/chat-components/AIResponse";
 import UserPrompt from "../components/chat-components/UserPrompt";
 import { useRef } from "react";
 import { useState } from "react";
+import { useContext } from "react";
+import { MainContext } from "../store/MainContext";
+import {
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+  Stack,
+} from "@chakra-ui/react";
 
 const GeneralAIChatPage = () => {
   const promptRef = useRef(null);
+  const { user, setStateReload } = useContext(MainContext);
+  // const [selectedConversation, setSelectedConversation] = useState(0);
+  // console.log(
+  //   "Message 0: ",
+  //   user.conversations.map((item) => console.log(item._id))
+  // );
+  const foundItem = user?.conversations?.find(
+    (item) => item?._id === "65cdfb38e36686a16786e022"
+  );
+
+  console.log("Message 1: ", foundItem?.messages);
+
+  console.log("hello");
   const [promptArray, setPromptArray] = useState([]);
+  const [errorVisible, setErrorVisible] = useState(false);
   const navigate = useNavigate();
-  console.log(promptArray);
   function promptHandler() {
     const newQuestion = promptRef.current?.value;
     if (!newQuestion) {
@@ -31,10 +53,59 @@ const GeneralAIChatPage = () => {
     // Clear the input field after updating the state
     promptRef.current.value = "";
   }
+  async function createNewChat() {
+    try {
+      const response = await fetch(
+        `http://localhost:8000/api/v1/conversation/`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json", // Add other headers as needed
+            authorization: `Bearer ${localStorage.getItem("jwt")}`,
+          },
+        }
+      );
+
+      if (!response.ok) {
+        console.log(response);
+        setErrorVisible(true);
+        setTimeout(() => {
+          setErrorVisible(false);
+        }, 3000);
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      if (response) {
+        setStateReload(Math.random());
+      }
+
+      // Handle the success case if needed
+      console.log("Chat created successfully");
+    } catch (error) {
+      setErrorVisible(true);
+      console.error("Error creating chat:", error);
+
+      // Hide the error after 3 seconds
+      setTimeout(() => {
+        setErrorVisible(false);
+      }, 3000);
+    }
+  }
 
   return (
     <>
       <div className="w-full px-4 py-3 border-b-gray-200 border-b ">
+        {errorVisible && (
+          <Stack
+            spacing={3}
+            className="absolute font-inter rounded left-[50%] -translate-x-[50%]"
+          >
+            <Alert status="error">
+              <AlertIcon />
+              There was an error processing your request
+            </Alert>
+          </Stack>
+        )}
         <div
           onClick={() => navigate(-1)}
           className="flex gap-1 items-center cursor-pointer text-black"
@@ -46,7 +117,6 @@ const GeneralAIChatPage = () => {
           AI Chat Bot
         </h1>
       </div>
-
       <div className="mainContainer w-full h-[70%] px-4 py-3 border-b-gray-200 border-b-0 flex md:flex-col md:h-[900px]">
         <div
           className="leftContainer w-[30%]  border border-r-0
@@ -63,25 +133,17 @@ const GeneralAIChatPage = () => {
             </div>
           </div>
           <div className="chatTitleDiv h-[62%] w-full border-b-[1px] overflow-x-hidden overflow-y-scroll">
-            <ChatName
-              title={
-                "gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk dfdfefdddgv efe"
-              }
-            />
-            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
-            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
-            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
-            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
-            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
-            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
-            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
-            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
-            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
-            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
-            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
+            {user?.conversations?.map((conversation) => {
+              return (
+                <ChatName key={conversation._id} title={conversation?.title} />
+              );
+            })}
           </div>
           <div className="newChat h-[20%] w-full flex items-center justify-center">
-            <button className="input flex items-center justify-center gap-3 font-inter w-[85%] px-3 py-[10px] my-4 bg-[#3F292B] text-oliv outline-none border rounded-3xl cursor-pointer transition duration-500 ease-in-out hover:shadow-lg hover:-translate-y-1.5 focus:outline-none focus:shadow-outline-blue lg:hover:shadow lg:hover:-translate-y-0 ">
+            <button
+              onClick={createNewChat}
+              className="input flex items-center justify-center gap-3 font-inter w-[85%] px-3 py-[10px] my-4 bg-[#3F292B] text-oliv outline-none border rounded-3xl cursor-pointer transition duration-500 ease-in-out hover:shadow-lg hover:-translate-y-1.5 focus:outline-none focus:shadow-outline-blue lg:hover:shadow lg:hover:-translate-y-0 "
+            >
               <FiPlus />
               New chat
             </button>
@@ -95,14 +157,14 @@ const GeneralAIChatPage = () => {
             </div>
           </div>
           <div className="w-full flex flex-col h-[67%] py-2 pl-3 sm:pl-1 pr-6 sm:pr-[12px] overflow-x-hidden overflow-y-scroll no-scrollbar">
-            {promptArray.map((item) => {
+            {/* {user?.conversations[0]?.messages?.map((item) => {
               return (
                 <>
                   <UserPrompt prompt={item?.question} />
                   <AIResponse response={item?.answer} />
                 </>
               );
-            })}
+            })} */}
           </div>
           <div className="prompt w-full h-[15%]  px-3 sm:px-0">
             <div className="relative w-full flex items-center justify-center h-full">

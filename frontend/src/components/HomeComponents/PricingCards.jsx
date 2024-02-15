@@ -46,7 +46,7 @@ const PricingCards = forwardRef((children, ref) => {
       className="pricing bg-dbeige font-inter pt-24 pb-28 px-8 sm:px-4 sm:py-28"
     >
       <div className="pricingtext pb-20 text-center font-inter text-scrlt ">
-        <h1 className="text-4xl font-bold">Our Pricing</h1>
+        <h1 className="text-4xl font-raleway font-bold">Our Pricing</h1>
         <p className="font-normal pt-2">
           Seamless pricing that scales with your needs. Begin free, upgrade
           flexibly.

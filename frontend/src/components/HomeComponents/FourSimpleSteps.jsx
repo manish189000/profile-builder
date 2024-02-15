@@ -14,7 +14,7 @@ const FourSimpleSteps = () => {
   const navigate = useNavigate();
   return (
     <>
-      <div className="mainContainer px-8 py-24 w-full bg-oliv text-center">
+      <div className="mainContainer px-8 sm:px-4 py-24 w-full bg-oliv text-center">
         <div className="title text-center px-8 pb-8 text-[34px] font-bold font-raleway text-scrlt sm:px-4">
           Make A Resume In 4 Simple Steps
         </div>
@@ -47,7 +47,7 @@ const FourSimpleSteps = () => {
           </div>
         </div>
         <button
-          onClick={() => navigate("/dashboard")}
+          onClick={() => navigate("/dashboard/openai/generator")}
           className=" bg-scrlt mt-8 px-12 py-4 border-none outline-none rounded-full text-white font-semibold font-inter text-base"
         >
           Create resume
