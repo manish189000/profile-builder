@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { FaRegStar } from "react-icons/fa";
 import { FaHandsHelping } from "react-icons/fa";
-import { IoIosArrowBack, IoIosArrowRoundBack } from "react-icons/io";
+import { IoIosArrowRoundBack } from "react-icons/io";
 import { SiChatbot } from "react-icons/si";
 
 // import { Link2 } from "react-router-dom";

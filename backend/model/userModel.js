@@ -42,6 +42,9 @@ const userSchema = new mongoose.Schema({
     type: Number,
     default: 1000,
   },
+  conversations: [
+    { type: mongoose.Schema.Types.ObjectId, ref: "Conversation" },
+  ],
   //   todos: [
   //     {
   //       type: mongoose.Schema.Types.ObjectId,

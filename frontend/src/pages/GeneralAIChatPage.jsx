@@ -62,7 +62,7 @@ const GeneralAIChatPage = () => {
               <IoSearchOutline className="absolute top-[50%] translate-x-[-50%] translate-y-[-50%] left-6 text-xl" />
             </div>
           </div>
-          <div className="chatTitleDiv h-[62%] w-full border-b-[1px] overflow-x-hidden overflow-y-scroll no-scrollbar">
+          <div className="chatTitleDiv h-[62%] w-full border-b-[1px] overflow-x-hidden overflow-y-scroll">
             <ChatName
               title={
                 "gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk dfdfefdddgv efe"
@@ -87,38 +87,14 @@ const GeneralAIChatPage = () => {
             </button>
           </div>
         </div>
-        <div className="rightContainer w-[70%] border rounded-r-md md:w-full md:h-[50%] md:rounded-r-none md:rounded-b-md">
-          <div className="header h-[18%] w-full flex items-center border-b-[1px] p-3">
+        <div className="rightContainer w-[70%] border sm:border-none rounded-r-md md:w-full md:h-[50%] md:rounded-r-none md:rounded-b-md">
+          <div className="header h-[18%] w-full flex items-center border-b-[1px] sm:border p-3">
             <div className="flex gap-3 items-center">
               <RiRobot2Fill className="text-3xl text-black" />
               <p className="font-inter font-bold">GPT-4</p>
             </div>
           </div>
-          <div className="w-full flex flex-col h-[67%] py-2 pl-3 pr-6 overflow-x-hidden overflow-y-scroll no-scrollbar">
-            {/* <AIResponse response="As a B.Sc graduate " />
-            <UserPrompt prompt="skills to navigate the intricate landscape of computer scien" />
-            <AIResponse
-              response="As a B.Sc graduate in Computer Science from the University of Mumbai, I
-        have cultivated proficiency in a diverse set of programming languages,
-        encompassing Python, Java, and JavaScript. My expertise extends to both
-        backend and frontend frameworks, including React.js, Express.js,
-        MongoDB, MySQL, and Node.js. I boast hands-on experience utilizing these
-        tools and am particularly adept at constructing efficient and secure
-        APIs. Throughout my academic and practical journey, I have honed my
-        skills to navigate the intricate landscape of computer science,
-        equipping myself with the ability to tackle complex challenges"
-            />
-            <UserPrompt
-              prompt="in Computer Science from the University of Mumbai, I
-        have cultivated proficiency in a diverse set of programming languages,
-        encompassing Python, Java, and JavaScript. My expertise extends to both
-        backend and frontend frameworks, including React.js, Express.js,
-        MongoDB, MySQL, and Node.js. I boast hands-on experience utilizing these
-        tools and am particularly adept at constructing efficient and secure
-        APIs. Throughout my academic and practical journey, I have honed my
-        skills to navigate the intricate landscape of computer science,
-        equipping myself with the ability to tackle complex challenges"
-            /> */}
+          <div className="w-full flex flex-col h-[67%] py-2 pl-3 sm:pl-1 pr-6 sm:pr-[12px] overflow-x-hidden overflow-y-scroll no-scrollbar">
             {promptArray.map((item) => {
               return (
                 <>
@@ -128,7 +104,7 @@ const GeneralAIChatPage = () => {
               );
             })}
           </div>
-          <div className="prompt w-full h-[15%]  px-3">
+          <div className="prompt w-full h-[15%]  px-3 sm:px-0">
             <div className="relative w-full flex items-center justify-center h-full">
               <textarea
                 ref={promptRef}
@@ -153,3 +129,29 @@ const GeneralAIChatPage = () => {
 };
 
 export default GeneralAIChatPage;
+{
+  /* <AIResponse response="As a B.Sc graduate " />
+            <UserPrompt prompt="skills to navigate the intricate landscape of computer scien" />
+            <AIResponse
+              response="As a B.Sc graduate in Computer Science from the University of Mumbai, I
+        have cultivated proficiency in a diverse set of programming languages,
+        encompassing Python, Java, and JavaScript. My expertise extends to both
+        backend and frontend frameworks, including React.js, Express.js,
+        MongoDB, MySQL, and Node.js. I boast hands-on experience utilizing these
+        tools and am particularly adept at constructing efficient and secure
+        APIs. Throughout my academic and practical journey, I have honed my
+        skills to navigate the intricate landscape of computer science,
+        equipping myself with the ability to tackle complex challenges"
+            />
+            <UserPrompt
+              prompt="in Computer Science from the University of Mumbai, I
+        have cultivated proficiency in a diverse set of programming languages,
+        encompassing Python, Java, and JavaScript. My expertise extends to both
+        backend and frontend frameworks, including React.js, Express.js,
+        MongoDB, MySQL, and Node.js. I boast hands-on experience utilizing these
+        tools and am particularly adept at constructing efficient and secure
+        APIs. Throughout my academic and practical journey, I have honed my
+        skills to navigate the intricate landscape of computer science,
+        equipping myself with the ability to tackle complex challenges"
+            /> */
+}

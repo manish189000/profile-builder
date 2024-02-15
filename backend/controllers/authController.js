@@ -24,6 +24,11 @@ exports.signup = cathcAsync(async (req, res, next) => {
   });
 });
 
+exports.protect = cathcAsync(async (req, res, next) => {
+  const authHeader = req.headers.authorization.replace("Bearer ", "");
+  next();
+});
+
 exports.login = cathcAsync(async (req, res, next) => {
   if (!req.body.email || !req.body.password) {
     return next(new AppError("Please input email and password", 400));

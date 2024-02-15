@@ -18,7 +18,10 @@ exports.getUsers = async (req, res, next) => {
   });
 };
 exports.getUser = cathcAsync(async (req, res, next) => {
-  const user = await User.findById(req.params.id);
+  const user = await User.findById(req.params.id).populate({
+    path: "conversations",
+    model: "Conversation",
+  });
   if (!user) {
     return next(new AppError("User does not exist", 404));
   }
