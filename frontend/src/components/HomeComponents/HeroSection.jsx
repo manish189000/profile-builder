@@ -12,6 +12,7 @@ import WhyChooseUs from "./WhyChooseUs";
 import OurFeatures from "./OurFeatures";
 import PricingCards from "./PricingCards";
 import { Link } from "react-router-dom";
+import FourSimpleSteps from "./FourSimpleSteps";
 
 const HeroSection = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -71,10 +72,7 @@ const HeroSection = () => {
       {isOpen && (
         <div className="menu-modal transition ease-in-out delay-150 absolute z-50 right-0 text-center px-4 py-3 w-[100px] bg-scrlt  font-inter font-medium text-base text-oliv shadow-lg rounded-b-md">
           <div className="menuOpt flex flex-col gap-2 items-center">
-            <p>Features</p>
-            <p onClick={scrollToTarget}>Pricing</p>
             <p>Login</p>
-            <p></p>
           </div>
         </div>
       )}
@@ -114,6 +112,7 @@ const HeroSection = () => {
           />
         </div>
       </div>
+      <FourSimpleSteps />
       <WhyChooseUs ref={chooseUsRef} />
       <OurFeatures ref={featuresRef} />
       <PricingCards ref={priceRef} />

@@ -13,7 +13,7 @@ const WhyChooseUs = forwardRef((props, ref) => {
       >
         <div className="right-sec pb-8">
           <h1 className="whychoose text-center px-8 text-[34px] font-bold font-raleway text-scrlt sm:px-4">
-            Why Choose Our Platform?
+            Why Choose Our Resume Builder ?
           </h1>
         </div>
         <div
