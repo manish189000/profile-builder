@@ -11,16 +11,27 @@ exports.createUser = async (req, res) => {
 };
 
 exports.getUsers = async (req, res, next) => {
-  const users = await User.find();
+  const users = await User.find().populate({
+    path: "conversations",
+    model: "Conversation",
+    populate: {
+      path: "messages",
+      model: "Message",
+    },
+  });
   res.status(200).json({
     status: "success",
     users,
   });
 };
 exports.getUser = cathcAsync(async (req, res, next) => {
-  const user = await User.findById(req.params.id).populate({
+  const user = await User.findById(req.user.id).populate({
     path: "conversations",
     model: "Conversation",
+    populate: {
+      path: "messages",
+      model: "Message",
+    },
   });
   if (!user) {
     return next(new AppError("User does not exist", 404));

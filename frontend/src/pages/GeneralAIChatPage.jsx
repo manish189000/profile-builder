@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { IoSearchOutline } from "react-icons/io5";
 import { FiPlus } from "react-icons/fi";
@@ -11,45 +11,72 @@ import { useRef } from "react";
 import { useState } from "react";
 import { useContext } from "react";
 import { MainContext } from "../store/MainContext";
-import {
-  Alert,
-  AlertIcon,
-  AlertTitle,
-  AlertDescription,
-  Stack,
-} from "@chakra-ui/react";
+import { Alert, AlertIcon, Stack } from "@chakra-ui/react";
 
 const GeneralAIChatPage = () => {
   const promptRef = useRef(null);
   const { user, setStateReload } = useContext(MainContext);
-  // const [selectedConversation, setSelectedConversation] = useState(0);
-  // console.log(
-  //   "Message 0: ",
-  //   user.conversations.map((item) => console.log(item._id))
-  // );
-  const foundItem = user?.conversations?.find(
-    (item) => item?._id === "65cdfb38e36686a16786e022"
+  const [selectedConversation, setSelectedConversation] = useState(
+    user.conversations[0]._id
   );
-
-  console.log("Message 1: ", foundItem?.messages);
-
-  console.log("hello");
+  console.log("selectedConversationId: ", selectedConversation);
+  if (user.conversations[0]) {
+    console.log("Message: ", user.conversations[0]);
+    // setSelectedConversation(user.conversations[0]._id);
+  }
+  // console.log("Message: ", user?.conversations && user.conversations[0]);
+  const foundItem = user?.conversations?.find(
+    (item) => item?._id === selectedConversation
+  );
   const [promptArray, setPromptArray] = useState([]);
   const [errorVisible, setErrorVisible] = useState(false);
   const navigate = useNavigate();
-  function promptHandler() {
+  async function promptHandler() {
     const newQuestion = promptRef.current?.value;
     if (!newQuestion) {
       return alert("Enter a prompt");
     }
-    setPromptArray((prev) => [
-      ...prev,
-      {
-        question: newQuestion,
-        answer: "AI currently isn't working",
-      },
-    ]);
+    const body = {
+      question: newQuestion,
+      answer: "This AI is currently unavailable",
+    };
+    try {
+      const response = await fetch(
+        `http://localhost:8000/api/v1/message/${selectedConversation}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json", // Add other headers as needed
+            authorization: `Bearer ${localStorage.getItem("jwt")}`,
+          },
+          body: JSON.stringify(body),
+        }
+      );
 
+      if (!response.ok) {
+        console.log(response);
+        setErrorVisible(true);
+        setTimeout(() => {
+          setErrorVisible(false);
+        }, 3000);
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      if (response) {
+        setStateReload(Math.random());
+      }
+
+      // Handle the success case if needed
+      console.log("Chat created successfully");
+    } catch (error) {
+      setErrorVisible(true);
+      console.error("Error creating chat:", error);
+
+      // Hide the error after 3 seconds
+      setTimeout(() => {
+        setErrorVisible(false);
+      }, 3000);
+    }
     // Clear the input field after updating the state
     promptRef.current.value = "";
   }
@@ -135,7 +162,12 @@ const GeneralAIChatPage = () => {
           <div className="chatTitleDiv h-[62%] w-full border-b-[1px] overflow-x-hidden overflow-y-scroll">
             {user?.conversations?.map((conversation) => {
               return (
-                <ChatName key={conversation._id} title={conversation?.title} />
+                <ChatName
+                  setSelectedConversation={setSelectedConversation}
+                  id={conversation._id}
+                  key={conversation._id}
+                  title={conversation?.title}
+                />
               );
             })}
           </div>
@@ -157,14 +189,14 @@ const GeneralAIChatPage = () => {
             </div>
           </div>
           <div className="w-full flex flex-col h-[67%] py-2 pl-3 sm:pl-1 pr-6 sm:pr-[12px] overflow-x-hidden overflow-y-scroll no-scrollbar">
-            {/* {user?.conversations[0]?.messages?.map((item) => {
+            {foundItem?.messages?.map((item) => {
               return (
                 <>
                   <UserPrompt prompt={item?.question} />
                   <AIResponse response={item?.answer} />
                 </>
               );
-            })} */}
+            })}
           </div>
           <div className="prompt w-full h-[15%]  px-3 sm:px-0">
             <div className="relative w-full flex items-center justify-center h-full">

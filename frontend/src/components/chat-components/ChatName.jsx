@@ -1,9 +1,12 @@
 /* eslint-disable react/prop-types */
 import { IoMdChatbubbles } from "react-icons/io";
 
-const ChatName = ({ title }) => {
+const ChatName = ({ title, setSelectedConversation, id }) => {
   return (
-    <div className="w-full border-b-[1px] px-3 py-6">
+    <div
+      onClick={() => setSelectedConversation(id)}
+      className="w-full cursor-pointer border-b-[1px] px-3 py-6"
+    >
       <div className="w-full flex items-center">
         <IoMdChatbubbles className="min-w-[15%] w-12 text-2xl" />
         <div className="w-[75%]">

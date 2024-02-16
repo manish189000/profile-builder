@@ -26,6 +26,9 @@ exports.signup = cathcAsync(async (req, res, next) => {
 
 exports.protect = cathcAsync(async (req, res, next) => {
   const authHeader = req.headers.authorization.replace("Bearer ", "");
+  const decoded = jwt.verify(authHeader, process.env.JWT_SECRET);
+  const user = await User.findById(decoded.id);
+  req.user = user;
   next();
 });
 

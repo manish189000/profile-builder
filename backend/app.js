@@ -5,6 +5,7 @@ const userRouter = require("./routes/userRouter");
 const conversationRouter = require("./routes/conversationRouter");
 const dotenv = require("dotenv").config({ path: "./config.env" });
 const globalErrorHandler = require("./controllers/errorController");
+const messageRouter = require("./routes/messageRouter");
 const cors = require("cors");
 //MIDDLEWARES
 
@@ -15,6 +16,7 @@ app.use(cors());
 app.use("/api/v1/todos", todoRouter);
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/conversation", conversationRouter);
+app.use("/api/v1/message", messageRouter);
 app.all("*", (req, res, next) => {
   //   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
   res.status(404).json({
