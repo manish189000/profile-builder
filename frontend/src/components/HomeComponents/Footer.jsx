@@ -225,7 +225,7 @@ const Footer = () => {
       <div className="belowFooter flex mx-auto justify-between text-center text-gray-500 sm:flex-col">
         <p className="py-4 text-scrlt font-raleway font-medium">
           <span className="font-medium">&copy;</span>
-          <span className="logoHeading  tracking-wider cursor-pointer font-mono text-lg mr-4 ml-1 font-bold text-scrlt m480:text-[22px]">
+          <span className="logoHeading  tracking-wider cursor-pointer font-mono text-lg font-bold text-scrlt m480:text-[22px]">
             ProfileBuilder
           </span>
           2024. All rights reserved.
