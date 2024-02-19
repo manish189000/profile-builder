@@ -22,6 +22,12 @@ exports.createConversation = cathcAsync(async (req, res, next) => {
 exports.deleteConversation = cathcAsync(async (req, res, next) => {
   const { id } = req.params;
   const conversation = await Converstion.findByIdAndDelete(id);
+  if (!conversation) {
+    res.status(404).json({
+      status: "fail",
+      message: "Invalid conversation id",
+    });
+  }
   res.status(200).json({
     status: "success",
     data: null,

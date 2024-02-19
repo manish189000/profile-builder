@@ -44,11 +44,14 @@ const UserProfileDropdown = () => {
             </p>
 
             <p
-              href="#"
+              onClick={() => {
+                navigate("profile");
+                setDropdownOpen(false);
+              }}
               className="block font-inter px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
               role="menuitem"
             >
-              Option 2
+              Profile
             </p>
             <p
               href="#"

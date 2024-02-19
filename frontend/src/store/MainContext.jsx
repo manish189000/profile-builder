@@ -1,7 +1,11 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect, createContext } from "react";
 
-export const MainContext = createContext({});
+export const MainContext = createContext({
+  user: {},
+  setUser: () => {},
+  setStateReload: () => {},
+});
 
 const MainContextProvider = ({ children }) => {
   const [user, setUser] = useState({});

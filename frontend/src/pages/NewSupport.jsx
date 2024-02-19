@@ -1,10 +1,7 @@
-import React, { useState } from "react";
-import Dropdown from "./Dropdown-items";
 import Dropdown2 from "./Dropdown2";
-// import { Input } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { IoIosArrowRoundBack } from "react-icons/io";
-import Input from "../components/utility-components/Input";
+import DropdownItems from "./DropdownItems";
 
 const NewSupport = () => {
   return (
@@ -31,7 +28,7 @@ const NewSupport = () => {
             <div className="left-form ">
               {/* Set width to 50% on desktop */}
               <p className=" font-inter pb-3">Support Category:</p>
-              <Dropdown />
+              <DropdownItems />
             </div>
             <div className="right-form ">
               {/* Set width to 50% on desktop */}
@@ -43,25 +40,11 @@ const NewSupport = () => {
           <div className="subject w-full flex flex-col pt-6">
             <p className=" font-inter">Subject:</p>
             <div className="input-box-centre">
-              {/* <Input /> */}
               <input
                 type={"text"}
-                // ref={ref}
                 placeholder={"Please enter subject of the support request"}
-                // onChange={(e) => setState(e.target.value)}
                 className="input font-inter w-[45%] px-3 py-2 mb-4 text-[#3F292B] outline-none border rounded-lg sm:w-full"
               />
-
-              {/* <Input
-                placeholder="Please enter subject of the support request"
-                size="sm"
-                style={{
-                  padding: "1.2rem",
-                  width: "25rem",
-                  marginTop: "1rem",
-                  borderRadius: "0.5rem",
-                }}
-              /> */}
             </div>
           </div>
 

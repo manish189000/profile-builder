@@ -66,6 +66,31 @@ const userSchema = new mongoose.Schema({
     default: true,
     select: false,
   },
+  fullName: {
+    type: String,
+    trim: true,
+    maxlength: [50, "Full name must be at most 50 characters"],
+  },
+  shortDescription: {
+    type: String,
+    trim: true,
+    maxlength: [400, "Short description must be at most 200 characters"],
+  },
+  educationDetails: {
+    type: String,
+    trim: true,
+    maxlength: [400, "Education details must be at most 500 characters"],
+  },
+  workExperience: {
+    type: String,
+    trim: true,
+    maxlength: [600, "Work experience must be at most 500 characters"],
+  },
+  achievements: {
+    type: String,
+    trim: true,
+    maxlength: [400, "Achievements must be at most 300 characters"],
+  },
 });
 
 userSchema.pre("save", async function (next) {

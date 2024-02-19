@@ -11,11 +11,13 @@ import { useRef } from "react";
 import { useState } from "react";
 import { useContext } from "react";
 import { MainContext } from "../store/MainContext";
-import { Alert, AlertIcon, Stack } from "@chakra-ui/react";
+import ErrorDialogBox from "../components/utility-components/ErrorDialogBox";
 
 const GeneralAIChatPage = () => {
   const promptRef = useRef(null);
   const { user, setStateReload } = useContext(MainContext);
+  const [errorVisible, setErrorVisible] = useState(false);
+  const navigate = useNavigate();
   const [selectedConversation, setSelectedConversation] = useState(
     user.conversations[0]._id
   );
@@ -24,13 +26,19 @@ const GeneralAIChatPage = () => {
     console.log("Message: ", user.conversations[0]);
     // setSelectedConversation(user.conversations[0]._id);
   }
-  // console.log("Message: ", user?.conversations && user.conversations[0]);
-  const foundItem = user?.conversations?.find(
+  const getSelectedConversation = user?.conversations?.find(
     (item) => item?._id === selectedConversation
   );
-  const [promptArray, setPromptArray] = useState([]);
-  const [errorVisible, setErrorVisible] = useState(false);
-  const navigate = useNavigate();
+  function handleError(error) {
+    setErrorVisible(true);
+    console.error("Error creating chat:", error);
+
+    // Hide the error after 3 seconds
+    setTimeout(() => {
+      setErrorVisible(false);
+    }, 3000);
+  }
+
   async function promptHandler() {
     const newQuestion = promptRef.current?.value;
     if (!newQuestion) {
@@ -69,18 +77,12 @@ const GeneralAIChatPage = () => {
       // Handle the success case if needed
       console.log("Chat created successfully");
     } catch (error) {
-      setErrorVisible(true);
-      console.error("Error creating chat:", error);
-
-      // Hide the error after 3 seconds
-      setTimeout(() => {
-        setErrorVisible(false);
-      }, 3000);
+      handleError(error);
     }
     // Clear the input field after updating the state
     promptRef.current.value = "";
   }
-  async function createNewChat() {
+  async function handleCreateChat() {
     try {
       const response = await fetch(
         `http://localhost:8000/api/v1/conversation/`,
@@ -103,36 +105,24 @@ const GeneralAIChatPage = () => {
       }
 
       if (response) {
+        //Reload the page after creating new chat
         setStateReload(Math.random());
+
+        //set the current chat as the newly created one
+        setSelectedConversation(response?.conversation?._id);
       }
 
       // Handle the success case if needed
       console.log("Chat created successfully");
     } catch (error) {
-      setErrorVisible(true);
-      console.error("Error creating chat:", error);
-
-      // Hide the error after 3 seconds
-      setTimeout(() => {
-        setErrorVisible(false);
-      }, 3000);
+      handleError(error);
     }
   }
 
   return (
     <>
       <div className="w-full px-4 py-3 border-b-gray-200 border-b ">
-        {errorVisible && (
-          <Stack
-            spacing={3}
-            className="absolute font-inter rounded left-[50%] -translate-x-[50%]"
-          >
-            <Alert status="error">
-              <AlertIcon />
-              There was an error processing your request
-            </Alert>
-          </Stack>
-        )}
+        <ErrorDialogBox errorVisible={errorVisible} />
         <div
           onClick={() => navigate(-1)}
           className="flex gap-1 items-center cursor-pointer text-black"
@@ -163,6 +153,7 @@ const GeneralAIChatPage = () => {
             {user?.conversations?.map((conversation) => {
               return (
                 <ChatName
+                  setErrorVisible={setErrorVisible}
                   setSelectedConversation={setSelectedConversation}
                   id={conversation._id}
                   key={conversation._id}
@@ -173,7 +164,7 @@ const GeneralAIChatPage = () => {
           </div>
           <div className="newChat h-[20%] w-full flex items-center justify-center">
             <button
-              onClick={createNewChat}
+              onClick={handleCreateChat}
               className="input flex items-center justify-center gap-3 font-inter w-[85%] px-3 py-[10px] my-4 bg-[#3F292B] text-oliv outline-none border rounded-3xl cursor-pointer transition duration-500 ease-in-out hover:shadow-lg hover:-translate-y-1.5 focus:outline-none focus:shadow-outline-blue lg:hover:shadow lg:hover:-translate-y-0 "
             >
               <FiPlus />
@@ -189,7 +180,7 @@ const GeneralAIChatPage = () => {
             </div>
           </div>
           <div className="w-full flex flex-col h-[67%] py-2 pl-3 sm:pl-1 pr-6 sm:pr-[12px] overflow-x-hidden overflow-y-scroll no-scrollbar">
-            {foundItem?.messages?.map((item) => {
+            {getSelectedConversation?.messages?.map((item) => {
               return (
                 <>
                   <UserPrompt prompt={item?.question} />
@@ -223,29 +214,3 @@ const GeneralAIChatPage = () => {
 };
 
 export default GeneralAIChatPage;
-{
-  /* <AIResponse response="As a B.Sc graduate " />
-            <UserPrompt prompt="skills to navigate the intricate landscape of computer scien" />
-            <AIResponse
-              response="As a B.Sc graduate in Computer Science from the University of Mumbai, I
-        have cultivated proficiency in a diverse set of programming languages,
-        encompassing Python, Java, and JavaScript. My expertise extends to both
-        backend and frontend frameworks, including React.js, Express.js,
-        MongoDB, MySQL, and Node.js. I boast hands-on experience utilizing these
-        tools and am particularly adept at constructing efficient and secure
-        APIs. Throughout my academic and practical journey, I have honed my
-        skills to navigate the intricate landscape of computer science,
-        equipping myself with the ability to tackle complex challenges"
-            />
-            <UserPrompt
-              prompt="in Computer Science from the University of Mumbai, I
-        have cultivated proficiency in a diverse set of programming languages,
-        encompassing Python, Java, and JavaScript. My expertise extends to both
-        backend and frontend frameworks, including React.js, Express.js,
-        MongoDB, MySQL, and Node.js. I boast hands-on experience utilizing these
-        tools and am particularly adept at constructing efficient and secure
-        APIs. Throughout my academic and practical journey, I have honed my
-        skills to navigate the intricate landscape of computer science,
-        equipping myself with the ability to tackle complex challenges"
-            /> */
-}
