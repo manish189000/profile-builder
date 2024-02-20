@@ -24,7 +24,7 @@ const GeneratedContentPage = () => {
         </button>
       </div>
       {/* ////////////////////////////////////////////////////////////// */}
-      <div className="buttonSection px-4 py-4 border-b-gray-200 border-b flex gap-4">
+      <div className="buttonSection px-4 py-4 border-b-gray-200 border-b flex gap-4 air:flex-wrap">
         <Button
           colorScheme="#a45848"
           className="text-scrlt bg-none hover:bg-dbeige"

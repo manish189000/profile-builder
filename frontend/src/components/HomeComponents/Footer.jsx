@@ -151,7 +151,7 @@ import { FaFacebook, FaGithub, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="mainContainer w-full bg-oliv py-10 px-4">
+    <div className="mainContainer w-full bg-oliv py-10 px-8 air:px-4">
       <div className="innerContainer flex justify-between lg:flex-col lg:gap-10 border-b-2 border-scrlt py-8 m480:pt-0">
         {/* Section 1 */}
         <div>
