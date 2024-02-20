@@ -151,7 +151,7 @@ import { FaFacebook, FaGithub, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="mainContainer w-full bg-oliv py-10 px-4">
+    <div className="mainContainer w-full bg-oliv py-10 px-8 air:px-4">
       <div className="innerContainer flex justify-between lg:flex-col lg:gap-10 border-b-2 border-scrlt py-8 m480:pt-0">
         {/* Section 1 */}
         <div>
@@ -225,7 +225,7 @@ const Footer = () => {
       <div className="belowFooter flex mx-auto justify-between text-center text-gray-500 sm:flex-col">
         <p className="py-4 text-scrlt font-raleway font-medium">
           <span className="font-medium">&copy;</span>
-          <span className="logoHeading  tracking-wider cursor-pointer font-mono text-lg mr-4 ml-1 font-bold text-scrlt m480:text-[22px]">
+          <span className="logoHeading  tracking-wider cursor-pointer font-mono text-lg font-bold text-scrlt m480:text-[22px]">
             ProfileBuilder
           </span>
           2024. All rights reserved.

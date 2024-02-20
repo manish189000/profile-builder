@@ -13,8 +13,10 @@ import OurFeatures from "./OurFeatures";
 import PricingCards from "./PricingCards";
 import { Link } from "react-router-dom";
 import FourSimpleSteps from "./FourSimpleSteps";
+import StepComponent1 from "../../components/HomeComponents/Stepcomponent1";
+import StepComponent2 from "../../components/HomeComponents/stepcomponent2";
+import StepComponent3 from "../../components/HomeComponents/Stepcomponent3";
 import Resume1 from "./Resume1";
-
 const HeroSection = () => {
   const [isOpen, setIsOpen] = useState(false);
   const chooseUsRef = useRef(null);
@@ -117,6 +119,9 @@ const HeroSection = () => {
       <WhyChooseUs ref={chooseUsRef} />
       <Resume1 />
       <OurFeatures ref={featuresRef} />
+      <StepComponent1 />
+      <StepComponent2 />
+      <StepComponent3 />
       <PricingCards ref={priceRef} />
     </>
   );

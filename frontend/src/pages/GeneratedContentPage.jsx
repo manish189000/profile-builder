@@ -1,30 +1,78 @@
+import { FiPlus } from "react-icons/fi";
+import { IoIosArrowRoundBack } from "react-icons/io";
+import { Link } from "react-router-dom";
+import { Button, ButtonGroup } from "@chakra-ui/react";
 const GeneratedContentPage = () => {
   return (
-    <div>
-      GeneratedContentPage
-      <form class="flex items-center space-x-6">
-        <div class="shrink-0">
-          <img
-            class="h-16 w-16 object-cover rounded-full"
-            src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1361&q=80"
-            alt="Current profile photo"
-          />
+    <>
+      <div className="w-full px-4 py-3 border-b-gray-200 border-b flex justify-between items-center">
+        <div className="innerContainer">
+          <div className="flex gap-1 items-center text-black">
+            <Link to={`/dashboard`}>
+              <IoIosArrowRoundBack />
+            </Link>
+            <Link to={`/dashboard`}>
+              <p className="text-sm font-inter text-black">Back to dashboard</p>
+            </Link>
+          </div>
+          <h1 className=" py-4 text-3xl text-black font-inter font-bold pb-0">
+            My Documents
+          </h1>
         </div>
-        <label class="block">
-          <span class="sr-only">Choose profile photo</span>
-          <input
-            type="file"
-            class="block w-full text-sm text-slate-500
-      file:mr-4 file:py-2 file:px-4
-      file:rounded-full file:border-0
-      file:text-sm file:font-semibold
-      file:bg-violet-50 file:text-violet-700
-      hover:file:bg-violet-100
-    "
-          />
-        </label>
-      </form>
-    </div>
+        <button className="text-base text-white w-36 outline-none rounded-3xl py-2 px-2 bg-lteal shadow transition duration-500 ease-in-out hover:shadow-lg hover:-translate-y-1.5 focus:outline-none focus:shadow-outline-blue active:shadow-none lg:hover:shadow lg:hover:-translate-y-0 sm:w-40 flex items-center justify-center gap-2">
+          <FiPlus /> New Folder
+        </button>
+      </div>
+      {/* ////////////////////////////////////////////////////////////// */}
+      <div className="buttonSection px-4 py-4 border-b-gray-200 border-b flex gap-4 air:flex-wrap">
+        <Button
+          colorScheme="#a45848"
+          className="text-scrlt bg-none hover:bg-dbeige"
+          paddingX="1.5rem"
+          border="none"
+          fontWeight="600"
+          variant="outline"
+          borderRadius="30px"
+        >
+          All Documents
+        </Button>
+        <Button
+          colorScheme="#a45848"
+          className="text-scrlt bg-none hover:bg-dbeige"
+          paddingX="1.5rem"
+          border="none"
+          fontWeight="600"
+          variant="outline"
+          borderRadius="30px"
+        >
+          Resumes
+        </Button>
+        <Button
+          colorScheme="#a45848"
+          className="text-scrlt bg-none hover:bg-dbeige"
+          paddingX="1.5rem"
+          border="none"
+          fontWeight="600"
+          variant="outline"
+          borderRadius="30px"
+        >
+          Re-Written Resumes
+        </Button>
+        <Button
+          colorScheme="#a45848"
+          className="text-scrlt bg-none hover:bg-dbeige"
+          paddingX="1.5rem"
+          border="none"
+          fontWeight="600"
+          variant="outline"
+          borderRadius="30px"
+        >
+          Cover letters
+        </Button>
+      </div>
+      {/* ///////////////////////////////////////////////////// */}
+      <div className="content-container px-4 py-4 border-b-gray-200 border-b bg-oliv"></div>
+    </>
   );
 };
 

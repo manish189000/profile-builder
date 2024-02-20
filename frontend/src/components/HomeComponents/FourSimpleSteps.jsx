@@ -14,41 +14,39 @@ const FourSimpleSteps = () => {
   const navigate = useNavigate();
   return (
     <>
-      <div className="mainContainer px-8 sm:px-4 py-24 w-full bg-oliv text-center">
-        <div className="title text-center px-8 pb-8 text-[34px] font-bold font-raleway text-scrlt sm:px-4">
+      <div className="mainContainer px-8 py-24 w-full bg-oliv text-center">
+        <div className="title text-center px-8 pb-8 text-[34px] font-bold font-raleway text-scrlt sm:px-0">
           Make A Resume In 4 Simple Steps
         </div>
-        <div className="steps flex justify-between text-center md:flex-col">
-          <div className="sections flex-1  text-xl font-relaway font-medium text-scrlt flex flex-col items-center gap-5 px-5 py-10 rounded-lg  hover:scale-105 transition ease-in-out delay-150">
-            {/* <TbTemplate className="text-[4rem] bg-oliv p-4 rounded-full text-lteal" /> */}
+        <div className="steps flex justify-between text-left md:flex-col">
+          <div className="sections flex-1 text-xl font-relaway font-medium text-scrlt flex flex-col  gap-5 px-5 py-10 rounded-lg  hover:scale-105 transition ease-in-out delay-150 sm:px-0 items-center text-center">
             <img src={temp} alt="" className="w-[4rem]" />
-            <p className="w-[75%] lg:w-[85%]">1. Pick your favorite template</p>
+            <p className="">Step 1</p>
+            <p className="w-[75%] lg:w-[85%]">Pick your favorite template</p>
           </div>
-          <div className="sections flex-1  text-xl font-relaway font-medium text-scrlt  flex flex-col items-center gap-5 px-5 py-10 rounded-lg  hover:scale-105 transition ease-in-out delay-150">
-            {/* <LuFileType className="text-[4rem] bg-oliv p-4 rounded-full text-lteal" /> */}
-            <img src={text} alt="" className="w-[4rem] text-green-400" />
-            <p className="w-[75%] lg:w-[85%]">
-              2. Choose text to tell your story
-            </p>
+          <div className="sections flex-1 text-xl font-relaway font-medium text-scrlt  flex flex-col  gap-5 px-5 py-10 rounded-lg  hover:scale-105 transition ease-in-out delay-150 sm:px-0 items-center text-center">
+            <img src={text} alt="" className="w-[4rem] " />
+            <p className="">Step 2</p>
+            <p className="w-[75%] lg:w-[85%]">Choose text to tell your story</p>
           </div>
-          <div className="sections flex-1  text-xl font-relaway font-medium text-scrlt flex flex-col items-center gap-5 px-5 py-10 rounded-lg  hover:scale-105 transition ease-in-out delay-150 ">
-            {/* <RiRobot2Line className="text-[4rem] bg-oliv p-4 rounded-full text-lteal" /> */}
+          <div className="sections flex-1 text-xl font-relaway font-medium text-scrlt flex flex-col  gap-5 px-5 py-10 rounded-lg  hover:scale-105 transition ease-in-out delay-150 sm:px-0 items-center text-center">
             <img src={ai} alt="" className="w-[4rem]" />
+            <p className="">Step 3</p>
             <p className="w-[75%] lg:w-[85%]">
-              3. Our AI will generate the resume for you
+              Our AI will generate the resume for you
             </p>
           </div>
-          <div className="sections flex-1 text-xl font-relaway font-medium text-scrlt flex flex-col items-center gap-5 px-5 py-10 rounded-lg hover:scale-105 transition ease-in-out delay-150">
-            {/* <FaFileDownload className="text-[4rem] bg-oliv p-4 rounded-full text-lteal" /> */}
+          <div className="sections flex-1 text-xl font-relaway font-medium text-scrlt flex flex-col  gap-5 px-5 py-10 rounded-lg hover:scale-105 transition ease-in-out delay-150 sm:px-0 items-center text-center">
             <img src={dwnld} alt="" className="w-[4rem] " />
-            <p className="w-[75%] lg:w-[85%]">
-              4. Download in any file format you need
+            <p className="">Step 4</p>
+            <p className="w-[75%] lg:w-[85%] ">
+              Download in any file format you need
             </p>
           </div>
         </div>
         <button
-          onClick={() => navigate("/dashboard/openai/generator")}
-          className=" bg-scrlt mt-8 px-12 py-4 border-none outline-none rounded-full text-white font-semibold font-inter text-base"
+          onClick={() => navigate("/dashboard")}
+          className=" text-scrlt font-inter px-4 py-2 rounded-md border-2 transition ease-in-out delay-100 hover:bg-scrlt hover:text-oliv font-semibold border-scrlt mt-8"
         >
           Create resume
         </button>
