@@ -35,7 +35,7 @@ const MainLayout = () => {
   return (
     <div className="flex h-dvh air:flex-col">
       <SlidingSidebar />
-      <div className="w-full h-full overflow-x-hidden overflow-y-auto no-scrollbar">
+      <div className="w-full h-full relative overflow-x-hidden overflow-y-auto no-scrollbar">
         <SearchHeader />
         <Outlet />
       </div>

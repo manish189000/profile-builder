@@ -17,6 +17,7 @@ import CounsellorAIChatPage from "./pages/CounsellorAIChatPage";
 import Supportpage from "./pages/Supportpage";
 import NewSupport from "./pages/NewSupport";
 import MainContextProvider from "./store/MainContext";
+import Profile from "./pages/Profile";
 const App = () => {
   // 1. Import `extendTheme`
 
@@ -52,6 +53,10 @@ const App = () => {
       element: <MainLayout />,
       children: [
         { index: true, element: <DashboardPage /> },
+        {
+          path: "profile",
+          element: <Profile />,
+        },
         { path: "support", element: <Supportpage /> },
         { path: "support/new-support-request", element: <NewSupport /> },
         {

@@ -16,6 +16,7 @@ import FourSimpleSteps from "./FourSimpleSteps";
 import StepComponent1 from "../../components/HomeComponents/Stepcomponent1";
 import StepComponent2 from "../../components/HomeComponents/stepcomponent2";
 import StepComponent3 from "../../components/HomeComponents/Stepcomponent3";
+import Resume1 from "./Resume1";
 const HeroSection = () => {
   const [isOpen, setIsOpen] = useState(false);
   const chooseUsRef = useRef(null);
@@ -116,6 +117,7 @@ const HeroSection = () => {
       </div>
       <FourSimpleSteps />
       <WhyChooseUs ref={chooseUsRef} />
+      <Resume1 />
       <OurFeatures ref={featuresRef} />
       <StepComponent1 />
       <StepComponent2 />

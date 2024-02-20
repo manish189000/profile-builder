@@ -27,8 +27,11 @@ const DashboardPage = () => {
         // const tokenPercentage =
         //   (Number(userData?.remainingTokens) / Number(userData?.totalTokens)) *
         //   100;
-        // console.log(tokenPercentage);
-
+        // const interval = setInterval(() => {
+        //   setLoadingProgress((prevProgress) =>
+        //     prevProgress >= tokenPercentage ? tokenPercentage : prevProgress + 3
+        //   );
+        // }, 100); // Adjust the interval based on your desired animation speed
         // Simulate loading animation
         const interval = setInterval(() => {
           setLoadingProgress((prevProgress) =>

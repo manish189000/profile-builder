@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { IoSearchOutline } from "react-icons/io5";
 import { FiPlus } from "react-icons/fi";
@@ -9,32 +9,120 @@ import AIResponse from "../components/chat-components/AIResponse";
 import UserPrompt from "../components/chat-components/UserPrompt";
 import { useRef } from "react";
 import { useState } from "react";
+import { useContext } from "react";
+import { MainContext } from "../store/MainContext";
+import ErrorDialogBox from "../components/utility-components/ErrorDialogBox";
 
 const GeneralAIChatPage = () => {
   const promptRef = useRef(null);
-  const [promptArray, setPromptArray] = useState([]);
+  const { user, setStateReload } = useContext(MainContext);
+  const [errorVisible, setErrorVisible] = useState(false);
   const navigate = useNavigate();
-  console.log(promptArray);
-  function promptHandler() {
+  const [selectedConversation, setSelectedConversation] = useState(
+    user.conversations[0]._id
+  );
+  console.log("selectedConversationId: ", selectedConversation);
+  if (user.conversations[0]) {
+    console.log("Message: ", user.conversations[0]);
+    // setSelectedConversation(user.conversations[0]._id);
+  }
+  const getSelectedConversation = user?.conversations?.find(
+    (item) => item?._id === selectedConversation
+  );
+  function handleError(error) {
+    setErrorVisible(true);
+    console.error("Error creating chat:", error);
+
+    // Hide the error after 3 seconds
+    setTimeout(() => {
+      setErrorVisible(false);
+    }, 3000);
+  }
+
+  async function promptHandler() {
     const newQuestion = promptRef.current?.value;
     if (!newQuestion) {
       return alert("Enter a prompt");
     }
-    setPromptArray((prev) => [
-      ...prev,
-      {
-        question: newQuestion,
-        answer: "AI currently isn't working",
-      },
-    ]);
+    const body = {
+      question: newQuestion,
+      answer: "This AI is currently unavailable",
+    };
+    try {
+      const response = await fetch(
+        `http://localhost:8000/api/v1/message/${selectedConversation}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json", // Add other headers as needed
+            authorization: `Bearer ${localStorage.getItem("jwt")}`,
+          },
+          body: JSON.stringify(body),
+        }
+      );
 
+      if (!response.ok) {
+        console.log(response);
+        setErrorVisible(true);
+        setTimeout(() => {
+          setErrorVisible(false);
+        }, 3000);
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      if (response) {
+        setStateReload(Math.random());
+      }
+
+      // Handle the success case if needed
+      console.log("Chat created successfully");
+    } catch (error) {
+      handleError(error);
+    }
     // Clear the input field after updating the state
     promptRef.current.value = "";
+  }
+  async function handleCreateChat() {
+    try {
+      const response = await fetch(
+        `http://localhost:8000/api/v1/conversation/`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json", // Add other headers as needed
+            authorization: `Bearer ${localStorage.getItem("jwt")}`,
+          },
+        }
+      );
+
+      if (!response.ok) {
+        console.log(response);
+        setErrorVisible(true);
+        setTimeout(() => {
+          setErrorVisible(false);
+        }, 3000);
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      if (response) {
+        //Reload the page after creating new chat
+        setStateReload(Math.random());
+
+        //set the current chat as the newly created one
+        setSelectedConversation(response?.conversation?._id);
+      }
+
+      // Handle the success case if needed
+      console.log("Chat created successfully");
+    } catch (error) {
+      handleError(error);
+    }
   }
 
   return (
     <>
       <div className="w-full px-4 py-3 border-b-gray-200 border-b ">
+        <ErrorDialogBox errorVisible={errorVisible} />
         <div
           onClick={() => navigate(-1)}
           className="flex gap-1 items-center cursor-pointer text-black"
@@ -46,7 +134,6 @@ const GeneralAIChatPage = () => {
           AI Chat Bot
         </h1>
       </div>
-
       <div className="mainContainer w-full h-[70%] px-4 py-3 border-b-gray-200 border-b-0 flex md:flex-col md:h-[900px]">
         <div
           className="leftContainer w-[30%]  border border-r-0
@@ -63,25 +150,23 @@ const GeneralAIChatPage = () => {
             </div>
           </div>
           <div className="chatTitleDiv h-[62%] w-full border-b-[1px] overflow-x-hidden overflow-y-scroll">
-            <ChatName
-              title={
-                "gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk dfdfefdddgv efe"
-              }
-            />
-            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
-            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
-            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
-            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
-            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
-            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
-            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
-            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
-            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
-            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
-            <ChatName title={"gvsxhj nm vbhsxjnkm vxshbjnkm tvxshbjn bxsjnk"} />
+            {user?.conversations?.map((conversation) => {
+              return (
+                <ChatName
+                  setErrorVisible={setErrorVisible}
+                  setSelectedConversation={setSelectedConversation}
+                  id={conversation._id}
+                  key={conversation._id}
+                  title={conversation?.title}
+                />
+              );
+            })}
           </div>
           <div className="newChat h-[20%] w-full flex items-center justify-center">
-            <button className="input flex items-center justify-center gap-3 font-inter w-[85%] px-3 py-[10px] my-4 bg-[#3F292B] text-oliv outline-none border rounded-3xl cursor-pointer transition duration-500 ease-in-out hover:shadow-lg hover:-translate-y-1.5 focus:outline-none focus:shadow-outline-blue lg:hover:shadow lg:hover:-translate-y-0 ">
+            <button
+              onClick={handleCreateChat}
+              className="input flex items-center justify-center gap-3 font-inter w-[85%] px-3 py-[10px] my-4 bg-[#3F292B] text-oliv outline-none border rounded-3xl cursor-pointer transition duration-500 ease-in-out hover:shadow-lg hover:-translate-y-1.5 focus:outline-none focus:shadow-outline-blue lg:hover:shadow lg:hover:-translate-y-0 "
+            >
               <FiPlus />
               New chat
             </button>
@@ -95,7 +180,7 @@ const GeneralAIChatPage = () => {
             </div>
           </div>
           <div className="w-full flex flex-col h-[67%] py-2 pl-3 sm:pl-1 pr-6 sm:pr-[12px] overflow-x-hidden overflow-y-scroll no-scrollbar">
-            {promptArray.map((item) => {
+            {getSelectedConversation?.messages?.map((item) => {
               return (
                 <>
                   <UserPrompt prompt={item?.question} />
@@ -129,29 +214,3 @@ const GeneralAIChatPage = () => {
 };
 
 export default GeneralAIChatPage;
-{
-  /* <AIResponse response="As a B.Sc graduate " />
-            <UserPrompt prompt="skills to navigate the intricate landscape of computer scien" />
-            <AIResponse
-              response="As a B.Sc graduate in Computer Science from the University of Mumbai, I
-        have cultivated proficiency in a diverse set of programming languages,
-        encompassing Python, Java, and JavaScript. My expertise extends to both
-        backend and frontend frameworks, including React.js, Express.js,
-        MongoDB, MySQL, and Node.js. I boast hands-on experience utilizing these
-        tools and am particularly adept at constructing efficient and secure
-        APIs. Throughout my academic and practical journey, I have honed my
-        skills to navigate the intricate landscape of computer science,
-        equipping myself with the ability to tackle complex challenges"
-            />
-            <UserPrompt
-              prompt="in Computer Science from the University of Mumbai, I
-        have cultivated proficiency in a diverse set of programming languages,
-        encompassing Python, Java, and JavaScript. My expertise extends to both
-        backend and frontend frameworks, including React.js, Express.js,
-        MongoDB, MySQL, and Node.js. I boast hands-on experience utilizing these
-        tools and am particularly adept at constructing efficient and secure
-        APIs. Throughout my academic and practical journey, I have honed my
-        skills to navigate the intricate landscape of computer science,
-        equipping myself with the ability to tackle complex challenges"
-            /> */
-}

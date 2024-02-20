@@ -1,13 +1,17 @@
 import { useState } from "react";
 import { PiStarFourBold } from "react-icons/pi";
+import { useNavigate } from "react-router-dom";
 
 const UserProfileDropdown = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
+  const navigate = useNavigate();
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
-
+  function logoutHandler() {
+    navigate("/");
+    localStorage.removeItem("jwt");
+  }
   return (
     <div className="relative inline-block air:hidden ">
       <div className="flex items-center">
@@ -32,27 +36,30 @@ const UserProfileDropdown = () => {
             aria-orientation="vertical"
             aria-labelledby="options-menu"
           >
-            <a
-              href="#"
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+            <p
+              onClick={logoutHandler}
+              className="block font-inter cursor-pointer px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+            >
+              Logout
+            </p>
+
+            <p
+              onClick={() => {
+                navigate("profile");
+                setDropdownOpen(false);
+              }}
+              className="block font-inter px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
               role="menuitem"
             >
-              Option 1
-            </a>
-            <a
+              Profile
+            </p>
+            <p
               href="#"
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-              role="menuitem"
-            >
-              Option 2
-            </a>
-            <a
-              href="#"
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              className="block font-inter px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
               role="menuitem"
             >
               Option 3
-            </a>
+            </p>
           </div>
         </div>
       )}

@@ -9,7 +9,7 @@ const AuthPage = () => {
   const emailRef = useRef("");
   const passwordRef = useRef("");
   const navigate = useNavigate();
-  const { setUser } = useContext(MainContext);
+  const { setStateReload } = useContext(MainContext);
   const [isLoginPage, setIsLoginPage] = useState(true);
 
   async function loginFormSubmitHandler(e) {
@@ -38,7 +38,7 @@ const AuthPage = () => {
         emailRef.current.value = "";
         passwordRef.current.value = "";
         localStorage.setItem("jwt", response?.token);
-
+        setStateReload(Math.random());
         navigate("/dashboard");
         // alert("Form submitted succesfully");
       } else if (response.status === "fail") {
@@ -80,7 +80,6 @@ const AuthPage = () => {
         emailRef.current.value = "";
         passwordRef.current.value = "";
         localStorage.setItem("jwt", response?.token);
-        setUser(response.user);
         navigate("/dashboard");
         // alert("Form submitted succesfully");
       } else if (response.status === "fail") {
