@@ -5,9 +5,11 @@ import { useState } from "react";
 import Label from "../components/utility-components/Label";
 import Input from "../components/utility-components/Input";
 import Textarea from "../components/utility-components/Textarea";
-
+import { useContext } from "react";
+import { MainContext } from "../store/MainContext";
 const Profile = () => {
   const [errorVisible, setErrorVisible] = useState(false);
+  const { user } = useContext(MainContext);
   const navigate = useNavigate();
   return (
     <>
@@ -27,15 +29,32 @@ const Profile = () => {
       <div className="mainContainer w-full px-4 py-3 border-b-gray-200 border-b-1">
         <form className="flex flex-col w-[30%]">
           <Label>Name</Label>
-          <Input placeholder="Your name" type="text" />
+          <Input
+            value={user?.fullName || ""}
+            placeholder="Your name"
+            type="text"
+          />
           <Label>Short Description</Label>
-          <Input placeholder="Describe yourself" type="text" />
+          <Input
+            value={user?.shortDescription || ""}
+            placeholder="Describe yourself"
+            type="text"
+          />
           <Label>Education Details</Label>
-          <Textarea placeholder="Education details" />
+          <Textarea
+            value={user?.educationDetails || ""}
+            placeholder="Education details"
+          />
           <Label>Work Experience</Label>
-          <Textarea placeholder="Work experience" />
+          <Textarea
+            value={user?.workExperience || ""}
+            placeholder="Work experience"
+          />
           <Label>Achievements</Label>
-          <Textarea placeholder="Achievements" />
+          <Textarea
+            value={user?.achievements || ""}
+            placeholder="Achievements"
+          />
           <input
             value={"Generate"}
             type="submit"
