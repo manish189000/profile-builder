@@ -3,13 +3,6 @@ const cathcAsync = require("../utils/catchAsync");
 const User = require("../model/userModel");
 const jwt = require("jsonwebtoken");
 
-exports.createUser = async (req, res) => {
-  // const todoData = req.body;
-  // const newTodo = await Todo.create(todoData);
-  // // Response route not yet created
-  // res.status(201).json({ success: true, data: newTodo });
-};
-
 exports.getUsers = async (req, res, next) => {
   const users = await User.find().populate({
     path: "conversations",
@@ -41,6 +34,7 @@ exports.getUser = cathcAsync(async (req, res, next) => {
     user,
   });
 });
+
 exports.verifyUser = cathcAsync(async (req, res, next) => {
   const decoded = jwt.verify(req.params.id, process.env.JWT_SECRET);
   console.log(decoded);
@@ -48,6 +42,30 @@ exports.verifyUser = cathcAsync(async (req, res, next) => {
   if (!user) {
     return next(new AppError("Invalid JWT", 401));
   }
+  res.status(200).json({
+    status: "success",
+    user,
+  });
+});
+
+exports.updateUser = cathcAsync(async (req, res, next) => {
+  const bodyObj = req.body;
+  const filterObj = [
+    "fullName",
+    "shortDescription",
+    "educationDetails",
+    "workExperience",
+    "achievements",
+  ];
+  const filteredBody = Object.fromEntries(
+    Object.entries(bodyObj).filter((item) => filterObj.includes(item[0]))
+  );
+  console.log(filteredBody);
+  console.log(Object.entries(bodyObj));
+  const user = await User.findByIdAndUpdate(req.user._id, filteredBody, {
+    new: true,
+    runValidators: true,
+  });
   res.status(200).json({
     status: "success",
     user,

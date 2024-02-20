@@ -9,6 +9,9 @@ router.get("/getAllUsers", userController.getUsers);
 
 router.route("/").get(authController.protect, userController.getUser);
 router.route("/verify/:id").get(userController.verifyUser);
-router.route("/:id").get(userController.getUser).patch().delete();
+router
+  .route("/:id")
+  .get(userController.getUser)
+  .patch(authController.protect, userController.updateUser);
 
 module.exports = router;

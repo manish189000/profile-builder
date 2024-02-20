@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 
 // eslint-disable-next-line react/display-name, react/prop-types, no-unused-vars
-const Textarea = forwardRef(({ placeholder }, ref) => {
+const Textarea = forwardRef(({ placeholder, value }, ref) => {
   return (
     <textarea
       rows="8"
